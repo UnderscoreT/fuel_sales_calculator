@@ -34,6 +34,7 @@ public class SalesCalculator {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Transient
     private Double totalLitresSold;
 
     @PrePersist
