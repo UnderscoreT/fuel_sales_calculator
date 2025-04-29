@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sales Result</title>
+</head>
+<body>
+<h2>Fuel Sales Summary</h2>
+
+<p>Litres from Nozzle A: <span th:text="${litresA}"></span> L</p>
+<p>Litres from Nozzle B: <span th:text="${litresB}"></span> L</p>
+<hr>
+<p><strong>Total Litres Sold:</strong> <span th:text="${totalLitres}"></span> L</p>
+<p><strong>Total Cash Collected:</strong> $<span th:text="${totalRevenue}"></span></p>
+
+<a href="/">Calculate Again</a>
+</body>
+</html>
