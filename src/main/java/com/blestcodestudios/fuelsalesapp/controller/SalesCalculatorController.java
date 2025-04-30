@@ -25,6 +25,12 @@ public class SalesCalculatorController {
         double litresA = endReadingA - startReadingA;
         double litresB = endReadingB - startReadingB;
         double totalLitres = litresA + litresB;
+
+        // Ensure coupon litres do not exceed total litres
+        if (couponLitres > totalLitres) {
+            couponLitres = totalLitres;
+        }
+
         double netLitres = totalLitres - couponLitres;
         double totalRevenue = netLitres * pricePerLitre;
 
