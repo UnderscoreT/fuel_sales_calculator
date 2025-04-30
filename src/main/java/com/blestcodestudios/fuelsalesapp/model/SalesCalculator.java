@@ -18,17 +18,23 @@ public class SalesCalculator {
     @NotNull(message = "Start reading A is required")
     @PositiveOrZero
     private Double startReadingA;
-    @NotNull(message = "start reading B is required" )
-    @Positive
+
+    @NotNull(message = "Start reading B is required")
+    @PositiveOrZero
     private Double startReadingB;
+
     @NotNull(message = "End reading A is required")
     @PositiveOrZero
     private Double endReadingA;
+
     @NotNull(message = "End reading B is required")
-    @Positive
+    @PositiveOrZero
     private Double endReadingB;
 
     private Double pricePerLitre;
+
+    @PositiveOrZero
+    private Double couponLitres = 0.0; // Litres given away via coupon (no revenue)
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,6 +42,9 @@ public class SalesCalculator {
 
     @Transient
     private Double totalLitresSold;
+
+    @Transient
+    private Double netLitresSold;
 
     @PrePersist
     @PreUpdate
@@ -47,7 +56,15 @@ public class SalesCalculator {
             double litresA = endReadingA - startReadingA;
             double litresB = endReadingB - startReadingB;
             this.totalLitresSold = litresA + litresB;
+
+            if (couponLitres == null) {
+                couponLitres = 0.0;
+            }
+
+            this.netLitresSold = this.totalLitresSold - couponLitres;
+            if (this.netLitresSold < 0) {
+                this.netLitresSold = 0.0; // Prevent negative sales
+            }
         }
     }
 }
-

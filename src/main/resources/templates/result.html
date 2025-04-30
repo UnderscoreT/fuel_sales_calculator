@@ -8,10 +8,18 @@
 
 <p>Litres from Nozzle A: <span th:text="${litresA}"></span> L</p>
 <p>Litres from Nozzle B: <span th:text="${litresB}"></span> L</p>
+
 <hr>
-<p><strong>Total Litres Sold:</strong> <span th:text="${totalLitres}"></span> L</p>
+
+<p><strong>Total Litres Dispensed:</strong> <span th:text="${totalLitres}"></span> L</p>
+<p><strong>Coupon Litres:</strong> <span th:text="${couponLitres}"></span> L</p>
+<p><strong>Net Litres Sold (Cash):</strong> <span th:text="${netLitres}"></span> L</p>
+
+<hr>
+
 <p><strong>Total Cash Collected:</strong> $<span th:text="${totalRevenue}"></span></p>
 
+<br>
 <a href="/">Calculate Again</a>
 </body>
 </html>
