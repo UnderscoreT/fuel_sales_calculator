@@ -31,10 +31,15 @@ public class SalesCalculator {
     @PositiveOrZero
     private Double endReadingB;
 
+    @NotNull(message = "price is required")
     private Double pricePerLitre;
 
+    @NotNull
     @PositiveOrZero
     private Double couponLitres = 0.0; // Litres given away via coupon (no revenue)
+    @NotNull
+    @PositiveOrZero
+    private Double daCardLitres = 0.0;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -61,10 +66,11 @@ public class SalesCalculator {
                 couponLitres = 0.0;
             }
 
-            this.netLitresSold = this.totalLitresSold - couponLitres;
+            this.netLitresSold = this.totalLitresSold - couponLitres -daCardLitres;
             if (this.netLitresSold < 0) {
                 this.netLitresSold = 0.0; // Prevent negative sales
             }
+
         }
     }
 }
