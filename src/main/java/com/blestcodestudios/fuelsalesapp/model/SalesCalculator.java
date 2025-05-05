@@ -2,7 +2,6 @@ package com.blestcodestudios.fuelsalesapp.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -45,32 +44,34 @@ public class SalesCalculator {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Transient
-    private Double totalLitresSold;
+//    @Transient
+//    private Double totalLitresSold =calculateTotalLitresSold();
+//
+//    @Transient
+//    private Double netLitresSold =calculateNetLitresSold();
 
-    @Transient
-    private Double netLitresSold;
-
-    @PrePersist
-    @PreUpdate
-    public void calculateTotalLitresSold() {
-        if (startReadingA != null && endReadingA != null &&
-                startReadingB != null && endReadingB != null &&
-                endReadingA >= startReadingA && endReadingB >= startReadingB) {
-
-            double litresA = endReadingA - startReadingA;
-            double litresB = endReadingB - startReadingB;
-            this.totalLitresSold = litresA + litresB;
-
-            if (couponLitres == null) {
-                couponLitres = 0.0;
-            }
-
-            this.netLitresSold = this.totalLitresSold - couponLitres -daCardLitres;
-            if (this.netLitresSold < 0) {
-                this.netLitresSold = 0.0; // Prevent negative sales
-            }
-
-        }
-    }
+//    @PrePersist
+//    @PreUpdate
+//    public Double calculateTotalLitresSold() {
+//        if (startReadingA != null && endReadingA != null &&
+//                startReadingB != null && endReadingB != null &&
+//                endReadingA >= startReadingA && endReadingB >= startReadingB) {
+//
+//            double litresA = endReadingA - startReadingA;
+//            double litresB = endReadingB - startReadingB;
+//            this.totalLitresSold = litresA + litresB;
+//
+//
+//
+//
+//
+//        }return this.totalLitresSold;
+//    }
+//    public Double calculateNetLitresSold() {
+//        this.netLitresSold = this.totalLitresSold - couponLitres -daCardLitres;
+//        if (this.netLitresSold < 0) {
+//            this.netLitresSold = 0.0; // Prevent negative sales
+//        }
+//        return netLitresSold;
+//    }
 }

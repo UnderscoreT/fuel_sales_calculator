@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BreakdownMaker</title>
+    <link href=th:href="@{/static/breakdown.css}" rel="stylesheet">
+</head>
+<body>
+<h2>Breakdown Maker</h2>
+
+<form class="breakdown-form" th:action="@{/makeBreakDown}" method="post">
+
+    <label>One Dollar Notes:
+    <input type="number" value="1" name="oneDollar" required></label><label>Number of One Dollar Notes:<input type="number"  name="numberOfOneDollarNotes" required></label><br>
+
+    <label>Two Dollar Notes:
+    <input type="number" value="2" name="twoDollars" required></label><label>Number of Two Dollar Notes:<input type="number"  name="numberOfTwoDollarNotes" required></label><br>
+
+    <label>Five Dollar Notes:
+    <input type="number" value="5" name="fiveDollars" required></label><label>Number of Five Dollar Notes:<input type="number"  name="numberOfFiveDollarNotes" required></label><br>
+
+    <label>Ten Dollar Notes:
+    <input type="number" value="10" name="tenDollars" required></label><label>Number of Ten Dollar Notes:<input type="number"  name="numberOfTenDollarNotes" required></label><br>
+
+    <label>Twenty Dollar Notes:
+        <input type="number" value="20" name="twentyDollars" required></label><label>Number of  Twenty Dollar Notes:<input type="number"  name="numberOfTwentyDollarNotes" required></label><br>
+
+    <label>Fifty Dollar Notes:
+    <input type="number" value="50" name="fiftyDollars"  required></label><label>Number of Fifty Dollar Notes:<input type="number"  name="numberOfFiftyDollarNotes" required></label><br>
+
+    <label>One Hundred Dollar Notes:
+    <input type="number" value="100" name="oneHundredDollars"  required> </label> <label>Number of One Hundred Dollar Notes:<input type="number"  name="numberOfOneHundredDollarNotes" required></label><br><br>
+    <button type="submit">Make Breakdown</button>
+</form>
+
+
+
+<br>
+
+<a class="home-from-breakdown" href="/"> Home</a>
+<br>
+<hr class="hr-line">
+
+<footer>Copyright &copy; BlestCodeStudios 2025</footer>
+</body>
+
+</html>

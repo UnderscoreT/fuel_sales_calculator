@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class SalesCalculatorController {
 
+    double closingCash ;
+
     @GetMapping("/")
     public String showCalculatorForm() {
         return "index";
@@ -21,6 +23,7 @@ public class SalesCalculatorController {
             @RequestParam("pricePerLitre") double pricePerLitre,
             @RequestParam(value = "couponLitres", defaultValue = "0.0") double couponLitres,
             @RequestParam(value = "daCardLitres", defaultValue = "0.0")double daCardLitres,
+            @RequestParam(value = "cashDropped", defaultValue = "0.0") double cashDropped,
             Model model
     ) {
         double litresA = endReadingA - startReadingA;
@@ -29,6 +32,8 @@ public class SalesCalculatorController {
 
         double netLitres = totalLitres - couponLitres - daCardLitres;
         double totalRevenue = netLitres * pricePerLitre;
+        double cashInHand = totalRevenue - cashDropped;
+        closingCash = cashInHand;
 
         model.addAttribute("litresA", litresA);
         model.addAttribute("litresB", litresB);
@@ -37,6 +42,7 @@ public class SalesCalculatorController {
         model.addAttribute("daCardLitres", daCardLitres);
         model.addAttribute("netLitres", netLitres);
         model.addAttribute("totalRevenue", totalRevenue);
+        model.addAttribute("cashInHand", cashInHand);
 
         return "result";
     }

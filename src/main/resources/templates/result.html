@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html  xmlns:th="http://www.thymeleaf.org" lang="en"  >
 <head>
     <title>Sales Result</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
 </head>
 <body>
 <h2>Fuel Sales Summary</h2>
@@ -19,8 +20,10 @@
 <hr>
 
 <p><strong>Total Cash Collected:</strong> $<span th:text="${totalRevenue}"></span></p>
+<p><strong>Total Cash InHand:</strong> $<span th:text="${cashInHand}"></span></p>
 
 <br>
-<a href="/">Calculate Again</a>
+<a href="/">Calculate Again</a> <a href="/showBreakDownForm">Make breakdown</a>
+<footer>Copyright &copy; BlestCodeStudios 2025</footer>
 </body>
 </html>
