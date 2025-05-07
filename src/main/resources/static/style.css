@@ -104,6 +104,7 @@ h2 {
     font-size: 40px;
     font-family: sans-serif;
     text-align: center;
+    background-color: #f7f7f7;
 }
 
 h3 {
@@ -152,4 +153,32 @@ header {
     border-top: 3px solid #1098ad;
     border-bottom: 3px solid #1098ad;
 
+}
+
+a:link {
+    color: #1098ad;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #1098ad;
+}
+
+a:hover {
+    color: orangered;
+    font-weight: bold;
+    text-decoration: underline orangered;
+}
+a:active {
+    background-color: black;
+    font-style: italic;
+}
+.sale-summary {
+    text-align: center;
+}
+.home {
+    text-align: center;
+}
+.ul {
+    text-align: left;
 }
