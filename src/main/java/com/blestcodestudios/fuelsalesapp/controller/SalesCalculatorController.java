@@ -14,6 +14,11 @@ public class SalesCalculatorController {
         return "index";
     }
 
+    @GetMapping("/about")
+    public String showAboutPage() {
+        return "about";
+    }
+
     @PostMapping("/calculate")
     public String calculateFuelSales(
             @RequestParam("startReadingA") double startReadingA,
