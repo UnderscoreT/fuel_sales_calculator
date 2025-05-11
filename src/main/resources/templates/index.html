@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>Fuel Sales Calculator</title>
+    <title>  Fuel Sales Calculator</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
 </head>
 <body>
 
-<header>
+<div class="container">
+<header class="main-header">
+    <h1> Fuel Sales Calculator</h1>
     <nav>
         <a href="/">Home</a>
         <a href="/about">About</a>
@@ -18,9 +20,9 @@
 
 
 <aside class="calculator">
-<h2>Fuel Sales Calculator</h2>
+<!--<h2>Fuel Sales Calculator</h2>-->
 
-<form th:action="@{/calculate}" method="post">
+<form class="calculator-form" th:action="@{/calculate}" method="post">
     <label class="label-1">Nozzle A - Start Reading:
     <input type="number" step="0.01" name="startReadingA" required></label><br>
 
@@ -48,5 +50,6 @@
 </form>
 </aside>
 <footer>Copyright &copy; BlestCodeStudios 2025</footer>
+</div>
 </body>
 </html>
