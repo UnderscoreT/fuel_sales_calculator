@@ -23,27 +23,27 @@
 <!--<h2>Fuel Sales Calculator</h2>-->
 
 <form class="calculator-form" th:action="@{/calculate}" method="post">
-    <label class="label-1">Nozzle A - Start Reading:
+    <label class="label-1">Nozzle A - Start Reading
     <input type="number" step="0.01" name="startReadingA" required></label><br>
 
-    <label>Nozzle A - End Reading:
+    <label class="labels">Nozzle A - End Reading
     <input type="number" step="0.01" name="endReadingA" required></label><br>
 
-    <label>Nozzle B - Start Reading:
+    <label class="labels">Nozzle B - Start Reading
     <input type="number" step="0.01" name="startReadingB" required></label><br>
 
-    <label>Nozzle B - End Reading:
+    <label class="labels">Nozzle B - End Reading
     <input type="number" step="0.01" name="endReadingB" required></label><br>
 
-    <label>Price Per Litre (USD):
+    <label class="labels">Price Per Litre (USD)
     <input type="number" step="0.01" name="pricePerLitre" required></label><br>
 
-    <label>Coupon Litres:
+    <label class="labels">Coupon Litres
     <input type="number" step="0.01" name="couponLitres" value="0.0" required></label><br>
 
-    <label>DaCard Litres:
+    <label class="labels">DaCard Litres
     <input type="number" step="0.01" name="daCardLitres" value="0.0" required></label><br>
-    <label>Cash Dropped:
+    <label class="labels">Cash Dropped
         <input type="number"  name="cashDropped" value="0" required></label><br><br>
 
     <button class="calculate-button" type="submit">Calculate</button>

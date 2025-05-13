@@ -18,13 +18,20 @@ public class FuelSalesApplication {
     CommandLineRunner loadSampleData(SalesCalculatorRepository repository) {
         return args -> {
             SalesCalculator sale = new SalesCalculator();
-            sale.setStartReadingA(659126.47);
-            sale.setEndReadingA(660648.01);
-            sale.setStartReadingB(430349.6);
-            sale.setEndReadingB(430865.77);
+            sale.setStartReadingBlendA(659126.47);
+            sale.setEndReadingBlendA(660648.01);
+            sale.setStartReadingBlendB(430349.6);
+            sale.setEndReadingBlendB(430865.77);
             sale.setPricePerLitre(1.43);
-
-            repository.save(sale);
+            sale.setStartReadingDieselA(1000.0);
+            sale.setEndReadingDieselA(1500.0);
+            sale.setStartReadingDieselB(2000.0);
+            sale.setEndReadingDieselB(2500.0);
+            sale.setStartReadingUnleadedA(3000.0);
+            sale.setEndReadingUnleadedA(3500.0);
+            sale.setStartReadingUnleadedB(4000.0);
+            sale.setEndReadingUnleadedB(4500.0);
+                      repository.save(sale);
         };
     }
 

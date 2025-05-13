@@ -21,27 +21,45 @@ public class SalesCalculatorController {
 
     @PostMapping("/calculate")
     public String calculateFuelSales(
-            @RequestParam("startReadingA") double startReadingA,
-            @RequestParam("endReadingA") double endReadingA,
-            @RequestParam("startReadingB") double startReadingB,
-            @RequestParam("endReadingB") double endReadingB,
+            @RequestParam("startReadingBlendA") double startReadingBlendA,
+            @RequestParam("endReadingBlendA") double endReadingBlendA,
+            @RequestParam("startReadingBlendB") double startReadingBlendB,
+            @RequestParam("endReadingBlendB") double endReadingBlendB,
+            @RequestParam("startReadingDieselA") double startReadingDieselA,
+            @RequestParam("endReadingDieselA") double endReadingDieselA,
+            @RequestParam("startReadingDiesel") double startReadingDieselB,
+            @RequestParam("endReadingDieselB") double endReadingDieselB,
+            @RequestParam("startReadingUnleadedA") double startReadingUnleadedA,
+            @RequestParam("endReadingUnleadedA") double endReadingUnleadedA,
+            @RequestParam("startReadingUnleadedA") double startReadingUnleadedB,
+            @RequestParam("endReadingUnleadedB") double endReadingUnleadedB,
             @RequestParam("pricePerLitre") double pricePerLitre,
             @RequestParam(value = "couponLitres", defaultValue = "0.0") double couponLitres,
             @RequestParam(value = "daCardLitres", defaultValue = "0.0")double daCardLitres,
             @RequestParam(value = "cashDropped", defaultValue = "0.0") double cashDropped,
             Model model
     ) {
-        double litresA = endReadingA - startReadingA;
-        double litresB = endReadingB - startReadingB;
-        double totalLitres = litresA + litresB;
+        double litresBlendA = endReadingBlendA - startReadingBlendA;
+        double litresBlendB = endReadingBlendB - startReadingBlendB;
+        double litresDieselA = endReadingDieselA - startReadingDieselA;
+        double litresDieselB = endReadingDieselB - startReadingDieselB;
+        double litresUnleadedA = endReadingUnleadedA - startReadingUnleadedA;
+        double litresUnleadedB = endReadingUnleadedB - startReadingUnleadedB;
+
+        double totalLitres = litresBlendA + litresBlendB + litresDieselA + litresDieselB + litresUnleadedA + litresUnleadedB;
 
         double netLitres = totalLitres - couponLitres - daCardLitres;
         double totalRevenue = netLitres * pricePerLitre;
         double cashInHand = totalRevenue - cashDropped;
         closingCash = cashInHand;
 
-        model.addAttribute("litresA", litresA);
-        model.addAttribute("litresB", litresB);
+        double litresBlend = litresBlendA + litresBlendB;
+        double litresDiesel = litresDieselA + litresDieselB;
+        double litresUnleaded = litresUnleadedA + litresUnleadedB;
+        model.addAttribute("litresBlend", litresBlend);
+        model.addAttribute("litresDiesel", litresDiesel);
+        model.addAttribute("litresUnleaded", litresUnleaded);
+
         model.addAttribute("totalLitres", totalLitres);
         model.addAttribute("couponLitres", couponLitres);
         model.addAttribute("daCardLitres", daCardLitres);

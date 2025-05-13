@@ -14,21 +14,54 @@ import lombok.NoArgsConstructor;
 @Data
 public class SalesCalculator {
 
-    @NotNull(message = "Start reading A is required")
+    @NotNull(message = "Start reading BlendA is required")
     @PositiveOrZero
-    private Double startReadingA;
+    private Double startReadingBlendA;
 
-    @NotNull(message = "Start reading B is required")
+    @NotNull(message = "Start reading BlendB is required")
     @PositiveOrZero
-    private Double startReadingB;
+    private Double startReadingBlendB;
 
-    @NotNull(message = "End reading A is required")
+    @NotNull(message = "End reading BlendA is required")
     @PositiveOrZero
-    private Double endReadingA;
+    private Double endReadingBlendA;
 
-    @NotNull(message = "End reading B is required")
+    @NotNull(message = "End reading BlendB is required")
     @PositiveOrZero
-    private Double endReadingB;
+    private Double endReadingBlendB;
+
+    @NotNull(message = "Start reading DieselA is required")
+    @PositiveOrZero
+    private Double startReadingDieselA;
+
+    @NotNull(message = "Start reading DieselB is required")
+    @PositiveOrZero
+    private Double startReadingDieselB;
+
+    @NotNull(message = "End reading DieselA is required")
+    @PositiveOrZero
+    private Double endReadingDieselA;
+
+    @NotNull(message = "End reading DieselB is required")
+    @PositiveOrZero
+    private Double endReadingDieselB;
+
+    @NotNull(message = "Start reading UnleadedA is required")
+    @PositiveOrZero
+    private Double startReadingUnleadedA;
+
+    @NotNull(message = "Start reading UnleadedB is required")
+    @PositiveOrZero
+    private Double startReadingUnleadedB;
+
+    @NotNull(message = "End reading UnleadedA is required")
+    @PositiveOrZero
+    private Double endReadingUnleadedA;
+
+    @NotNull(message = "End reading UnleadedB is required")
+    @PositiveOrZero
+    private Double endReadingUnleadedB;
+
 
     @NotNull(message = "price is required")
     private Double pricePerLitre;
@@ -43,6 +76,8 @@ public class SalesCalculator {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+
 
 //    @Transient
 //    private Double totalLitresSold =calculateTotalLitresSold();

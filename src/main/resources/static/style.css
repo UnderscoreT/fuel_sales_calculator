@@ -14,7 +14,7 @@ h1 {
     font-family: sans-serif;
     text-transform: uppercase;
     font-style: italic;
-    color: #1098ad;
+    color: #444444;
     /*padding: 15px;*/
 }
 h1,
@@ -27,18 +27,19 @@ li {
     color: #444;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    color: #1098ad;
-}
+/*h1,*/
+/*h2,*/
+/*h3,*/
+/*h4 {*/
+/*    color: #1098ad;*/
+/*}*/
 nav {
     font-family: sans-serif;
     /*text-transform: uppercase;*/
     font-size: 18px;
     padding: 10px 40px;
     margin-bottom: 30px;
+    text-align: center;
 }
 aside {
     /*margin-top: 40px;*/
@@ -95,7 +96,13 @@ form {
     text-align: center;
 }
 .label-1 {
-    /*margin: 20px;*/
+    margin: 5px;
+    display: inline-block;
+}
+.labels {
+    display: inline-block;
+    margin: 5px;
+    text-align: center;
 }
 button {
     font-size: 20px;
@@ -114,12 +121,12 @@ header {
 }
 
 a:link {
-    color: #1098ad;
+    color: #444444;
     text-decoration: none;
 }
 
 a:visited {
-    color: #1098ad;
+    color: #444444;
 }
 
 a:hover {
@@ -173,3 +180,12 @@ form label {
      /*margin-right: auto;*/
      margin: 0 auto;
  }
+
+nav a:link {
+    margin-right: 30px;
+    margin-top: 10px;
+    display: inline-block;
+}
+nav a:link:last-child {
+    margin-right: 0;
+}
