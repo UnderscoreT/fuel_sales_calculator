@@ -27,7 +27,7 @@ public class SalesCalculatorController {
             @RequestParam("endReadingBlendB") double endReadingBlendB,
             @RequestParam("startReadingDieselA") double startReadingDieselA,
             @RequestParam("endReadingDieselA") double endReadingDieselA,
-            @RequestParam("startReadingDiesel") double startReadingDieselB,
+            @RequestParam("startReadingDieselB") double startReadingDieselB,
             @RequestParam("endReadingDieselB") double endReadingDieselB,
             @RequestParam("startReadingUnleadedA") double startReadingUnleadedA,
             @RequestParam("endReadingUnleadedA") double endReadingUnleadedA,
