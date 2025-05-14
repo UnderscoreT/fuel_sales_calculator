@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -37,8 +38,8 @@ nav {
     font-family: sans-serif;
     /*text-transform: uppercase;*/
     font-size: 18px;
-    padding: 10px 40px;
-    margin-bottom: 30px;
+    /*padding: 10px 40px;*/
+    /*margin-bottom: 30px;*/
     text-align: center;
 }
 aside {
@@ -124,9 +125,9 @@ a:link {
     color: #444444;
     text-decoration: none;
     display: inline-block;
-    margin-bottom: 10px;
-    background-color: blanchedalmond;
-    padding: 5px;
+    /*margin-bottom: 10px;*/
+    /*background-color: blanchedalmond;*/
+    /*padding: 5px;*/
 }
 
 a:visited {
@@ -187,11 +188,11 @@ form label {
 
 nav a:link {
     margin-right: 30px;
-    margin-top: 10px;
+    margin-top: 25px;
     display: inline-block;
 }
 nav a:link:last-child {
-    margin-right: 0;
+    margin-right: 10px ;
 }
 p {
     position: relative;
@@ -273,7 +274,7 @@ h2 {
     padding: 5px 10px;
     position: absolute;
     top: -3px;
-    left: -129px;
+    left: -130px;
 }
 .label-unleaded{
     position: relative;
@@ -347,7 +348,7 @@ h2 {
     padding: 5px 10px;
     position: absolute;
     top: -7px;
-    left: -157px;
+    left: -159px;
 }
 
 .label-cash{
@@ -368,3 +369,41 @@ h2 {
     top: -7px;
     left: -157px;
 }
+
+h1 {
+    float: left;
+}
+nav {
+    float: right;
+}
+.clearfix::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+
+/*.blend-sales {*/
+/*    float: left;*/
+/*    margin-right: 30px;*/
+/*    width: 232px*/
+
+/*}*/
+/*.diesel-sales{*/
+/*    float: left;*/
+/*    margin-right: 30px;*/
+/*    width: 232px*/
+/*}*/
+/*.unleaded-sales{*/
+/*    float: left;*/
+/*    margin-right: 30px;*/
+/*    width: 232px;*/
+/*    clear: both;*/
+
+/*}*/
+/*.cash-dropped {*/
+/*    float: left;*/
+/*}*/
+/*.dacard {*/
+/*    float: left;*/
+/*}*/

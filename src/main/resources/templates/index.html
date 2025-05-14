@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
 <head>
-    <title>  Fuel Sales Calculator</title>
+    <title> ⛽ Fuel Sales Calculator</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
 </head>
 <body>
 
 <div class="container">
-<header class="main-header">
-    <h1> Fuel Sales Calculator</h1>
+<header class="main-header clearfix">
+    <h1>⛽ Fuel Sales Calculator</h1>
     <nav>
         <a href="/">Home</a>
         <a href="/about">About</a>
@@ -35,6 +35,11 @@
 <!--    </div>-->
 
 <form class="calculator-form" th:action="@{/calculate}" method="post">
+    <div class="blend-sales">
+
+
+
+
     <label class="label-blend" >Blend A - Start Reading
     <input type="number" step="0.01" name="startReadingBlendA" required value="0.0"></label><br>
 
@@ -45,9 +50,10 @@
     <input type="number" step="0.01" name="startReadingBlendB" required value="0.0"></label><br>
 
     <label class="labels">Blend B - End Reading
-    <input type="number" step="0.01" name="endReadingBlendB" required value="0.0"></label><br>
-
+    <input type="number" step="0.01" name="endReadingBlendB" required value="0.0"></label><br></div>
+    <div class="diesel-sales">
     <label class="label-diesel">Diesel A - Start Reading
+
         <input type="number" step="0.01" name="startReadingDieselA" required value="0.0"></label><br>
 
     <label class="labels">Diesel A - End Reading
@@ -57,10 +63,10 @@
         <input type="number" step="0.01" name="startReadingDieselB" required value="0.0"></label><br>
 
     <label class="labels">Diesel B - End Reading
-        <input type="number" step="0.01" name="endReadingDieselB" required value="0.0"></label><br>
+        <input type="number" step="0.01" name="endReadingDieselB" required value="0.0"></label><br></div>
     <label class="label-unleaded">Unleaded A - Start Reading
         <input type="number" step="0.01" name="startReadingUnleadedA" required value="0.0"></label><br>
-
+<div class="unleaded-sales">
     <label class="labels">Unleaded A - End Reading
         <input type="number" step="0.01" name="endReadingUnleadedA" required value="0.0"></label><br>
 
@@ -77,23 +83,26 @@
         <input type="number" step="0.01" name="pricePerLitreDiesel" required value="1.43"></label><br>
     <label class="labels">Price Per Litre Unleaded (USD)
         <input type="number" step="0.01" name="pricePerLitreUnleaded" required value="1.50"></label><br>
-
+<div class="coupons">
     <label class="label-coupons">Coupon Litres Diesel
     <input type="number" step="0.01" name="couponLitresDiesel" value="0.0" required></label><br>
     <label class="labels">Coupon Litres Blend
         <input type="number" step="0.01" name="couponLitresBlend" value="0.0" required></label><br>
     <label class="labels">Coupon Litres Unleaded
         <input type="number" step="0.01" name="couponLitresUnleaded" value="0.0" required></label><br>
-
+</div>
     <label class="label-da">DaCard Litres Diesel
         <input type="number" name="daCadrLitresDiesel" value="0.0"></label><br>
+<div class="dacard">
     <label class="labels">DaCard Litres Blend
     <input type="number" step="0.01" name="daCardLitresBlend" value="0.0" required></label><br>
     <label class="labels">DaCard Litres Unleaded
         <input type="number" step="0.01" name="daCardLitresUnleaded" value="0.0" required></label><br>
-
+</div>
+</div>
+  <div class="cash-dropped">
     <label class="label-cash">Cash Dropped
-        <input type="number"  name="cashDropped" value="0" required></label><br><br>
+        <input type="number"  name="cashDropped" value="0" required></label><br><br></div>
 
     <button class="calculate-button" type="submit">Calculate</button>
 </form>
