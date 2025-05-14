@@ -11,17 +11,31 @@
 <p>Litres from Diesel <span th:text="${litresDiesel}"></span> L</p>
     <p>Litres from Unleaded <span th:text="${litresUnleaded}"></span> L</p>
 
+    <p>Litres from Blend excluding DaCard and Coupons <span th:text="${blendNetLitres}"></span> L</p>
+    <p>Litres from Diesel excluding DaCard and Coupons <span th:text="${dieselNetLitres}"></span> L</p>
+    <p>Litres from Unleaded excluding DaCard and Coupons <span th:text="${unleadedNetLitres}"></span> L</p>
+
 
 <hr>
 <br>
 <p><strong>Total Litres Dispensed:</strong> <span th:text="${totalLitres}"></span> L</p>
-<p><strong>Coupon Litres:</strong> <span th:text="${couponLitres}"></span> L</p>
-<p><strong>DaCard Litres:</strong> <span th:text="${daCardLitres}"></span> L</p>
+<p><strong>Coupon Litres Blend:</strong> <span th:text="${couponLitresBlend}"></span> L</p>
+    <p><strong>Coupon Litres Diesel:</strong> <span th:text="${couponLitresDiesel}"></span> L</p>
+
+    <p><strong>Coupon Litres Unleaded:</strong> <span th:text="${couponLitresUnleaded}"></span> L</p>
+
+<p><strong>DaCard Litres Blend:</strong> <span th:text="${daCardLitresBlend}"></span> L</p>
+    <p><strong>DaCard Litres Diesel:</strong> <span th:text="${daCardLitresDiesel}"></span> L</p>
+    <p><strong>DaCard Litres Unleaded
+        :</strong> <span th:text="${daCardLitresUnleaded}"></span> L</p>
+
 <p><strong>Net Litres Sold :</strong> <span th:text="${netLitres}"></span> L</p>
 
 <hr>
 <br>
-<p><strong>Total Cash Collected:</strong> $<span th:text="${totalRevenue}"></span></p>
+    <p><strong>Total Sales Revenue:</strong> $<span th:text="${totalRevenue}"></span></p>
+
+<p><strong>Total Cash Collected:</strong> $<span th:text="${totalRevenueInCash}"></span></p>
 <p><strong>Total Cash InHand:</strong> $<span th:text="${cashInHand}"></span></p>
 
 <br>

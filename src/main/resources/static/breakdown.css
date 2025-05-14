@@ -12,6 +12,13 @@ li , form,button{
     color: #444;
 }
 
+body {
+    width: 700px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    margin: 0 auto;
+}
+
 h2 {
     font-size: 26px;
     font-family: sans-serif;
@@ -29,14 +36,23 @@ footer{
     text-align: center;
 }
 .breakdown-result {
+    margin-top: 10px;
     text-align: center;
+    border: 3px solid #444444;
 }
 
 /* styling links */
 a:link {
+    text-transform: uppercase;
     color: #1098ad;
     text-decoration: none;
+    display: inline-block;
+    margin-bottom: 10px;
+    background-color: #444;
+    padding: 5px;
+
 }
+
 
 a:visited {
     color: #1098ad;
@@ -51,4 +67,32 @@ a:hover {
 a:active {
     background-color: black;
     font-style: italic;
+}
+
+.submit-breakdown {
+    text-transform: uppercase;
+    background-color: #444;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    border-top: 2px solid #444444;
+    border-bottom: 2px solid #444444;
+
+}
+.submit-breakdown:hover {
+    color: #444;
+    background-color: #fff;
+}
+.breakdown-maker {
+    width: 700px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    margin: 0 auto;
+    border: 3px solid #444444;
+}
+.home-from-breakdown{
+    display: inline-block;
+    text-align:  center;
 }

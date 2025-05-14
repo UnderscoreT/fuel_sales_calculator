@@ -63,15 +63,40 @@ public class SalesCalculator {
     private Double endReadingUnleadedB;
 
 
-    @NotNull(message = "price is required")
-    private Double pricePerLitre;
+    @NotNull(message = "price for Blend is required")
+    private Double pricePerLitreBlend;
+
+    @NotNull(message = "price for Diesel is required")
+    private Double pricePerLitreDiesel;
+
+    @NotNull(message = "price for Unleaded is required")
+    private Double pricePerLitreUnleaded;
+
 
     @NotNull
     @PositiveOrZero
-    private Double couponLitres = 0.0; // Litres given away via coupon (no revenue)
+    private Double couponLitresDiesel = 0.0;
+
     @NotNull
     @PositiveOrZero
-    private Double daCardLitres = 0.0;
+    private Double couponLitresBlend = 0.0;
+
+    @NotNull
+    @PositiveOrZero
+    private Double couponLitresUnleaded = 0.0;
+
+    @NotNull
+    @PositiveOrZero
+    private Double daCardLitresDiesel = 0.0;
+
+    @NotNull
+    @PositiveOrZero
+    private Double daCardLitresBlend = 0.0;
+
+    @NotNull
+    @PositiveOrZero
+    private Double daCardLitresUnleaded = 0.0;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

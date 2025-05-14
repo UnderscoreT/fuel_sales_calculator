@@ -9,35 +9,38 @@
 <body>
 <h2>Breakdown Maker</h2>
 
+<article class="breakdown-maker">
 <form class="breakdown-form" th:action="@{/makeBreakDown}" method="post">
 
     <label>One Dollar Notes:
-    <input type="number" value="1" name="oneDollar" required></label><label>Number of One Dollar Notes:<input type="number"  name="numberOfOneDollarNotes" required></label><br>
-
+    <input type="checkbox" value="1" name="oneDollar" required id="oneDollar"></label><label>Number of One Dollar Notes:<input type="number"  name="numberOfOneDollarNotes" required value="0"></label><br>
+<!--    <label>Test<input type="checkbox" value="1" name="oneDollar" id="oneDollar" required> </label><br>-->
     <label>Two Dollar Notes:
-    <input type="number" value="2" name="twoDollars" required></label><label>Number of Two Dollar Notes:<input type="number"  name="numberOfTwoDollarNotes" required></label><br>
+    <input type="checkbox" value="2" name="twoDollars" id="twoDollars" required></label><label>Number of Two Dollar Notes:<input type="number"  name="numberOfTwoDollarNotes" required value="0"></label><br>
 
     <label>Five Dollar Notes:
-    <input type="number" value="5" name="fiveDollars" required></label><label>Number of Five Dollar Notes:<input type="number"  name="numberOfFiveDollarNotes" required></label><br>
+    <input type="checkbox" value="5" name="fiveDollars" required id="fiveDollars"></label><label>Number of Five Dollar Notes:<input type="number"  name="numberOfFiveDollarNotes" required value="0"></label><br>
 
     <label>Ten Dollar Notes:
-    <input type="number" value="10" name="tenDollars" required></label><label>Number of Ten Dollar Notes:<input type="number"  name="numberOfTenDollarNotes" required></label><br>
+    <input type="checkbox" value="10" name="tenDollars" id="tenDollars" required></label><label>Number of Ten Dollar Notes:<input type="number"  name="numberOfTenDollarNotes" required value="0"></label><br>
 
     <label>Twenty Dollar Notes:
-        <input type="number" value="20" name="twentyDollars" required></label><label>Number of  Twenty Dollar Notes:<input type="number"  name="numberOfTwentyDollarNotes" required></label><br>
+        <input type="checkbox" value="20" name="twentyDollars" required id="twentyDollars"></label><label>Number of  Twenty Dollar Notes:<input type="number"  name="numberOfTwentyDollarNotes" required value="0"></label><br>
 
     <label>Fifty Dollar Notes:
-    <input type="number" value="50" name="fiftyDollars"  required></label><label>Number of Fifty Dollar Notes:<input type="number"  name="numberOfFiftyDollarNotes" required></label><br>
+    <input type="checkbox" value="50" name="fiftyDollars"  required id="fiftyDollars"></label><label>Number of Fifty Dollar Notes:<input type="number"  name="numberOfFiftyDollarNotes" required value="0"></label><br>
 
     <label>One Hundred Dollar Notes:
-    <input type="number" value="100" name="oneHundredDollars"  required> </label> <label>Number of One Hundred Dollar Notes:<input type="number"  name="numberOfOneHundredDollarNotes" required></label><br><br>
-    <button type="submit">Make Breakdown</button>
+    <input type="checkbox" value="100" name="oneHundredDollars"  required id="oneHundredDollars"> </label> <label>Number of One Hundred Dollar Notes:<input type="number"  name="numberOfOneHundredDollarNotes" required value="0"></label><br><br>
+    <button class="submit-breakdown" type="submit">Make Breakdown</button>
 
-    <br>
-    <br>
-    <a class="home-from-breakdown" href="/"> Home</a>
+<!--    <br>-->
+<!--    <br>-->
+
 </form>
-
+</article>
+<br>
+<a class="home-from-breakdown" href="/"> Home</a>
 
 
 

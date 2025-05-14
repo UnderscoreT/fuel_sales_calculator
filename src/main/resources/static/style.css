@@ -123,6 +123,10 @@ header {
 a:link {
     color: #444444;
     text-decoration: none;
+    display: inline-block;
+    margin-bottom: 10px;
+    background-color: blanchedalmond;
+    padding: 5px;
 }
 
 a:visited {
@@ -251,8 +255,8 @@ h2 {
     display: inline-block;
     padding: 5px 10px;
     position: absolute;
-    top: -17px;
-    left: -100px;
+    top: -5px;
+    left: -131px;
 }
 .label-diesel{
     position: relative;
@@ -269,7 +273,7 @@ h2 {
     padding: 5px 10px;
     position: absolute;
     top: -3px;
-    left: -100px;
+    left: -129px;
 }
 .label-unleaded{
     position: relative;
@@ -288,4 +292,79 @@ h2 {
     position: absolute;
     top: -11px;
     left: -125px;
+}
+
+.label-prices{
+    position: relative;
+    margin-right: -30px;
+}
+.label-prices::after{
+    /*color: #90cc20;*/
+    content: "PRICE";
+    background-color: #000000;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 16px;
+    display: inline-block;
+    padding: 5px 10px;
+    position: absolute;
+    top: -11px;
+    left: -125px;
+}
+.label-coupons{
+    position: relative;
+    margin-right: -30px;
+}
+.label-coupons::after{
+    /*color: #90cc20;*/
+    content: "COUPONS";
+    background-color: #000000;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 16px;
+    display: inline-block;
+    padding: 5px 10px;
+    position: absolute;
+    top: -7px;
+    left: -157px;
+}
+
+.label-da{
+    position: relative;
+    margin-right: -30px;
+}
+.label-da::after{
+    /*color: #90cc20;*/
+    content: "DA CARD";
+    background-color: #000000;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 16px;
+    display: inline-block;
+    padding: 5px 10px;
+    position: absolute;
+    top: -7px;
+    left: -157px;
+}
+
+.label-cash{
+    position: relative;
+    margin-right: -30px;
+}
+.label-cash::after{
+    /*color: #90cc20;*/
+    content: "💰";
+    /*background-color: rgb(255, 255, 255);*/
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 22px;
+    display: inline-block;
+    padding: 5px 10px;
+    position: absolute;
+    top: -7px;
+    left: -157px;
 }

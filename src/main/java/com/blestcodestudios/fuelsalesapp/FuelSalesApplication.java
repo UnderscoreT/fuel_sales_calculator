@@ -22,7 +22,15 @@ public class FuelSalesApplication {
             sale.setEndReadingBlendA(660648.01);
             sale.setStartReadingBlendB(430349.6);
             sale.setEndReadingBlendB(430865.77);
-            sale.setPricePerLitre(1.43);
+            sale.setPricePerLitreDiesel(1.43);
+            sale.setPricePerLitreBlend(1.43);
+            sale.setPricePerLitreUnleaded(1.43);
+            sale.setDaCardLitresBlend(1.1);
+            sale.setDaCardLitresUnleaded(1.1);
+            sale.setDaCardLitresDiesel(1.1);
+            sale.setCouponLitresBlend(1.1);
+            sale.setCouponLitresUnleaded(1.1);
+            sale.setCouponLitresDiesel(1.1);
             sale.setStartReadingDieselA(1000.0);
             sale.setEndReadingDieselA(1500.0);
             sale.setStartReadingDieselB(2000.0);

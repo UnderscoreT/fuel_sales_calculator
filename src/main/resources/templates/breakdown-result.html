@@ -10,14 +10,14 @@
 <body>
 <article class="breakdown-result">
     <h2>Breakdown Summary</h2>
- <p>$1 notes by <span th:text="${numberOfOneDollarNotes}"> </span> =  <span th:text="${totalForOneDollars}"> </span> </p>
+ <p>$1 X <span th:text="${numberOfOneDollarNotes}"> </span> =  <span th:text="${totalForOneDollars}"> </span> </p>
 
- <p>$2 notes by <span th:text="${numberOfTwoDollarNotes}"></span> = <span th:text="${totalForTwoDollars}"> </span></p>
- <p>$5 notes by <span th:text="${numberOfFiveDollarNotes}"></span> = <span th:text="${totalForFiveDollars}"> </span></p>
- <p>$10 notes by <span th:text="${numberOfTenDollarNotes}"></span> = <span th:text="${totalForTenDollars}"> </span></p>
- <p>$20 notes by <span th:text="${numberOfTwentyDollarNotes}"></span> = <span th:text="${totalForTwentyDollars}"> </span></p>
- <p>$50 notes by <span th:text="${numberOfFiftyDollarNotes}"></span> = <span th:text="${totalForFiftyDollars}"> </span></p>
- <p>$100 notes by  <span th:text="${numberOfOneHundredDollarNotes}"></span> = <span th:text="${totalForHundredDollars}"> </span></p>
+ <p>$2 X <span th:text="${numberOfTwoDollarNotes}"></span> = <span th:text="${totalForTwoDollars}"> </span></p>
+ <p>$5 X <span th:text="${numberOfFiveDollarNotes}"></span> = <span th:text="${totalForFiveDollars}"> </span></p>
+ <p>$10 X <span th:text="${numberOfTenDollarNotes}"></span> = <span th:text="${totalForTenDollars}"> </span></p>
+ <p>$20 X <span th:text="${numberOfTwentyDollarNotes}"></span> = <span th:text="${totalForTwentyDollars}"> </span></p>
+ <p>$50 X <span th:text="${numberOfFiftyDollarNotes}"></span> = <span th:text="${totalForFiftyDollars}"> </span></p>
+ <p>$100 X  <span th:text="${numberOfOneHundredDollarNotes}"></span> = <span th:text="${totalForHundredDollars}"> </span></p>
 
  <p>Total cash in hand = <span th:text="${totalCashInHand}"></span> </p>
 <!-- <p th:if="${Math.round(totalCashInHand)==Math.round(balance)}">Congratulations, your sales are balanced 😃-->
@@ -28,11 +28,11 @@
 
 
 <br>
-<a class="breakdown-achor" href="/makeBreakDown">Redo-breakdown</a> <span></span>
+<a class="breakdown-achor" href="/showBreakDownForm">Redo-breakdown</a> <span></span>
 <a class="home-from-breakdown" href="/"> Home</a>
 </article>
 <br>
-<hr class="hr-line">
+<!--<hr class="hr-line">-->
 
 <footer>Copyright &copy; BlestCodeStudios 2025</footer>
 </body>
