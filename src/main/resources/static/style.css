@@ -46,6 +46,7 @@ aside {
     /*margin-top: 40px;*/
     margin-bottom: 60px;
     /*padding: 15px;*/
+    /* display: flex;*/
 }
 h1 {
     padding: 15px;
@@ -63,6 +64,9 @@ h2 {
 }
 .main-header {
     margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 h3 {
     font-size: 30px;
@@ -177,10 +181,14 @@ form label {
     width: 100%;
     height: auto;
      border: 2px solid #444444;
+     /*display: flex;*/
+     justify-content: space-between;
+     align-items: center;
 }
 
  .container {
-     width: 700px;
+     /*width: 700px;*/
+     width: 100%;
      /*margin-left: auto;*/
      /*margin-right: auto;*/
      margin: 0 auto;
@@ -188,7 +196,7 @@ form label {
 
 nav a:link {
     margin-right: 30px;
-    margin-top: 25px;
+    /*margin-top: 25px;*/
     display: inline-block;
 }
 nav a:link:last-child {
@@ -245,142 +253,142 @@ h2 {
 .label-blend{
     position: relative;
 }
-.label-blend::after{
-    /*color: #90cc20;*/
-    content: "BLEND";
-    background-color: #90cc20;
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 16px;
-    display: inline-block;
-    padding: 5px 10px;
-    position: absolute;
-    top: -5px;
-    left: -131px;
-}
+/*.label-blend::after{*/
+/*    !*color: #90cc20;*!*/
+/*    content: "BLEND";*/
+/*    background-color: #90cc20;*/
+/*    color: #fff;*/
+/*    font-weight: bold;*/
+/*    letter-spacing: 2px;*/
+/*    font-size: 16px;*/
+/*    display: inline-block;*/
+/*    padding: 5px 10px;*/
+/*    position: absolute;*/
+/*    top: -5px;*/
+/*    left: -131px;*/
+/*}*/
 .label-diesel{
     position: relative;
 }
-.label-diesel::after{
-    /*color: #90cc20;*/
-    content: "DIESEL";
-    background-color: #2f6ee2;
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 16px;
-    display: inline-block;
-    padding: 5px 10px;
-    position: absolute;
-    top: -3px;
-    left: -130px;
-}
+/*.label-diesel::after{*/
+/*    !*color: #90cc20;*!*/
+/*    content: "DIESEL";*/
+/*    background-color: #2f6ee2;*/
+/*    color: #fff;*/
+/*    font-weight: bold;*/
+/*    letter-spacing: 2px;*/
+/*    font-size: 16px;*/
+/*    display: inline-block;*/
+/*    padding: 5px 10px;*/
+/*    position: absolute;*/
+/*    top: -3px;*/
+/*    left: -130px;*/
+/*}*/
 .label-unleaded{
     position: relative;
     margin-right: -30px;
 }
-.label-unleaded::after{
-    /*color: #90cc20;*/
-    content: "UNLEADED";
-    background-color: #ec2f2f;
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 16px;
-    display: inline-block;
-    padding: 5px 10px;
-    position: absolute;
-    top: -11px;
-    left: -125px;
-}
+/*.label-unleaded::after{*/
+/*    !*color: #90cc20;*!*/
+/*    content: "UNLEADED";*/
+/*    background-color: #ec2f2f;*/
+/*    color: #fff;*/
+/*    font-weight: bold;*/
+/*    letter-spacing: 2px;*/
+/*    font-size: 16px;*/
+/*    display: inline-block;*/
+/*    padding: 5px 10px;*/
+/*    position: absolute;*/
+/*    top: -11px;*/
+/*    left: -125px;*/
+/*}*/
 
 .label-prices{
     position: relative;
     margin-right: -30px;
 }
-.label-prices::after{
-    /*color: #90cc20;*/
-    content: "PRICE";
-    background-color: #000000;
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 16px;
-    display: inline-block;
-    padding: 5px 10px;
-    position: absolute;
-    top: -11px;
-    left: -125px;
-}
+/*.label-prices::after{*/
+/*    !*color: #90cc20;*!*/
+/*    content: "PRICE";*/
+/*    background-color: #000000;*/
+/*    color: #fff;*/
+/*    font-weight: bold;*/
+/*    letter-spacing: 2px;*/
+/*    font-size: 16px;*/
+/*    display: inline-block;*/
+/*    padding: 5px 10px;*/
+/*    position: absolute;*/
+/*    top: -11px;*/
+/*    left: -125px;*/
+/*}*/
 .label-coupons{
     position: relative;
     margin-right: -30px;
 }
-.label-coupons::after{
-    /*color: #90cc20;*/
-    content: "COUPONS";
-    background-color: #000000;
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 16px;
-    display: inline-block;
-    padding: 5px 10px;
-    position: absolute;
-    top: -7px;
-    left: -157px;
-}
+/*.label-coupons::after{*/
+/*    !*color: #90cc20;*!*/
+/*    content: "COUPONS";*/
+/*    background-color: #000000;*/
+/*    color: #fff;*/
+/*    font-weight: bold;*/
+/*    letter-spacing: 2px;*/
+/*    font-size: 16px;*/
+/*    display: inline-block;*/
+/*    padding: 5px 10px;*/
+/*    position: absolute;*/
+/*    top: -7px;*/
+/*    left: -157px;*/
+/*}*/
 
 .label-da{
     position: relative;
     margin-right: -30px;
 }
-.label-da::after{
-    /*color: #90cc20;*/
-    content: "DA CARD";
-    background-color: #000000;
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 16px;
-    display: inline-block;
-    padding: 5px 10px;
-    position: absolute;
-    top: -7px;
-    left: -159px;
-}
+/*.label-da::after{*/
+/*    !*color: #90cc20;*!*/
+/*    content: "DA CARD";*/
+/*    background-color: #000000;*/
+/*    color: #fff;*/
+/*    font-weight: bold;*/
+/*    letter-spacing: 2px;*/
+/*    font-size: 16px;*/
+/*    display: inline-block;*/
+/*    padding: 5px 10px;*/
+/*    position: absolute;*/
+/*    top: -7px;*/
+/*    left: -159px;*/
+/*}*/
 
 .label-cash{
     position: relative;
     margin-right: -30px;
 }
-.label-cash::after{
-    /*color: #90cc20;*/
-    content: "💰";
-    /*background-color: rgb(255, 255, 255);*/
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 22px;
-    display: inline-block;
-    padding: 5px 10px;
-    position: absolute;
-    top: -7px;
-    left: -157px;
-}
+/*.label-cash::after{*/
+/*    !*color: #90cc20;*!*/
+/*    content: "💰";*/
+/*    !*background-color: rgb(255, 255, 255);*!*/
+/*    color: #fff;*/
+/*    font-weight: bold;*/
+/*    letter-spacing: 2px;*/
+/*    font-size: 22px;*/
+/*    display: inline-block;*/
+/*    padding: 5px 10px;*/
+/*    position: absolute;*/
+/*    top: -7px;*/
+/*    left: -157px;*/
+/*}*/
 
-h1 {
-    float: left;
-}
-nav {
-    float: right;
-}
-.clearfix::after {
-    clear: both;
-    content: "";
-    display: block;
-}
+/*h1 {*/
+/*    float: left;*/
+/*}*/
+/*nav {*/
+/*    float: right;*/
+/*}*/
+/*.clearfix::after {*/
+/*    clear: both;*/
+/*    content: "";*/
+/*    display: block;*/
+/*}*/
 
 
 /*.blend-sales {*/
@@ -407,3 +415,49 @@ nav {
 /*.dacard {*/
 /*    float: left;*/
 /*}*/
+
+/*.fuels {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*}*/
+/*.coupons-da-cash {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*}*/
+/*.prices {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*}*/
+/*.label-blend{*/
+/*    flex: 1;*/
+/*}*/
+/*.label-diesel{*/
+/*    flex: 1;*/
+/*}*/
+
+/*.blenda {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+.blend {
+    flex: 1;
+}
+.diesel-sales {
+    flex: 1;
+}
+.sides {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.side-2{
+    flex: 1;
+}
+.side-1 {
+    flex: 1;
+}

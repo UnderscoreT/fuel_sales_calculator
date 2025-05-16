@@ -111,6 +111,7 @@ a:active {
 }
 .home {
     text-align: center;
+    margin: 50px;
 }
 .ul {
     text-align: left;
