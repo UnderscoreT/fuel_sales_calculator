@@ -122,6 +122,7 @@ header {
     background-color: #f7f7f7;
     /*border-top: 3px solid #1098ad;*/
     /*border-bottom: 3px solid #1098ad;*/
+    margin:  10px;
 
 }
 
@@ -444,20 +445,51 @@ h2 {
 /*    justify-content: space-between;*/
 /*}*/
 
-.blend {
-    flex: 1;
-}
-.diesel-sales {
-    flex: 1;
-}
+/*flex */
+
+/*.blend {*/
+/*    flex: 1;*/
+/*}*/
+/*.diesel-sales {*/
+/*    flex: 1;*/
+/*}*/
+/*.sides {*/
+/*    display: flex;*/
+/*    align-items: flex-start;*/
+/*    justify-content: space-between;*/
+/*}*/
+/*.side-2{*/
+/*    flex: 1;*/
+/*}*/
+/*.side-1 {*/
+/*    flex: 1;*/
+/*}*/
+
+/*GRID */
+
 .sides {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    column-gap: 30px;
+    /*align-items: center;*/
+    justify-content: center;
+    align-content: center;
 }
-.side-2{
-    flex: 1;
+.side-1{
+    /*display: grid;*/
+    /*grid-template-columns: 200px 200px 200px 200px;*/
+    /*column-gap: 50px;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*row-gap: 40px;*/
+    /*grid-column: 1/4;*/
+    /*grid-row: 1;*/
 }
-.side-1 {
-    flex: 1;
-}
+/*.side-2{*/
+/*    display: grid;*/
+/*    grid-template-columns: 200px 200px 200px 200px;*/
+/*    column-gap: 50px;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    row-gap: 40px;*/
+/*}*/
