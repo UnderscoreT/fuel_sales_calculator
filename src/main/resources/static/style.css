@@ -1,3 +1,13 @@
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +16,7 @@
 
 body {
     color: #444;
-    font-family: sans-serif;
+    font-family: "Inter", sans-serif;
     /*border-top: 3px solid #1098ad;*/
 }
 
@@ -91,9 +101,12 @@ li {
 }
 
 footer{
-    font-size: 16px;
     font-family: sans-serif;
-    text-align: center;
+    /*text-align: center;*/
+    margin-bottom: 48px;
+    font-size: 14px;
+    color: #495057;
+    margin-left: 20px;
 }
 form {
     font-size: 20px;
@@ -140,9 +153,9 @@ a:visited {
 }
 
 a:hover {
-    color: orangered;
+    color: #e9ecef;
     font-weight: bold;
-    text-decoration: underline orangered;
+    text-decoration: underline #e9ecef;
 }
 a:active {
     background-color: black;
@@ -171,7 +184,7 @@ a:active {
 }
 .calculate-button:hover {
     color: #444;
-    background-color: #fff;
+    background-color: #e9ecef;;
 }
 
 form label {
