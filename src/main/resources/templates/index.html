@@ -13,14 +13,15 @@
 <body>
 
 <div class="container">
-<header class="main-header clearfix">
-    <h1>⛽ Fuel Sales Calculator</h1>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="https://blestportfolio.onrender.com"> Contact Us</a>
-    </nav>
-</header>
+    <header class="main-header clearfix">
+        <h1>⛽ Fuel Sales Calculator</h1>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+        <nav id="main-nav">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="https://blestportfolio.onrender.com">Contact Us</a>
+        </nav>
+    </header>
 
 
 
@@ -128,6 +129,15 @@
 </aside>
 </div>
 <footer>Copyright &copy; 2025 by Obey Sibanda. Part of "BlestCodeStudios Projects -DA Kuwadzana". Use for learning purposes only. </footer>
+
+<script>
+    const toggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("main-nav");
+
+    toggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+    });
+</script>
 
 </body>
 </html>

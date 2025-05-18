@@ -11,8 +11,7 @@ public class SalesCalculatorController {
 
     @GetMapping("/")
     public String showCalculatorForm() {
-//        return "index";
-        return "updated";
+        return "index";
     }
 
     @GetMapping("/about")
