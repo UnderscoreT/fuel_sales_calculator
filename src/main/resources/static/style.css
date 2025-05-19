@@ -180,7 +180,7 @@ a:active {
     padding: 15px;
     width: 100%;
     border-top: 2px solid #444444;
-
+    letter-spacing: 2px;
 }
 .calculate-button:hover {
     color: #444;
@@ -198,6 +198,7 @@ form label {
      /*display: flex;*/
      justify-content: space-between;
      align-items: center;
+     letter-spacing: 1.2px;
 }
 
  .container {
@@ -561,14 +562,14 @@ h2 {
 
 
 /*icons*/
-.head-icon {
-    /*stroke: #2f6ee2;*/
-    fill: #087f5b;
-    width: 32px;
-    height: 32px;
-    /*margin-top: -16px;*/
-    /*margin-bottom: 16px;*/
-}
-.title{
 
+.blend {
+    /*background-color: #087f5b;*/
+    color: #087f5b;
+}
+.diesel-sales {
+    color: #2f6ee2;
+}
+.unleaded-sales {
+    color: #ff0000;
 }
