@@ -3,6 +3,9 @@ body {
     font-family: "Inter", sans-serif;
     /*border-top: 3px solid #1098ad;*/
     text-align: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -28,10 +31,7 @@ h3,
 h4 {
     color: #444;
 }
-nav {
-    /*font-family: sans-serif;*/
-    text-transform: uppercase;
-}
+
 h2 {
     font-size: 30px;
     /*font-family: sans-serif;*/
@@ -51,28 +51,38 @@ h4 {
     text-align: center;
 }
 
-p, a {
+/*p{*/
+/*    font-size: 18px;*/
+/*    !*font-family: sans-serif;*!*/
+/*    line-height: 1.1;*/
+/*    margin: 50px;*/
+/*}*/
+a {
     font-size: 18px;
-    /*font-family: sans-serif;*/
-    line-height: 1.1;
-    margin: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-.carousel p {
-    margin: 0;
-    margin-bottom: 12px;
-    line-height: 1;
-}
+
+
 
 li {
     font-size: 20px;
     /*font-family: sans-serif;*/
 }
-
+nav a:link {
+    margin-right: 30px;
+    /*margin-top: 25px;*/
+    display: inline-block;
+}
+nav a:link:last-child {
+    margin-right: 10px ;
+}
 footer{
     font-size: 16px;
     /*font-family: sans-serif;*/
     text-align: center;
     margin-top: 40px;
+    margin-bottom: 36px;
 }
 form {
     font-size: 20px;
@@ -87,7 +97,7 @@ button {
 }
 header {
     background-color: #f7f7f7;
-    padding: 12px;
+
 }
 .calculator {
     background-color: #f7f7f7;
@@ -97,18 +107,22 @@ header {
 }
 
 a:link {
-    color: #1098ad;
+    color: #444444;
     text-decoration: none;
+    display: inline-block;
+    /*margin-bottom: 10px;*/
+    /*background-color: blanchedalmond;*/
+    /*padding: 5px;*/
 }
 
 a:visited {
-    color: #1098ad;
+    color: #444444;
 }
 
 a:hover {
-    color: orangered;
+    color: #e9ecef;
     font-weight: bold;
-    text-decoration: underline orangered;
+    text-decoration: underline #e9ecef;
 }
 a:active {
     background-color: black;
@@ -147,4 +161,50 @@ form label {
 
 p {
     font-size: 20px;
+}
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #444;
+}
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
+        gap: 10px;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
+    nav a {
+        padding: 10px 15px;
+        border-top: 1px solid #ddd;
+        width: 100%;
+    }
 }

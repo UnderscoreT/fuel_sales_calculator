@@ -44,7 +44,7 @@
     }
     .testimonial-author {
     font-size: 14px;
-    margin-bottom: 4px;
+    margin-bottom: -12px;
     color: #c3fae8;
     }
     .testimonial-job {
@@ -105,8 +105,10 @@
 </head>
 <body>
 
-<header class="main-header clearfix">
-    <h1>⛽ Fuel Sales Calculator</h1>
+<header class="main-header ">
+    <h1 class="main-header">⛽ Fuel Sales Calculator</h1>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+
     <nav>
         <a href="/">Home</a>
 <!--        <a href="/about">About</a>-->
@@ -123,15 +125,15 @@
         <li>get a summary of total litres sold </li>
         <li>quickly calculate how much cash in  hand they need to submit which was not dropped</li>
     </ul>
-    <p><strong>Usage of this application is for learning purposes only. The developer is not responsible for any damages caused</strong>
+    <p><strong>Usage of this application is for learning purposes only. The developer is not responsible for any damages caused.</strong>
     <strong>Make sure your input for starting and end readings is correct!</strong>
 
     <div class="carousel">
         <img src="/PXL_20250427_045950586.PORTRAIT.jpg" alt="Obey at DA Kwz" />
         <blockquote class="testimonial">
             <p class="testimonial-text">
-                This tool saves my time, calculating end of shift sales can be a time-consuming task.
-                But with this tool it only takes me a minute.
+                This tool saves my time. Calculating end of shift sales can be a time-consuming task.
+                But using this, it only takes a minute.
             </p>
 
             <p class="testimonial-author">Obey Blessing Sibanda</p>
@@ -185,6 +187,13 @@
 <!--<a href="/">Home</a>-->
 <!--<a href="/https://blestportfolio.onrender.com">Contact Me</a>-->
 <footer>Copyright &copy; 2025 by Obey Sibanda. Part of "BlestCodeStudios Projects -DA Kuwadzana". Use for learning purposes only.</footer>
+<script>
+    const toggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("main-nav");
 
+    toggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+    });
+</script>
 </body>
 </html>
