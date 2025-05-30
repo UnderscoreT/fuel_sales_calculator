@@ -57,6 +57,8 @@ aside {
     margin-bottom: 60px;
     /*padding: 15px;*/
     /* display: flex;*/
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.38);
+    border-radius: 15.2px;
 }
 h1 {
     padding: 15px;
@@ -135,7 +137,7 @@ header {
     background-color: #f7f7f7;
     /*border-top: 3px solid #1098ad;*/
     /*border-bottom: 3px solid #1098ad;*/
-    margin:  10px;
+    margin:  40px;
 
 }
 
@@ -181,6 +183,8 @@ a:active {
     width: 100%;
     border-top: 2px solid #444444;
     letter-spacing: 2px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 .calculate-button:hover {
     color: #444;
@@ -199,6 +203,7 @@ form label {
      justify-content: space-between;
      align-items: center;
      letter-spacing: 1.2px;
+     border-radius: 18px;
 }
 
  .container {
@@ -568,7 +573,7 @@ h2 {
     color: #087f5b;
 }
 .diesel-sales {
-    color: #2f6ee2;
+    color: #c3fa;
 }
 .unleaded-sales {
     color: #ff0000;

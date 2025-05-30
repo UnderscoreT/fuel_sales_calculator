@@ -12,9 +12,96 @@
             rel="stylesheet"
     />
     <link rel="stylesheet" th:href="@{/about.css}" />
+   <style>
 
 
+    img {
+    height: 200px;
+    width: 200px;
+    border-radius: 8px;
+    transform: scale(1.5);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    }
+    .carousel {
+    background-color: #087f5b;
+    margin: 50px auto;
+    width: auto;
+    border-radius: 8px;
+    color: #fff;
+    padding: 32px 48px 32px 86px;
+    display: flex;
+    align-items: center;
+    gap: 86px;
 
+    position: relative;
+    }
+    .testimonial-text {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #e6fcf5;
+    margin-bottom: 32px;
+    }
+    .testimonial-author {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #c3fae8;
+    }
+    .testimonial-job {
+    font-size: 12px;
+    color: #c3fae8;
+    }
+    /*CONTROLS */
+    .btn {
+    background-color: #fff;
+    border: none;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .btn--left {
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    }
+    .btn--right {
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    }
+    .btn-icon {
+    width: 24px;
+    height: 24px;
+    stroke: #087f5b;
+    }
+    .dots {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 0;
+    transform: translate(-50%, 32px);
+    display: flex;
+    gap: 12px;
+    }
+    .dot {
+    height: 12px;
+    width: 12px;
+    background-color: #fff;
+    border: 2px solid #087f5b;
+    border-radius: 50%;
+    cursor: pointer;
+    }
+    .dot--fill {
+    background-color: #087f5b;
+    }
+   </style>
 </head>
 <body>
 
@@ -39,7 +126,61 @@
     <p><strong>Usage of this application is for learning purposes only. The developer is not responsible for any damages caused</strong>
     <strong>Make sure your input for starting and end readings is correct!</strong>
 
+    <div class="carousel">
+        <img src="/PXL_20250427_045950586.PORTRAIT.jpg" alt="Obey at DA Kwz" />
+        <blockquote class="testimonial">
+            <p class="testimonial-text">
+                This tool saves my time, calculating end of shift sales can be a time-consuming task.
+                But with this tool it only takes me a minute.
+            </p>
+
+            <p class="testimonial-author">Obey Blessing Sibanda</p>
+            <p class="testimonial-job">Service Attendant at DA Motors Kuwadzana</p>
+        </blockquote>
+
+        <button class="btn btn--left">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="btn-icon"
+            >
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 19.5 8.25 12l7.5-7.5"
+                />
+            </svg>
+        </button>
+        <button class="btn btn--right">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="btn-icon"
+            >
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+            </svg>
+        </button>
+
+        <div class="dots">
+            <button class="dot dot--fill">&nbsp;</button>
+            <button class="dot">&nbsp;</button>
+            <button class="dot">&nbsp;</button>
+            <button class="dot">&nbsp;</button>
+        </div>
+    </div>
 </article>
+
+
 
 <!--<a href="/">Home</a>-->
 <!--<a href="/https://blestportfolio.onrender.com">Contact Me</a>-->

@@ -57,6 +57,11 @@ p, a {
     line-height: 1.1;
     margin: 50px;
 }
+.carousel p {
+    margin: 0;
+    margin-bottom: 12px;
+    line-height: 1;
+}
 
 li {
     font-size: 20px;
@@ -82,6 +87,7 @@ button {
 }
 header {
     background-color: #f7f7f7;
+    padding: 12px;
 }
 .calculator {
     background-color: #f7f7f7;
@@ -114,6 +120,8 @@ a:active {
 .home {
     text-align: center;
     margin: 50px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    padding: 24px 56px;
 }
 .ul {
     text-align: justify;
