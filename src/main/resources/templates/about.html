@@ -101,6 +101,89 @@
     .dot--fill {
     background-color: #087f5b;
     }
+
+    /*new */
+    /* ✅ Make the carousel mobile responsive */
+    @media (max-width: 768px) {
+        .carousel {
+            flex-direction: column;
+            padding: 24px;
+            gap: 24px;
+            text-align: center;
+        }
+
+        img {
+            transform: scale(1); /* Remove zoom-in on small screens */
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-author,
+        .testimonial-job {
+            font-size: 12px;
+        }
+
+        .btn {
+            display: none; /* Hide nav buttons on small screens */
+        }
+
+        .dots {
+            bottom: -20px;
+            gap: 8px;
+        }
+
+        .home {
+            padding: 0 1rem;
+        }
+
+        nav {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            background-color: #087f5b;
+            padding: 1rem;
+        }
+
+        nav.open {
+            display: flex;
+        }
+
+        .menu-toggle {
+            display: inline-block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+
+        header.main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            flex-wrap: wrap;
+        }
+
+        header.main-header h1 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        footer {
+            font-size: 0.8rem;
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+
    </style>
 </head>
 <body>
