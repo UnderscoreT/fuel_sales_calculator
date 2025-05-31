@@ -24,7 +24,7 @@ h2 {
     font-family: sans-serif;
     text-transform: uppercase;
     text-align: center;
-    color: #1098ad;
+    color: #087f5b;
     background-color: #f7f7f7;
 }
 footer{
@@ -45,18 +45,21 @@ footer{
 /* styling links */
 a:link {
     text-transform: uppercase;
-    color: #1098ad;
+    color: #fff;
     text-decoration: none;
     display: inline-block;
     margin-bottom: 10px;
-    background-color: #444;
+    margin-left: 30px;
+    background-color: #087f5b;
     padding: 5px;
+    text-align: center;
 
 }
 
 
 a:visited {
-    color: #1098ad;
+    color: #fff;
+    text-align: center;
 }
 
 a:hover {
@@ -66,7 +69,7 @@ a:hover {
 }
 
 a:active {
-    background-color: black;
+    background-color: #099268;
     font-style: italic;
 }
 
@@ -147,7 +150,7 @@ input[type="checkbox"] {
 
 .submit-breakdown {
     padding: 0.75rem;
-    background-color: #007BFF;
+    background-color: #087f5b;
     color: white;
     font-weight: 600;
     border: none;
@@ -157,7 +160,7 @@ input[type="checkbox"] {
 }
 
 .submit-breakdown:hover {
-    background-color: #0056b3;
+    background-color: #087f5b;
 }
 
 .home-from-breakdown {
@@ -165,7 +168,7 @@ input[type="checkbox"] {
     text-align: center;
     margin-top: 1.5rem;
     font-weight: 600;
-    color: #007BFF;
+    color: #fff;
     text-decoration: none;
 }
 

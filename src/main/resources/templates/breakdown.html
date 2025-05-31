@@ -1,111 +1,105 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BreakdownMaker</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>BreakdownMaker</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link th:href="@{/breakdown.css}" rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+            rel="stylesheet"
+    />
+    <link th:href="@{/breakdown.css}" rel="stylesheet" />
 
     <style>
-        /* Responsive Fixes Inline for Fast Testing */
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
             padding: 1rem;
             margin: 0 auto;
-            background-color: #f7f7f7;
         }
 
         h2 {
             text-align: center;
-            font-weight: 700;
             margin-bottom: 1rem;
         }
 
         .breakdown-maker {
-            max-width: 700px;
-            width: 100%;
+            max-width: 600px;
             margin: 0 auto;
-            background: #fff;
+            background-color: #f8f9fa;
             padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .breakdown-form {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.25rem;
         }
 
-        .form-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .form-section label {
-            flex: 1 1 45%;
+        .note-group {
             display: flex;
             flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .note-group label {
             font-weight: 500;
         }
 
-        input[type="checkbox"] {
-            margin-right: 0.5rem;
-        }
-
-        input[type="number"] {
-            padding: 0.5rem;
-            border-radius: 4px;
-            border: 1px solid #ccc;
+        .note-group input[type="number"],
+        .note-group input[type="checkbox"] {
+            font-size: 1rem;
+            padding: 0.4rem;
         }
 
         .submit-breakdown {
-            padding: 0.75rem;
-            background-color: #007BFF;
+            background-color: #087f5b;
             color: white;
-            font-weight: 600;
+            padding: 0.75rem;
+            font-size: 1rem;
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            margin-top: 1rem;
         }
 
         .submit-breakdown:hover {
-            background-color: #0056b3;
+            background-color: #066649;
         }
 
         .home-from-breakdown {
-            display: block;
-            text-align: center;
-            margin-top: 1.5rem;
-            font-weight: 600;
-            color: #007BFF;
+            display: inline-block;
+            margin-top: 1rem;
+            color: #087f5b;
             text-decoration: none;
+            font-weight: 500;
         }
 
         .home-from-breakdown:hover {
             text-decoration: underline;
         }
 
-        footer {
+        .hr-line {
             margin-top: 2rem;
+            margin-bottom: 1rem;
+            border: none;
+            height: 1px;
+            background-color: #ccc;
+        }
+
+        footer {
             text-align: center;
             font-size: 0.85rem;
-            color: #555;
+            color: #666;
+            padding-bottom: 1rem;
         }
 
         @media (max-width: 600px) {
-            .form-section label {
-                flex: 1 1 100%;
+            .breakdown-maker {
+                padding: 1rem;
             }
 
             .submit-breakdown {
@@ -116,86 +110,56 @@
 </head>
 
 <body>
-
 <h2>Breakdown Maker</h2>
 
 <article class="breakdown-maker">
     <form class="breakdown-form" th:action="@{/makeBreakDown}" method="post">
-
-        <div class="form-section">
-            <label>
-                <input type="checkbox" value="1" name="oneDollar" required>
-                One Dollar Notes
-            </label>
-            <label>
-                Number of One Dollar Notes:
-                <input type="number" name="numberOfOneDollarNotes" required value="0">
+        <div class="note-group">
+            <label><input type="checkbox" name="oneDollar" value="1" required /> One Dollar Notes</label>
+            <label>Number of One Dollar Notes:
+                <input type="number" name="numberOfOneDollarNotes" required value="0" />
             </label>
         </div>
 
-        <div class="form-section">
-            <label>
-                <input type="checkbox" value="2" name="twoDollars" required>
-                Two Dollar Notes
-            </label>
-            <label>
-                Number of Two Dollar Notes:
-                <input type="number" name="numberOfTwoDollarNotes" required value="0">
+        <div class="note-group">
+            <label><input type="checkbox" name="twoDollars" value="2" required /> Two Dollar Notes</label>
+            <label>Number of Two Dollar Notes:
+                <input type="number" name="numberOfTwoDollarNotes" required value="0" />
             </label>
         </div>
 
-        <div class="form-section">
-            <label>
-                <input type="checkbox" value="5" name="fiveDollars" required>
-                Five Dollar Notes
-            </label>
-            <label>
-                Number of Five Dollar Notes:
-                <input type="number" name="numberOfFiveDollarNotes" required value="0">
+        <div class="note-group">
+            <label><input type="checkbox" name="fiveDollars" value="5" required /> Five Dollar Notes</label>
+            <label>Number of Five Dollar Notes:
+                <input type="number" name="numberOfFiveDollarNotes" required value="0" />
             </label>
         </div>
 
-        <div class="form-section">
-            <label>
-                <input type="checkbox" value="10" name="tenDollars" required>
-                Ten Dollar Notes
-            </label>
-            <label>
-                Number of Ten Dollar Notes:
-                <input type="number" name="numberOfTenDollarNotes" required value="0">
+        <div class="note-group">
+            <label><input type="checkbox" name="tenDollars" value="10" required /> Ten Dollar Notes</label>
+            <label>Number of Ten Dollar Notes:
+                <input type="number" name="numberOfTenDollarNotes" required value="0" />
             </label>
         </div>
 
-        <div class="form-section">
-            <label>
-                <input type="checkbox" value="20" name="twentyDollars" required>
-                Twenty Dollar Notes
-            </label>
-            <label>
-                Number of Twenty Dollar Notes:
-                <input type="number" name="numberOfTwentyDollarNotes" required value="0">
+        <div class="note-group">
+            <label><input type="checkbox" name="twentyDollars" value="20" required /> Twenty Dollar Notes</label>
+            <label>Number of Twenty Dollar Notes:
+                <input type="number" name="numberOfTwentyDollarNotes" required value="0" />
             </label>
         </div>
 
-        <div class="form-section">
-            <label>
-                <input type="checkbox" value="50" name="fiftyDollars" required>
-                Fifty Dollar Notes
-            </label>
-            <label>
-                Number of Fifty Dollar Notes:
-                <input type="number" name="numberOfFiftyDollarNotes" required value="0">
+        <div class="note-group">
+            <label><input type="checkbox" name="fiftyDollars" value="50" required /> Fifty Dollar Notes</label>
+            <label>Number of Fifty Dollar Notes:
+                <input type="number" name="numberOfFiftyDollarNotes" required value="0" />
             </label>
         </div>
 
-        <div class="form-section">
-            <label>
-                <input type="checkbox" value="100" name="oneHundredDollars" required>
-                One Hundred Dollar Notes
-            </label>
-            <label>
-                Number of One Hundred Dollar Notes:
-                <input type="number" name="numberOfOneHundredDollarNotes" required value="0">
+        <div class="note-group">
+            <label><input type="checkbox" name="oneHundredDollars" value="100" required /> One Hundred Dollar Notes</label>
+            <label>Number of One Hundred Dollar Notes:
+                <input type="number" name="numberOfOneHundredDollarNotes" required value="0" />
             </label>
         </div>
 
@@ -204,13 +168,10 @@
 </article>
 
 <a class="home-from-breakdown" href="/">Home</a>
-
-<hr class="hr-line">
-
+<hr class="hr-line" />
 <footer>
-    Copyright &copy; 2025 by Obey Sibanda. Part of "BlestCodeStudios Projects - DA Kuwadzana".
+    Copyright &copy; 2025 by Obey Sibanda. Part of "BlestCodeStudios Projects -DA Kuwadzana".
     Use for learning purposes only.
 </footer>
-
 </body>
 </html>
