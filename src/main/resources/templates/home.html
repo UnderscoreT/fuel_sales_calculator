@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fuel Sales Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 1rem;
+            background-color: #087f5b;
+            color: white;
+        }
+
+        .main-header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        nav#main-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav#main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        aside.calculator {
+            background: #ffffff;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 8px;
+        }
+
+        form.calculator-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .sides {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .side-1, .side-2 {
+            flex: 1 1 300px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .calculate-button {
+            padding: 0.75rem 1.5rem;
+            background-color: #087f5b;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .calculate-button:hover {
+            background-color: #099268;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.875rem;
+            padding: 1rem;
+            margin-top: 2rem;
+            background-color: #e9ecef;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: inline-block;
+            }
+
+            nav#main-nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #087f5b;
+                padding: 0.5rem 0;
+            }
+
+            nav#main-nav.open {
+                display: flex;
+            }
+
+            .main-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            form.calculator-form {
+                flex-direction: column;
+            }
+
+            .side-1, .side-2 {
+                width: 100%;
+            }
+
+            .calculate-button {
+                width: 100%;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="main-header">
+        <h1>⛽ Fuel Sales Calculator</h1>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+        <nav id="main-nav">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="https://blestportfolio.onrender.com">Contact Us</a>
+        </nav>
+    </header>
+
+    <aside class="calculator">
+        <form class="calculator-form" th:action="@{/calculate}" method="post">
+            <div class="sides">
+                <div class="side-1">
+                    <label>Blend A - Start Reading
+                        <input type="number" step="0.01" name="startReadingBlendA" required value="0.0">
+                    </label>
+                    <label>Blend A - End Reading
+                        <input type="number" step="0.01" name="endReadingBlendA" required value="0.0">
+                    </label>
+                    <label>Blend B - Start Reading
+                        <input type="number" step="0.01" name="startReadingBlendB" required value="0.0">
+                    </label>
+                    <label>Blend B - End Reading
+                        <input type="number" step="0.01" name="endReadingBlendB" required value="0.0">
+                    </label>
+                    <label>Diesel A - Start Reading
+                        <input type="number" step="0.01" name="startReadingDieselA" required value="0.0">
+                    </label>
+                    <label>Diesel A - End Reading
+                        <input type="number" step="0.01" name="endReadingDieselA" required value="0.0">
+                    </label>
+                    <label>Diesel B - Start Reading
+                        <input type="number" step="0.01" name="startReadingDieselB" required value="0.0">
+                    </label>
+                    <label>Diesel B - End Reading
+                        <input type="number" step="0.01" name="endReadingDieselB" required value="0.0">
+                    </label>
+                    <label>Unleaded A - Start Reading
+                        <input type="number" step="0.01" name="startReadingUnleadedA" required value="0.0">
+                    </label>
+                    <label>Unleaded A - End Reading
+                        <input type="number" step="0.01" name="endReadingUnleadedA" required value="0.0">
+                    </label>
+                    <label>Unleaded B - Start Reading
+                        <input type="number" step="0.01" name="startReadingUnleadedB" required value="0.0">
+                    </label>
+                    <label>Unleaded B - End Reading
+                        <input type="number" step="0.01" name="endReadingUnleadedB" required value="0.0">
+                    </label>
+                </div>
+                <div class="side-2">
+                    <label>Price Per Litre Blend (USD)
+                        <input type="number" step="0.01" name="pricePerLitreBlend" required value="1.43">
+                    </label>
+                    <label>Price Per Litre Diesel (USD)
+                        <input type="number" step="0.01" name="pricePerLitreDiesel" required value="1.43">
+                    </label>
+                    <label>Price Per Litre Unleaded (USD)
+                        <input type="number" step="0.01" name="pricePerLitreUnleaded" required value="1.50">
+                    </label>
+                    <label>Coupon Litres Diesel
+                        <input type="number" step="0.01" name="couponLitresDiesel" required value="0.0">
+                    </label>
+                    <label>Coupon Litres Blend
+                        <input type="number" step="0.01" name="couponLitresBlend" required value="0.0">
+                    </label>
+                    <label>Coupon Litres Unleaded
+                        <input type="number" step="0.01" name="couponLitresUnleaded" required value="0.0">
+                    </label>
+                    <label>DaCard Litres Diesel
+                        <input type="number" name="daCardLitresDiesel" value="0.0">
+                    </label>
+                    <label>DaCard Litres Blend
+                        <input type="number" step="0.01" name="daCardLitresBlend" required value="0.0">
+                    </label>
+                    <label>DaCard Litres Unleaded
+                        <input type="number" step="0.01" name="daCardLitresUnleaded" required value="0.0">
+                    </label>
+                    <label>Cash Dropped
+                        <input type="number" name="cashDropped" required value="0">
+                    </label>
+                </div>
+            </div>
+            <button class="calculate-button" type="submit">Calculate</button>
+        </form>
+    </aside>
+</div>
+
+<footer>
+    Copyright &copy; 2025 by Obey Sibanda. Part of "BlestCodeStudios Projects - DA Kuwadzana". Use for learning purposes only.
+</footer>
+
+<script>
+    const toggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("main-nav");
+    toggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+    });
+</script>
+
+</body>
+</html>
