@@ -83,6 +83,6 @@ public class BreakdownMakerController {
         model.addAttribute("balance", balance );
 
 
-        return "breakdown-result";
+        return "breakdown-table";
     }
 }

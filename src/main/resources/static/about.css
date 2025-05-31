@@ -3,7 +3,7 @@ body {
     font-family: "Inter", sans-serif;
     /*border-top: 3px solid #1098ad;*/
     text-align: center;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
 }

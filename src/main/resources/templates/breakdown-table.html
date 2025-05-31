@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion Component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+            rel="stylesheet"
+    />
+    <style>
+        /*
+        SPACING SYSTEM (px)
+        2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+        FONT SIZE SYSTEM (px)
+        10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+        */
+
+        /*MAIN COLOR   #087f5b
+          GREY COLOR   #343a40
+
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ------------------------ */
+        /* GENERAL STYLES */
+        /* ------------------------ */
+        body {
+            font-family: "Inter", sans-serif;
+            color: #343a40;
+            line-height: 1;
+            /*display: flex;*/
+            /*justify-content: center;*/
+        }
+        table {
+            width: 800px;
+            font-size: 18px;
+            /* border: 1px solid #343a40; */
+            margin: 0 auto;
+
+            margin-top: 50px;
+            border-collapse: collapse;
+            box-shadow: 0 0 32px rgba(0, 0, 0, 0.38);
+        }
+        th,
+        td {
+            padding: 16px 24px;
+            text-align: left;
+            /* border: 1px solid #343a40; */
+        }
+        thead th {
+            background-color: #087f5b;
+            color: #fff;
+            width: 25%;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #f8f9fa;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #e9ecef;
+        }
+        .content {
+            margin: 0 auto;
+            text-align: center;
+        }
+        .content a {
+
+        }
+        /* styling links */
+        a:link {
+
+
+            background-color: #087f5b;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            /* padding: 16px 32px; */
+            display: inline-block;
+            font-weight: 500;
+            font-size: 18px;
+            border-radius: 100px;
+        }
+
+
+        a:visited {
+
+            background-color: #087f5b;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            /* padding: 16px 32px; */
+            display: inline-block;
+            font-weight: 500;
+            font-size: 18px;
+            border-radius: 100px;
+        }
+
+        a:hover {
+            /*color: #e6fcf5;*/
+            /*font-weight: bold;*/
+            /*text-decoration: underline #343a40;*/
+
+            background-color: #099268;
+        }
+
+        a:active {
+            /*background-color: black;*/
+            /*font-style: italic;*/
+            background-color: #099268;
+        }
+        .btn--big {
+            margin-top: 12px;
+            font-size: 18px;
+            padding: 16px 32px;
+        }
+
+        .hr-line {
+            color: #087f5b;
+            margin: 20px;
+        }
+        footer {
+            margin: 22px;
+        }
+        h2 {
+            padding: 12px;
+            font-size: 36px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+            color: #087f5b;
+            background-color: #f7f7f7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <h2>Breakdown Summary</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Denomination</th>
+        <th>Number</th>
+        <th>Sub-Total</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>$1</th>
+        <td><span th:text="${numberOfOneDollarNotes}"></span></td>
+        <td><span th:text="${totalForOneDollars}"></span></td>
+
+    </tr>
+    <tr>
+        <th>$2</th>
+        <td><span th:text="${numberOfTwoDollarNotes}"></span></td>
+        <td><span th:text="${totalForTwoDollars}"> </span></td>
+    </tr>
+    <tr>
+        <th>$5</th>
+        <td><span th:text="${numberOfFiveDollarNotes}"></span></td>
+        <td><span th:text="${totalForFiveDollars}"/></td>
+    </tr>
+    <tr>
+        <th>$10</th>
+        <td><span th:text="${numberOfTenDollarNotes}"></span></td>
+        <td><span th:text="${totalForTenDollars}"> </span></td>
+    </tr>
+
+    <tr>
+        <th>$20</th>
+        <td><span th:text="${numberOfTwentyDollarNotes}"></span></td>
+        <td><span th:text="${totalForTwentyDollars}"> </span></td>
+    </tr>
+
+    <tr>
+        <th>$50</th>
+        <td><span th:text="${numberOfFiftyDollarNotes}"></span></td>
+        <td><span th:text="${totalForFiftyDollars}"> </span></td>
+    </tr>
+    <tr>
+        <th>$100</th>
+        <td><span th:text="${numberOfOneHundredDollarNotes}"></span></td>
+        <td><span th:text="${totalForHundredDollars}"> </span></td>
+    </tr>
+    <tr>
+        <th>Total Cash</th>
+        <td><span></span></td>
+        <td><span th:text="${totalCashInHand}"></span></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a class="breakdown-achor btn--big" href="/showBreakDownForm">Redo-breakdown</a> <span></span> &nbsp;&nbsp;
+<a class="home-from-breakdown btn--big" href="/"> Home</a>
+    <hr class="hr-line">
+
+    <footer>Copyright &copy; 2025 by Obey Sibanda. Part of "BlestCodeStudios Projects -DA Kuwadzana". Use for learning purposes only.</footer>
+</div>
+</body>
+</html>
