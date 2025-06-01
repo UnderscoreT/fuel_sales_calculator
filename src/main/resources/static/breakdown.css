@@ -44,15 +44,17 @@ footer{
 
 /* styling links */
 a:link {
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
+    font-size: 18px;
+    font-weight: 600;
     color: #fff;
     text-decoration: none;
     display: inline-block;
     margin-bottom: 10px;
-    margin-left: 30px;
+    margin-left: 300px;
     background-color: #087f5b;
-    padding: 5px;
-    text-align: center;
+    padding: 9px 26px;
+    border-radius: 9px;
 
 }
 
@@ -63,9 +65,9 @@ a:visited {
 }
 
 a:hover {
-    color: orangered;
-    font-weight: bold;
-    text-decoration: underline orangered;
+    color: lightgreen;
+    font-weight: 500;
+    text-decoration: none;
 }
 
 a:active {
@@ -74,27 +76,27 @@ a:active {
 }
 
 .submit-breakdown {
-    text-transform: uppercase;
-    background-color: #444;
+
+    /*background-color: #444;*/
     border: none;
     color: #fff;
     cursor: pointer;
     padding: 15px;
-    width: 100%;
+    /*width: 100%;*/
     border-top: 2px solid #444444;
     border-bottom: 2px solid #444444;
 
 }
 .submit-breakdown:hover {
-    color: #444;
+    color: #fff;
     background-color: #fff;
 }
 .breakdown-maker {
-    width: 700px;
+    /*width: 700px;*/
     /*margin-left: auto;*/
     /*margin-right: auto;*/
     margin: 0 auto;
-    border: 3px solid #444444;
+
 }
 .home-from-breakdown{
     display: inline-block;
@@ -105,13 +107,13 @@ a:active {
 body {
     font-family: 'Inter', sans-serif;
     padding: 1rem;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     background-color: #f7f7f7;
 }
 
 .breakdown-maker {
-    max-width: 700px;
-    margin: auto;
+    /*max-width: 700px;*/
+    /*margin: auto;*/
     background: #fff;
     padding: 1.5rem;
     border-radius: 8px;
@@ -163,17 +165,17 @@ input[type="checkbox"] {
     background-color: #087f5b;
 }
 
-.home-from-breakdown {
-    display: block;
-    text-align: center;
-    margin-top: 1.5rem;
-    font-weight: 600;
-    color: #fff;
-    text-decoration: none;
-}
+/*.home-from-breakdown {*/
+/*    display: block;*/
+/*    text-align: center;*/
+/*    margin-top: 1.5rem;*/
+/*    font-weight: 600;*/
+/*    color: #fff;*/
+/*    text-decoration: none;*/
+/*}*/
 
 .home-from-breakdown:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 footer {

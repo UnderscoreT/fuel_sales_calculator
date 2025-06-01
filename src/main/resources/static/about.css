@@ -12,10 +12,9 @@ h1 {
     font-size: 26px;
     /*font-family: sans-serif;*/
     text-transform: uppercase;
-    font-style: italic;
-    color: #1098ad;
+    color: #fff;
 }
-h1,
+
 h2,
 h3,
 h4,
@@ -25,7 +24,7 @@ li {
     color: #444;
 }
 
-h1,
+
 h2,
 h3,
 h4 {
@@ -107,7 +106,7 @@ header {
 }
 
 a:link {
-    color: #444444;
+    color: #fff;
     text-decoration: none;
     display: inline-block;
     /*margin-bottom: 10px;*/
@@ -116,7 +115,7 @@ a:link {
 }
 
 a:visited {
-    color: #444444;
+    color: #fff;
 }
 
 a:hover {
@@ -174,6 +173,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #087f5b;
 }
 
 /* Mobile styles */
