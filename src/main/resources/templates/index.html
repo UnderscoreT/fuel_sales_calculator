@@ -296,7 +296,7 @@
 <!--    * Form is not functional yet. Will be enabled later with backend email support-->
       Review our <a href="/terms" style="color: #2980b9; text-decoration: none;">terms</a> and <a href="/privacy" style="color: #2980b9; text-decoration: none;">Privacy policy</a>
   </p>
-</section>
+
     
     
 
@@ -305,52 +305,52 @@
 </footer>
 
 <script>
+    // Toggle mobile menu
     const toggle = document.getElementById("menu-toggle");
     const nav = document.getElementById("main-nav");
-    toggle.addEventListener("click", () => {
-        nav.classList.toggle("open");
-    });
-</script>
-    <script>
-  document.getElementById("contactForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const formData = new FormData(this);
 
-    fetch("/api/contact", {
-      method: "POST",
-      body: new URLSearchParams(formData),
-    })
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("responseMsg").innerText = data;
-      this.reset();
-    })
-    .catch(error => {
-      document.getElementById("responseMsg").innerText = "Failed to send message.";
-      console.error("Email error:", error);
-    });
-  });
-    </script>
-    <script>
-  const form = document.getElementById('contact-form');
-  const successMsg = document.getElementById('success-message');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-      const formData = new FormData(form);
-
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: formData
-    });
-
-    if (response.ok) {
-      successMsg.style.display = 'block';
-      form.reset();
-    } else {
-      alert('Oops! Something went wrong.');
+    if (toggle && nav) {
+        toggle.addEventListener("click", () => {
+            nav.classList.toggle("open");
+        });
     }
-  });
-    </script>
+
+    // Handle contact form submission
+    const form = document.getElementById("contact-form") || document.getElementById("contactForm");
+    const successMsg = document.getElementById("success-message") || document.getElementById("responseMsg");
+
+    if (form) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action || "/api/contact", {
+                    method: "POST",
+                    body: new URLSearchParams(formData),
+                });
+
+                if (response.ok) {
+                    const data = await response.text();
+                    if (successMsg) {
+                        successMsg.innerText = data || "Message sent successfully.";
+                        successMsg.style.display = "block";
+                    }
+                    form.reset();
+                } else {
+                    throw new Error("Server error");
+                }
+            } catch (error) {
+                if (successMsg) {
+                    successMsg.innerText = "Failed to send message.";
+                    successMsg.style.display = "block";
+                }
+                console.error("Form error:", error);
+            }
+        });
+    }
+</script>
+
+
 </body>
 </html>
