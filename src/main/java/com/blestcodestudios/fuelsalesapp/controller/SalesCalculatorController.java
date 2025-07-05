@@ -14,6 +14,11 @@ public class SalesCalculatorController {
         return "index";
     }
 
+    @GetMapping("/privacy")
+    public String showPrivacyPolicy() {
+        return "privacy";
+    }
+
     @GetMapping("/about")
     public String showAboutPage() {
         return "about";
