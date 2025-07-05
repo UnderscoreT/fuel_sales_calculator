@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class EmailController {
@@ -18,6 +19,7 @@ public class EmailController {
         return "email sent";
     }
     @PostMapping("/contact")
+    @ResponseBody
     public String handleContactForm(
             @RequestParam String name,
             @RequestParam String email,
