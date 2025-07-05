@@ -292,10 +292,14 @@
     ✅ Your message has been sent! We’ll reply soon.
   </div>
 </section>
+
+<div class="terms">
+
   <p style="font-size: 0.85rem; color: #777; margin-top: 10px;">
 <!--    * Form is not functional yet. Will be enabled later with backend email support-->
-      Review our <a href="/terms" style="color: #2980b9; text-decoration: none;">terms</a> and <a href="/privacy" style="color: #2980b9; text-decoration: none;">Privacy policy</a>
+      Review our <a href="/terms" style="color: #2980b9; text-decoration: none; text-align: center">terms</a> and <a href="/privacy" style="color: #2980b9; text-decoration: none;">Privacy policy</a>
   </p>
+</div>
 
     
     
@@ -325,7 +329,7 @@
             const formData = new FormData(form);
 
             try {
-                const response = await fetch(form.action || "/api/contact", {
+                const response = await fetch(form.action || "/contact", {
                     method: "POST",
                     body: new URLSearchParams(formData),
                 });
