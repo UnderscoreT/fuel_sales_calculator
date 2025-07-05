@@ -610,3 +610,6 @@ h2 {
 .main-nav-link:active {
     color: #8d8f84;
 }
+.contact-us{
+    max-width: 1200px;
+}
