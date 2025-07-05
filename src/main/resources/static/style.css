@@ -612,4 +612,6 @@ h2 {
 }
 .contact-us{
     max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
 }
