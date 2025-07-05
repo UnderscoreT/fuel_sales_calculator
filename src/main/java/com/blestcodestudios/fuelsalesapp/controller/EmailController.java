@@ -25,11 +25,18 @@ public class EmailController {
             @RequestParam String email,
             @RequestParam String message) {
 
+
+        try{
         String subject = "New Contact Message from "  + name;
         String content = "From: " + name + "\nEmail: " + email + "\n\nMessage: " + message;
 //        emailService.sendEmail(subject, content, email);
         emailService.sendEmail("obey@sizafuel.xyz",subject,content);
-        return "Message sent successfully";
+            return "Message sent successfully";
+        } catch (Exception e){
+            e.printStackTrace();
+            return "Failed to send email";
+        }
+
     }
 
 }
