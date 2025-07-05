@@ -13,7 +13,11 @@
     />
     <link rel="stylesheet" th:href="@{/about.css}" />
    <style>
-
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
 
     img {
     height: 200px;
@@ -21,6 +25,9 @@
     border-radius: 8px;
     transform: scale(1.5);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    }
+    .nb {
+        margin-top: 24px;
     }
     .carousel {
     background-color: #087f5b;
@@ -187,7 +194,7 @@
    </style>
 </head>
 <body>
-
+<div class="container">
 <header class="main-header ">
     <h1 class="main-header">⛽ Fuel Sales Calculator</h1>
     <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
@@ -200,16 +207,16 @@
 </header>
 
 <article class="home">
-    <p>This application can be used to help a fuel attendant quickly calculate
-        the total number of litres they have sold using a pump with at most 6 nozzles.
-        Listed below are other things that this web application can help an attendant do: </p>
+    <p>This application can be used to help a fuel attendant using a pump with at most 6 nozzles calculate day end sales.
+        Listed below are the overall capabilities that this web application enables attendants work out </p>
     <ul class="ul">
         <li>determine how much total cash sales they have done </li>
         <li>get a summary of total litres sold </li>
         <li>quickly calculate how much cash in  hand they need to submit which was not dropped</li>
+        <li>quickly make a breakdown of the cash in hand</li>
     </ul>
-    <p><strong>Usage of this application is for learning purposes only. The developer is not responsible for any damages caused.</strong>
-    <strong>Make sure your input for starting and end readings is correct!</strong>
+    <p class="nb"><strong>Usage of this application is for learning purposes only. The developer is not responsible for any damages caused.</strong>
+    <strong>Make sure your input for starting and closing pump meter readings and product price are correct!</strong>
 
     <div class="carousel">
         <img src="/PXL_20250427_045950586.PORTRAIT.jpg" alt="Obey at DA Kwz" />
@@ -265,7 +272,7 @@
     </div>
 </article>
 
-
+</div>
 
 <!--<a href="/">Home</a>-->
 <!--<a href="/https://blestportfolio.onrender.com">Contact Me</a>-->
