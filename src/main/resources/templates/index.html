@@ -307,6 +307,26 @@
         nav.classList.toggle("open");
     });
 </script>
+    <script>
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+
+    fetch("/api/contact", {
+      method: "POST",
+      body: new URLSearchParams(formData),
+    })
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("responseMsg").innerText = data;
+      this.reset();
+    })
+    .catch(error => {
+      document.getElementById("responseMsg").innerText = "Failed to send message.";
+      console.error("Email error:", error);
+    });
+  });
+    </script>
 
 </body>
 </html>
