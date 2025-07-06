@@ -16,5 +16,7 @@ public class EmailService {
         message.setSubject(subject);
         message.setText(text);
         message.setFrom("obey@sizafuel.xyz");
+
+        mailSender.send(message);
     }
 }
