@@ -187,7 +187,7 @@
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
         <nav id="main-nav">
 
-            <a class="main-nav-link" href="/about">About</a>
+            <a class="main-nav-link" href="#about">About</a>
             <a class="main-nav-link" href="#contact-us">Contact Us</a>
         </nav>
     </header>
@@ -222,7 +222,7 @@
     <aside class="calculator">
         <p style=" font-size: 1.2rem;
                 font-weight: 600;color: #0c1412;
-                " >Calculate &dArr;</p>
+                " >Calculate <span><ion-icon name="calculator"></ion-icon></span></p>
 
         <form class="calculator-form" th:action="@{/calculate}" method="post">
             <div class="sides">
@@ -303,7 +303,7 @@
 </div>
 
 
-<article class="home">
+<article id="about" class="home">
 <p>This application can be used to help a fuel attendant using a pump with at most 6 nozzles calculate day end sales.
     Listed below are the overall capabilities that this web application enables attendants work out </p>
 <ul class="ul">
@@ -480,6 +480,6 @@
     }
 </script>
 
-
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>
