@@ -633,3 +633,14 @@ h2 {
     .hero-text {
         letter-spacing: .05em;
     }
+
+    .hero{
+        background-color: #6d9a8d;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* margin-top: 20px; */
+    }
+
+    .hero-content {
+        padding: 1rem;
+    }
