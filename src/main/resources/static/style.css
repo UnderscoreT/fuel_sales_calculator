@@ -618,3 +618,18 @@ h2 {
 .contact-us-content {
     padding: 1rem;
 }
+
+/*   hero staff * /
+
+ */
+
+    .title {
+        font-size:  1.25rem;
+        font-weight: 700;
+
+
+    }
+
+    .hero-text {
+        letter-spacing: .05em;
+    }
