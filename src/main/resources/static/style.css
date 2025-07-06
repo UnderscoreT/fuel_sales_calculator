@@ -451,3 +451,7 @@ h2 {
 
         fill: #316e16;
     }
+    .calc-tag {
+        display: flex;
+        align-items:  center;
+    }
