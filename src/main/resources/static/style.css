@@ -1,167 +1,446 @@
-/* EXISTING CSS OMITTED HERE FOR BREVITY — YOUR ORIGINAL STYLES WILL BE AT THE TOP */
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
-/* ------- NEWLY MERGED STYLES FROM SNIPPET ------- */
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
 
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 1rem;
-}
 
-/* Main Header */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 1rem;
-    background-color: #2a9976;
-    color: white;
-}
 
-/* Main Header Title */
-.main-header h1 {
+* {
     margin: 0;
-    font-size: 1.5rem;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
 }
 
-/* Toggle Menu Button */
+body {
+    color: #444;
+    font-family: "Inter", sans-serif;
+    /*border-top: 3px solid #1098ad;*/
+}
+
+h1 {
+    font-size: 26px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-style: italic;
+    color: #444444;
+    /*padding: 15px;*/
+}
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+    font-family: sans-serif;
+    color: #444;
+}
+
+
+nav {
+    font-family: sans-serif;
+    /*text-transform: uppercase;*/
+    font-size: 18px;
+    /*padding: 10px 40px;*/
+    /*margin-bottom: 30px;*/
+    text-align: center;
+}
+aside {
+    /*margin-top: 40px;*/
+    margin-bottom: 60px;
+    /*padding: 15px;*/
+    /* display: flex;*/
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.38);
+    border-radius: 15.2px;
+}
+h1 {
+    padding: 15px;
+}
+
+h2 {
+    font-size: 30px;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f7f7f7;
+    text-transform: uppercase;
+    /*margin-top: 5px;*/
+    margin-bottom: 30px;
+    padding: 15px;
+}
+.main-header {
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+h3 {
+    font-size: 30px;
+    font-family: sans-serif;
+}
+h4 {
+    font-size: 22px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+p{
+    font-size: 22px;
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+li {
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+footer{
+    font-family: sans-serif;
+    /*text-align: center;*/
+    margin-bottom: 48px;
+    font-size: 14px;
+    color: #495057;
+    margin-left: 20px;
+}
+form {
+    font-size: 20px;
+    font-family: sans-serif;
+    text-align: center;
+}
+.label-1 {
+    margin: 5px;
+    display: inline-block;
+}
+.labels {
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+    padding: 0;
+}
+button {
+    font-size: 20px;
+    font-family: sans-serif;
+    /*background-color: #1098ad;*/
+    text-align: center;
+}
+header {
+    background-color: #f7f7f7;
+}
+.calculator {
+    background-color: #f7f7f7;
+    /*border-top: 3px solid #1098ad;*/
+    /*border-bottom: 3px solid #1098ad;*/
+    margin:  18px;
+
+}
+
+a:link {
+    color: #444444;
+    text-decoration: none;
+    display: inline-block;
+    /*margin-bottom: 10px;*/
+    /*background-color: blanchedalmond;*/
+    /*padding: 5px;*/
+}
+
+a:visited {
+    color: darkturquoise;
+}
+
+a:hover {
+    color: #e9ecef;
+    font-weight: bold;
+    text-decoration: underline #e9ecef;
+}
+a:active {
+    background-color: black;
+    font-style: italic;
+}
+.sale-summary {
+    text-align: center;
+}
+.home {
+    text-align: center;
+}
+.ul {
+    text-align: left;
+    list-style: square;
+}
+.calculate-button {
+    text-transform: uppercase;
+    background-color: #444;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    border-top: 2px solid #444444;
+    letter-spacing: 2px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.calculate-button:hover {
+    color: #444;
+    background-color: #e9ecef;;
+}
+
+form label {
+    text-transform: uppercase;
+}
+ .calculator-form {
+     padding-top: 10px;
+    width: 100%;
+    height: auto;
+     border: 2px solid #444444;
+     /*display: flex;*/
+     justify-content: space-between;
+     align-items: center;
+     letter-spacing: 1.2px;
+     border-radius: 18px;
+}
+
+ .container {
+     /*width: 700px;*/
+     width: 100%;
+     /*margin-left: auto;*/
+     /*margin-right: auto;*/
+     margin: 0 auto;
+ }
+
+nav a:link {
+    margin-right: 30px;
+    /*margin-top: 25px;*/
+    display: inline-block;
+}
+nav a:link:last-child {
+    margin-right: 10px ;
+}
+p {
+    position: relative;
+}
+
+p::after {
+    content: "SALES";
+    background-color: yellow;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 16px;
+    display: inline-block;
+    padding: 5px 10px;
+    position: absolute;
+    top: -17px;
+    left: -100px;
+}
+.colors {
+    /*margin-right: -35px;*/
+    text-align: center;
+}
+.for-colors {
+    background-color: #000;
+    width: 75px;
+    height: 27px;
+    display: inline-block;
+    margin-right: 3px;
+    text-align: center;
+}
+
+.color-blue {
+    background-color: #2f6ee2;
+}
+.color-yellow {
+    background-color: #f0bf1e;
+}
+.color-green {
+    background-color: #90cc20;
+}
+.color-brown {
+    background-color: #885214;
+}
+.color-red {
+    background-color: #ec2f2f;
+}
+h2 {
+    position: relative;
+}
+.label-blend{
+    position: relative;
+}
+
+.label-diesel{
+    position: relative;
+}
+
+.label-unleaded{
+    position: relative;
+    margin-right: -30px;
+}
+
+
+.label-prices{
+    position: relative;
+    margin-right: -30px;
+}
+
+.label-coupons{
+    position: relative;
+    margin-right: -30px;
+}
+
+
+.label-da{
+    position: relative;
+    margin-right: -30px;
+}
+
+
+.label-cash{
+    position: relative;
+    margin-right: -30px;
+}
+
+
+/*GRID */
+
+.sides {
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    column-gap: 30px;
+    /*align-items: center;*/
+    justify-content: center;
+    align-content: center;
+    padding: 10px 15px;
+}
+@media (max-width: 768px) {
+    .sides {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+}
+
 .menu-toggle {
     display: none;
     background: none;
     border: none;
-    font-size: 1.5rem;
-    color: white;
+    font-size: 28px;
     cursor: pointer;
+    color: #444;
 }
 
-/* Navigation */
-nav#main-nav {
-    display: flex;
-    gap: 1rem;
-}
-
-nav#main-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-nav#main-nav a:link,
-nav#main-nav a:visited {
-    display: inline-block;
-    text-decoration: none;
-    color: #ddd;
-    font-weight: 500;
-    font-size: 1.2rem;
-    transition: all 0.3s;
-}
-
-nav#main-nav a:hover,
-nav#main-nav a:active {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-/* Calculator Box */
-aside.calculator {
-    background: #ffffff;
-    padding: 1rem;
-    margin-top: 1rem;
-    border-radius: 8px;
-}
-
-/* Sides (merged with your grid version) */
-.sides {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-}
-
-/* Sides (optional override from original grid) */
-.side-1, .side-2 {
-    flex: 1 1 300px;
-}
-
-/* Labels */
-label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-}
-
-/* Input Styling */
-input[type="number"] {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* Calculate Button (merged safely) */
-.calculate-button {
-    padding: 0.75rem 1.5rem;
-    background-color: #087f5b;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.calculate-button:hover {
-    background-color: #099268;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    font-size: 0.875rem;
-    padding: 1rem;
-    margin-top: 2rem;
-    background-color: #e9ecef;
-}
-
-/* Responsive Styles */
+/* Mobile styles */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: inline-block;
-    }
-
-    nav#main-nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #087f5b;
-        padding: 0.5rem 0;
-    }
-
-    nav#main-nav.open {
-        display: flex;
-    }
-
     .main-header {
         flex-direction: column;
         align-items: flex-start;
+        padding: 10px;
     }
 
-    form.calculator-form {
+    nav {
+        display: none;
         flex-direction: column;
-    }
-
-    .side-1, .side-2 {
         width: 100%;
+        text-align: left;
+        gap: 10px;
     }
 
-    .calculate-button {
-        width: 100%;
-        font-size: 1rem;
+    nav.open {
+        display: flex;
     }
 
-    .contact-us {
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
+    nav a {
+        padding: 10px 15px;
+        border-top: 1px solid #ddd;
         width: 100%;
     }
 }
+
+
+/*icons*/
+
+.blend {
+    /*background-color: #087f5b;*/
+    color: #087f5b;
+}
+.diesel-sales {
+    color: #c3fa;
+}
+.unleaded-sales {
+    color: #ff0000;
+}
+
+/* contact us */
+
+    .contact-us {
+        margin: 0 auto;
+        margin-left: 20px;
+    }
+
+.terms {
+    margin-left: 20px;
+}
+
+/*   link  hover */
+
+.main-nav-link:link,
+.main-nav-link:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.8rem;
+    transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+    color: #8d8f84;
+}
+.contact-us{
+    max-width: 1200px;
+    margin: auto;
+
+}
+.contact-us-content {
+    padding: 1rem;
+}
+
+/*   hero staff * /
+
+ */
+
+    .title {
+        font-size:  1.25rem;
+        font-weight: 700;
+        text-transform: uppercase;
+
+    }
+
+    .hero-text {
+        letter-spacing: .05em;
+        font-weight: 600;
+        line-height: 1.125;
+        font-size: 28px;
+    }
+
+    .hero{
+        background-color: #6d9a8d;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* margin-top: 20px; */
+    }
+
+    .hero-content {
+        padding: 1rem;
+    }
