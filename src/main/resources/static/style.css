@@ -444,3 +444,10 @@ h2 {
     .hero-content {
         padding: 1rem;
     }
+
+    .calc-icon {
+        height: 2.4rem;
+        width: 2.4rem;
+
+        fill: #316e16;
+    }
