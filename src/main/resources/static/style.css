@@ -632,6 +632,8 @@ h2 {
 
     .hero-text {
         letter-spacing: .05em;
+        font-weight: 600;
+        line-height: 1.125;
     }
 
     .hero{
