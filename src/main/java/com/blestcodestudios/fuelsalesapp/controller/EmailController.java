@@ -15,6 +15,7 @@ public class EmailController {
     @Autowired
     private EmailService emailService;
 
+    @ResponseBody
     @GetMapping("/send-email")
     public String sendEmail() {
         emailService.sendEmail("obeysibanda235@gmail.com", "Test", "Hello from SizaFuel");
@@ -36,7 +37,8 @@ public class EmailController {
             log.info("Email sent");
             return "Message sent successfully";
         } catch (Exception e){
-            e.printStackTrace();
+
+            log.error("Failed to send email", e);
             return "Failed to send email";
         }
 
