@@ -32,7 +32,7 @@ public class SiteMapController {
         return "register";
     }
     @GetMapping({"/about"})
-    public String getMiscPage(HttpServletRequest request) {
+    public String getAboutPage(HttpServletRequest request) {
         var message = "Remote connection from user: %s (%s)".formatted(request.getRemoteUser(), request.getRemoteAddr());
         Logger.getLogger().printMessage(message);
         return "about";
