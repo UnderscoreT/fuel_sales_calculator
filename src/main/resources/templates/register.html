@@ -10,7 +10,7 @@
 <body>
 <div class="container">
     <h2>Create Account</h2>
-    <form th:action="@{/newuser}" method="post" th:object="${newUser}" onsubmit="return validatePasswords()">
+    <form th:action="@{/api/v1/newuser}" method="post" th:object="${newUser}" onsubmit="return validatePasswords()">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" th:field="*{username}" id="username" required>
