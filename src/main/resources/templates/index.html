@@ -221,11 +221,12 @@
     </section>
 
     <aside class="calculator">
-          <div class="calc-tag">
+          <div class="calc-tag" style="display: flex; justify-content: center;">
 
         <p style=" font-size: 1.2rem;
-                font-weight: 600;color: #0c1412; display: flex; justify-content: center;
-                " >Calculate <span><ion-icon class="calc-icon" name="calculator" ></ion-icon></span></p>
+                font-weight: 600;color: #0c1412;
+                " >Calculate <span><ion-icon  style="width: 24px;height: 24px;
+            fill: #087f5b "   class="calc-icon" name="calculator" ></ion-icon></span></p>
           </div>
 
         <form class="calculator-form" th:action="@{/calculate}" method="post">
