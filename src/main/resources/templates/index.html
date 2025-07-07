@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Fuel Sales Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D0KRWHT1V6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D0KRWHT1V6');
+</script>
+    
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -484,6 +494,48 @@
             }
         });
     }
+</script>
+    
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #c4f000; /* lemon green */
+  color: #222222;
+  padding: 15px 20px;
+  text-align: center;
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  display: none;
+">
+  This site uses cookies to improve your experience. By continuing to use it, you accept our cookie policy.
+  <button onclick="acceptCookies()" style="
+    margin-left: 15px;
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #999999;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+  ">OK</button>
+</div>
+
+<script>
+  function acceptCookies() {
+    localStorage.setItem('cookieConsent', 'true');
+    document.getElementById('cookieConsent').style.display = 'none';
+  }
+
+  window.onload = function () {
+    if (!localStorage.getItem('cookieConsent')) {
+      document.getElementById('cookieConsent').style.display = 'block';
+    }
+  };
 </script>
 
 
