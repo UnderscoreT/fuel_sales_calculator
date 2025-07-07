@@ -455,3 +455,8 @@ h2 {
         display: flex;
         align-items:  center;
     }
+.icon-link {
+    width: 3rem;
+    height: 3rem;
+    color: #099268;
+}
