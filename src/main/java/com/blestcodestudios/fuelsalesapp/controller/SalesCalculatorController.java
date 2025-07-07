@@ -9,10 +9,10 @@ public class SalesCalculatorController {
 
     double closingCash ;
 
-    @GetMapping("/")
-    public String showCalculatorForm() {
-        return "index";
-    }
+//    @GetMapping("/")
+//    public String showCalculatorForm() {
+//        return "index";
+//    }
 
     @GetMapping("/terms")
     public String showTerms() {
