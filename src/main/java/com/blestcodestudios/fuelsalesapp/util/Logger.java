@@ -2,15 +2,14 @@ package com.blestcodestudios.fuelsalesapp.util;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-
+@Configuration
 public class Logger {
-    @Value("${application.debug:false}")
+    @Value("${application.debug}")
     private boolean debugMode;
 
     private static Logger logger;
@@ -27,9 +26,7 @@ public class Logger {
         return logger;
     }
     public void printMessage(String message) {
-//        if(debugMode) return;
-        if (!debugMode && loggingLevel.equals("DEBUG")) return;
-
+      if(debugMode) return;
         printWithTimeStamp(message);
     }
     private void printWithTimeStamp(String message) {
