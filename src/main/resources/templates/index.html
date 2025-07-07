@@ -104,8 +104,8 @@
 
             font-size: 2rem;
             font-weight: 600;
-            padding: 1.6rem 3.2rem;
-            border-radius: 9px;
+            padding: 0.6rem 2.4rem;
+            border-radius: 4px;
             text-decoration: none;
             transition: all 0.3s;
 
@@ -117,12 +117,12 @@
 
         .btn--full:link,
         .btn--full:visited {
-            background-color: #e67e22;
+            background-color: #45ad93;
             color: #fff;
         }
         .btn--full:hover,
         .btn--full:active {
-            background-color: #cf711f;
+            background-color: #1c4e41;
         }
 
         nav#main-nav a:hover, nav#main-nav a:active {
@@ -244,12 +244,13 @@
 
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
         <nav id="main-nav">
-
+            <div style="display: flex; align-items: center; justify-content: space-between;">
             <a class="main-nav-link" href="#about">How it works</a>
             <a class="main-nav-link" href="#contact-us">Contact Us</a>
             <a class="main-nav-link" href="/register">Sign up</a>
             <a href="/api/v1/registration/login" class="main-nav-link btn btn--full "
             >Sign In</a>
+            </div>
 
         </nav>
     </header>
