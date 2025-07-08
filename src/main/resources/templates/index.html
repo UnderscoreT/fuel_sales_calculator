@@ -228,16 +228,21 @@
             color: #444;
         }
         @media (max-width: 768px) {
-            .step-row,
-            .step-row.reverse {
+            .step,
+            .step.reverse {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .step-image,
+
             .step-text {
                 width: 100%;
             }
+            .step-image {
+                max-width: 100%;
+                height: auto;
+            }
+
         }
 
 
