@@ -254,8 +254,8 @@
                 </div>
 
                 <div th:unless="${#authorization.expression('isAuthenticated()')}">
-            <a class="main-nav-link" href="#" th:href="/register">Sign up</a>
-            <a href="#" th:href="/login" class="main-nav-link btn btn--full "
+            <a class="main-nav-link" href="#" th:href="@{/register}">Sign up</a>
+            <a href="#" th:href="@{/login}" class="main-nav-link btn btn--full "
             >Sign In</a>
                 </div>
             </div>
