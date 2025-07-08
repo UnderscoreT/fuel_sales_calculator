@@ -183,6 +183,51 @@
             background-color: #099268;
         }
 
+        .easy--steps {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 50px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            gap: 20px;
+        }
+
+        .step.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .step-image {
+            width: 45%;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-text {
+            width: 50%;
+        }
+
+        .step-text h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .step-text p {
+            font-size: 1.1em;
+            color: #444;
+        }
+
+
         footer {
             text-align: center;
             font-size: 0.875rem;
@@ -546,6 +591,38 @@
 <!--    </div>-->
 <!--</div>-->
 </article>
+
+<section class="easy--steps">
+    <h2 class="section-title">How It Works</h2>
+
+    <!-- Step 1 -->
+    <div class="step">
+        <img src="screenshot1.png" alt="Step 1 Screenshot" class="step-image">
+        <div class="step-text">
+            <h3>1. Register Your Account</h3>
+            <p>Create a free account in seconds using your email and a secure password.</p>
+        </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step reverse">
+        <div class="step-text">
+            <h3>2. Log Your Daily Sales</h3>
+            <p>Use the dashboard to record fuel sales with accurate timestamps and auto-calculated totals.</p>
+        </div>
+        <img src="screenshot2.png" alt="Step 2 Screenshot" class="step-image">
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step">
+        <img src="screenshot3.png" alt="Step 3 Screenshot" class="step-image">
+        <div class="step-text">
+            <h3>3. Track and Export Reports</h3>
+            <p>View summaries of your performance and export reports to Excel or PDF with one click.</p>
+        </div>
+    </div>
+</section>
+
 
 
 <!-- Contact Us Section -->
