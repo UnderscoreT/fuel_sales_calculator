@@ -182,6 +182,7 @@
         .calculate-button:hover {
             background-color: #099268;
         }
+        /* steps */
 
         .easy--steps {
             max-width: 1100px;
@@ -226,6 +227,19 @@
             font-size: 1.1em;
             color: #444;
         }
+        @media (max-width: 768px) {
+            .step-row,
+            .step-row.reverse {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .step-image,
+            .step-text {
+                width: 100%;
+            }
+        }
+
 
 
         footer {
