@@ -28,7 +28,7 @@ public class WebSecurityConfiguration {
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/", "/home", "/index", "/css/**",
                                 "/images/**", "/terms", "/register/**", "/js/**",
-                                "/terms", "/privacy","/about","/**","/summary/pdf",
+                                "/terms", "/privacy","/about","/**",
                                 "/error", "/api/v1/registration/**").permitAll()
                         // Resources
                         .requestMatchers("/css/**", "/images/**", "/webjars/**").permitAll()
