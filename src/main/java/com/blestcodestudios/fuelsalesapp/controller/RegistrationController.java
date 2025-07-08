@@ -38,7 +38,8 @@ public class RegistrationController {
         model.setCreatedOn(dtf.format(now));
         model.setLastUpdated(model.getCreatedOn());
         registrationService.save(model);
-        return "redirect:/index";
+//        return "redirect:/index";
+        return "redirect:/index?registered=true";
      }
 
     @GetMapping("/login")
