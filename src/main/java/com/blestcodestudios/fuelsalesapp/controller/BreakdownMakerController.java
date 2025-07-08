@@ -20,7 +20,9 @@ public class BreakdownMakerController {
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/showBreakDownForm")
     public String showBreakDownForm() {
-        return "breakdown";
+
+        //return "breakdown";
+        return "brkdwn";
     }
 
     @PostMapping("/makeBreakDown")

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breakdown Maker</title>
+
+    <link rel="stylesheet" th:href="@{/brkdwn.css}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<main class="container">
+    <h2>Breakdown Maker</h2>
+    <form class="breakdown-form" th:action="@{/makeBreakDown}" method="post">
+        <fieldset class="note-section">
+            <legend>Select Notes and Enter Quantity</legend>
+
+            <div class="note-item">
+                <label>
+                    <input type="checkbox" name="oneDollar" value="1" required />
+                    One Dollar
+                </label>
+                <input type="number" name="numberOfOneDollarNotes" value="0" required />
+            </div>
+
+            <div class="note-item">
+                <label>
+                    <input type="checkbox" name="twoDollars" value="2" required />
+                    Two Dollars
+                </label>
+                <input type="number" name="numberOfTwoDollarNotes" value="0" required />
+            </div>
+
+            <div class="note-item">
+                <label>
+                    <input type="checkbox" name="fiveDollars" value="5" required />
+                    Five Dollars
+                </label>
+                <input type="number" name="numberOfFiveDollarNotes" value="0" required />
+            </div>
+
+            <div class="note-item">
+                <label>
+                    <input type="checkbox" name="tenDollars" value="10" required />
+                    Ten Dollars
+                </label>
+                <input type="number" name="numberOfTenDollarNotes" value="0" required />
+            </div>
+
+            <div class="note-item">
+                <label>
+                    <input type="checkbox" name="twentyDollars" value="20" required />
+                    Twenty Dollars
+                </label>
+                <input type="number" name="numberOfTwentyDollarNotes" value="0" required />
+            </div>
+
+            <div class="note-item">
+                <label>
+                    <input type="checkbox" name="fiftyDollars" value="50" required />
+                    Fifty Dollars
+                </label>
+                <input type="number" name="numberOfFiftyDollarNotes" value="0" required />
+            </div>
+
+            <div class="note-item">
+                <label>
+                    <input type="checkbox" name="oneHundredDollars" value="100" required />
+                    One Hundred Dollars
+                </label>
+                <input type="number" name="numberOfOneHundredDollarNotes" value="0" required />
+            </div>
+        </fieldset>
+
+        <button class="submit-btn" type="submit">Make Breakdown</button>
+    </form>
+
+    <a class="home-link" href="/">← Back to Home</a>
+</main>
+
+<footer>
+    &copy; 2025 by Obey Sibanda. Part of "BlestCodeStudios Projects - DA Kuwadzana". Use for learning purposes only.
+</footer>
+</body>
+</html>
