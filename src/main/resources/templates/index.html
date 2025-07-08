@@ -236,6 +236,16 @@
 <body>
 
 <div class="container">
+
+    <!-- ✅ Success Message -->
+    <div id="success-msg"
+         th:if="${param.registered}"
+         style="background-color: #d4edda; color: #155724; padding: 10px; border: 1px solid #c3e6cb; border-radius: 5px; margin-bottom: 15px; text-align: center;">
+        Account created successfully! <a href="/api/v1/registration/login">Click here to log in</a>.
+    </div>
+
+
+
     <header class="main-header">
         <a class="navbar-brand" href="/" th:href="@{/index}">
             <img class="logo" th:src="@{/sizasmaall--3--webt--height--width-red.png}" alt="Logo image" width="80" />
@@ -632,6 +642,16 @@
   };
 </script>
 
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const msg = document.getElementById('success-msg');
+        if (msg) {
+            setTimeout(() => {
+                msg.style.display = 'none';
+            }, 5000); // Hide after 5 seconds
+        }
+    });
+</script>
 
 </body>
 </html>
