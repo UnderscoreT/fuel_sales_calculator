@@ -247,9 +247,18 @@
             <div style="display: flex; align-items: center; justify-content: space-between;gap: 2rem">
             <a class="main-nav-link" href="#about">How it works</a>
             <a class="main-nav-link" href="#contact-us">Contact Us</a>
-            <a class="main-nav-link" href="/register">Sign up</a>
-            <a href="/login" class="main-nav-link btn btn--full "
+
+                <div style="display: flex; flex-direction: row-reverse">
+                <div th:if="${#authorization.expression('isAuthenticated()')}">
+                    <a class="btn btn-primary" href="#" th:href="@{/logout}">Logout</a>
+                </div>
+
+                <div th:unless="${#authorization.expression('isAuthenticated()')}">
+            <a class="main-nav-link" href="#" th:href="/register">Sign up</a>
+            <a href="#" th:href="/login" class="main-nav-link btn btn--full "
             >Sign In</a>
+                </div>
+            </div>
             </div>
             <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
 
