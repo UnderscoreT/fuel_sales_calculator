@@ -114,6 +114,7 @@ public class SalesCalculatorController {
 
         model.addAttribute("cashInHand", cashInHand);
 
-        return "result";
+//        return "result";
+        return "sales-summary";
     }
 }

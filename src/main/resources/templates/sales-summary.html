@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fuel Sales Summary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/sales-summary.css}">
+</head>
+<body>
+<div class="summary-container">
+    <h2>Fuel Sales Summary</h2>
+
+    <table>
+        <caption>Litres Dispensed</caption>
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Total (L)</th>
+            <th>Net Litres (Excl. Coupon & DaCard)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td data-label="Product">Blend</td>
+            <td data-label="Total (L)" th:text="${litresBlend}"></td>
+            <td data-label="Net Litres" th:text="${blendNetLitres}"></td>
+        </tr>
+        <tr>
+            <td data-label="Product">Diesel</td>
+            <td data-label="Total (L)" th:text="${litresDiesel}"></td>
+            <td data-label="Net Litres" th:text="${dieselNetLitres}"></td>
+        </tr>
+        <tr>
+            <td data-label="Product">Unleaded</td>
+            <td data-label="Total (L)" th:text="${litresUnleaded}"></td>
+            <td data-label="Net Litres" th:text="${unleadedNetLitres}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <caption>Litres from Coupons</caption>
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Coupon Litres</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td data-label="Product">Blend</td>
+            <td data-label="Coupon Litres" th:text="${couponLitresBlend}"></td>
+        </tr>
+        <tr>
+            <td data-label="Product">Diesel</td>
+            <td data-label="Coupon Litres" th:text="${couponLitresDiesel}"></td>
+        </tr>
+        <tr>
+            <td data-label="Product">Unleaded</td>
+            <td data-label="Coupon Litres" th:text="${couponLitresUnleaded}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <caption>Litres from DaCard</caption>
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>DaCard Litres</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td data-label="Product">Blend</td>
+            <td data-label="DaCard Litres" th:text="${daCardLitresBlend}"></td>
+        </tr>
+        <tr>
+            <td data-label="Product">Diesel</td>
+            <td data-label="DaCard Litres" th:text="${daCardLitresDiesel}"></td>
+        </tr>
+        <tr>
+            <td data-label="Product">Unleaded</td>
+            <td data-label="DaCard Litres" th:text="${daCardLitresUnleaded}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <caption>Sales Totals</caption>
+        <thead>
+        <tr>
+            <th>Description</th>
+            <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td data-label="Description">Total Litres Dispensed</td>
+            <td data-label="Amount" th:text="${totalLitres} + ' L'"></td>
+        </tr>
+        <tr>
+            <td data-label="Description">Net Litres Sold</td>
+            <td data-label="Amount" th:text="${netLitres} + ' L'"></td>
+        </tr>
+        <tr>
+            <td data-label="Description">Total Revenue</td>
+            <td data-label="Amount">$<span th:text="${totalRevenue}"></span></td>
+        </tr>
+        <tr>
+            <td data-label="Description">Cash Collected</td>
+            <td data-label="Amount">$<span th:text="${totalRevenueInCash}"></span></td>
+        </tr>
+        <tr>
+            <td data-label="Description">Cash in Hand</td>
+            <td data-label="Amount">$<span th:text="${cashInHand}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="summary-links">
+        <a href="/">Calculate Again</a>
+        <a href="/showBreakDownForm">Make Breakdown</a>
+    </div>
+
+    <footer>Copyright &copy; 2025 by Obey Sibanda. Part of "BlestCodeStudios Projects -DA Kuwadzana". Use for learning purposes only.</footer>
+</div>
+</body>
+</html>
