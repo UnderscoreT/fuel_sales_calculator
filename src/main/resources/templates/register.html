@@ -10,6 +10,17 @@
 <body>
 <div class="container">
     <h2>Create Account</h2>
+    <!-- Feedback messages -->
+    <div th:if="${param.userExists}" class="message error">
+        🚫 A user with that email or username already exists.
+    </div>
+    <div th:if="${param.passMissMatch}" class="message error">
+        ❗ Passwords do not match.
+    </div>
+    <div th:if="${param.noCreds}" class="message error">
+        ⚠️ Please provide your credentials.
+    </div>
+
     <form action="#" th:action="@{/api/v1/registration/newuser}" method="post" th:object="${newUser}" onsubmit="return validatePasswords()">
         <div class="form-group">
             <label for="username">Username</label>
