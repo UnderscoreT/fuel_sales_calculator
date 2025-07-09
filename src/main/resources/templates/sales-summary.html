@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <title>Fuel Sales Summary</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;display=swap" rel="stylesheet" />
 
-
-
-    <style>
-
+    <style type="text/css">
         .summary-container {
             padding: 1rem;
             max-width: 900px;
             margin: auto;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             color: #333;
         }
 
@@ -58,7 +55,6 @@
             background-color: #f9f9f9;
         }
 
-        /* Alternating row colors */
         tbody tr:nth-child(odd) td {
             background-color: #ffffff;
         }
@@ -87,20 +83,24 @@
             }
 
             td {
-                padding-left: 50%;
+                padding: 10px 10px 10px 45%;
                 position: relative;
-                text-align: right;
+                text-align: left;
+                background-color: #f9f9f9;
+                white-space: pre-wrap;
+                word-wrap: break-word;
             }
 
             td::before {
                 content: attr(data-label);
                 position: absolute;
-                left: 15px;
-                width: 45%;
+                top: 10px;
+                left: 10px;
+                width: 40%;
                 padding-right: 10px;
                 font-weight: 600;
+                color: #333;
                 text-align: left;
-                color: #444;
             }
         }
 
@@ -125,10 +125,7 @@
             font-size: 0.85rem;
             color: #888;
         }
-
-
     </style>
-
 </head>
 <body>
 <div class="summary-container">
@@ -146,18 +143,18 @@
         <tbody>
         <tr>
             <td data-label="Product">Blend</td>
-            <td data-label="Total (L)" th:text="${litresBlend}"></td>
-            <td data-label="Net Litres" th:text="${blendNetLitres}"></td>
+            <td data-label="Total (L)" th:text="${litresBlend} ?: '0'">0</td>
+            <td data-label="Net Litres" th:text="${blendNetLitres} ?: '0'">0</td>
         </tr>
         <tr>
             <td data-label="Product">Diesel</td>
-            <td data-label="Total (L)" th:text="${litresDiesel}"></td>
-            <td data-label="Net Litres" th:text="${dieselNetLitres}"></td>
+            <td data-label="Total (L)" th:text="${litresDiesel} ?: '0'">0</td>
+            <td data-label="Net Litres" th:text="${dieselNetLitres} ?: '0'">0</td>
         </tr>
         <tr>
             <td data-label="Product">Unleaded</td>
-            <td data-label="Total (L)" th:text="${litresUnleaded}"></td>
-            <td data-label="Net Litres" th:text="${unleadedNetLitres}"></td>
+            <td data-label="Total (L)" th:text="${litresUnleaded} ?: '0'">0</td>
+            <td data-label="Net Litres" th:text="${unleadedNetLitres} ?: '0'">0</td>
         </tr>
         </tbody>
     </table>
@@ -173,15 +170,15 @@
         <tbody>
         <tr>
             <td data-label="Product">Blend</td>
-            <td data-label="Coupon Litres" th:text="${couponLitresBlend}"></td>
+            <td data-label="Coupon Litres" th:text="${couponLitresBlend} ?: '0'">0</td>
         </tr>
         <tr>
             <td data-label="Product">Diesel</td>
-            <td data-label="Coupon Litres" th:text="${couponLitresDiesel}"></td>
+            <td data-label="Coupon Litres" th:text="${couponLitresDiesel} ?: '0'">0</td>
         </tr>
         <tr>
             <td data-label="Product">Unleaded</td>
-            <td data-label="Coupon Litres" th:text="${couponLitresUnleaded}"></td>
+            <td data-label="Coupon Litres" th:text="${couponLitresUnleaded} ?: '0'">0</td>
         </tr>
         </tbody>
     </table>
@@ -197,15 +194,15 @@
         <tbody>
         <tr>
             <td data-label="Product">Blend</td>
-            <td data-label="DaCard Litres" th:text="${daCardLitresBlend}"></td>
+            <td data-label="DaCard Litres" th:text="${daCardLitresBlend} ?: '0'">0</td>
         </tr>
         <tr>
             <td data-label="Product">Diesel</td>
-            <td data-label="DaCard Litres" th:text="${daCardLitresDiesel}"></td>
+            <td data-label="DaCard Litres" th:text="${daCardLitresDiesel} ?: '0'">0</td>
         </tr>
         <tr>
             <td data-label="Product">Unleaded</td>
-            <td data-label="DaCard Litres" th:text="${daCardLitresUnleaded}"></td>
+            <td data-label="DaCard Litres" th:text="${daCardLitresUnleaded} ?: '0'">0</td>
         </tr>
         </tbody>
     </table>
@@ -221,23 +218,23 @@
         <tbody>
         <tr>
             <td data-label="Description">Total Litres Dispensed</td>
-            <td data-label="Amount" th:text="${totalLitres} + ' L'"></td>
+            <td data-label="Amount" th:text="${totalLitres} + ' L' ?: '0 L'">0 L</td>
         </tr>
         <tr>
             <td data-label="Description">Net Litres Sold</td>
-            <td data-label="Amount" th:text="${netLitres} + ' L'"></td>
+            <td data-label="Amount" th:text="${netLitres} + ' L' ?: '0 L'">0 L</td>
         </tr>
         <tr>
             <td data-label="Description">Total Revenue</td>
-            <td data-label="Amount">$<span th:text="${totalRevenue}"></span></td>
+            <td data-label="Amount">$<span th:text="${totalRevenue} ?: '0.00'">0.00</span></td>
         </tr>
         <tr>
             <td data-label="Description">Cash Collected</td>
-            <td data-label="Amount">$<span th:text="${totalRevenueInCash}"></span></td>
+            <td data-label="Amount">$<span th:text="${totalRevenueInCash} ?: '0.00'">0.00</span></td>
         </tr>
         <tr>
             <td data-label="Description">Cash in Hand</td>
-            <td data-label="Amount">$<span th:text="${cashInHand}"></span></td>
+            <td data-label="Amount">$<span th:text="${cashInHand} ?: '0.00'">0.00</span></td>
         </tr>
         </tbody>
     </table>
@@ -245,37 +242,40 @@
     <div class="summary-links">
         <a href="/">Calculate Again</a>
         <a href="/showBreakDownForm">Make Breakdown</a>
-
-
     </div>
+
     <button type="button" id="downloadPdfBtn">Download PDF</button>
 
-    <script>
-        document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+    <script type="text/javascript">
+        document.getElementById('downloadPdfBtn').addEventListener('click', function () {
             fetch('/summary/pdf', {
                 method: 'POST',
-                credentials: 'same-origin'  // if your session cookie is needed
+                credentials: 'same-origin'
             })
-                .then(response => {
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    return response.blob();
-                })
-                .then(blob => {
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = "fuel-sales-summary.pdf";
-                    document.body.appendChild(a);
-                    a.click();
-                    a.remove();
-                    window.URL.revokeObjectURL(url);
-                })
-                .catch(error => console.error('Download error:', error));
+            .then(function (response) {
+                if (!response.ok) { throw new Error('Network response was not ok'); }
+                return response.blob();
+            })
+            .then(function (blob) {
+                var url = window.URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = "fuel-sales-summary.pdf";
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                window.URL.revokeObjectURL(url);
+            })
+            .catch(function (error) {
+                console.error('Download error:', error);
+            });
         });
     </script>
 
-
-    <footer>Copyright &copy; 2025 by Obey Sibanda. Part of "BlestCodeStudios Projects -DA Kuwadzana". Use for learning purposes only.</footer>
+    <footer>
+        Copyright &copy; 2025 by Obey Sibanda.
+        Part of "BlestCodeStudios Projects -DA Kuwadzana". Use for learning purposes only.
+    </footer>
 </div>
 </body>
 </html>
