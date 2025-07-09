@@ -34,7 +34,7 @@ public class WebSecurityConfiguration {
                         .requestMatchers("/css/**", "/images/**", "/webjars/**").permitAll()
                         .requestMatchers("/calculate","/contact").permitAll()
                         .requestMatchers("/acp/**").hasAnyRole("DEVELOPER", "OWNER")
-                        .requestMatchers("/showBreakDownForm","/makeBreakDown").authenticated()
+                       // .requestMatchers("/showBreakDownForm","/makeBreakDown").authenticated()
                         .requestMatchers("/profile").hasRole("USER")
                         .anyRequest().authenticated()
                 );
