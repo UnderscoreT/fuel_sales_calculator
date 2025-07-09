@@ -245,12 +245,35 @@
     <div class="summary-links">
         <a href="/">Calculate Again</a>
         <a href="/showBreakDownForm">Make Breakdown</a>
-        <form method="post" action="/summary/pdf">
-            <!-- Add hidden inputs if needed to pass the same parameters again -->
-            <button type="submit">Download PDF</button>
-        </form>
+
 
     </div>
+    <button type="button" id="downloadPdfBtn">Download PDF</button>
+
+    <script>
+        document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+            fetch('/summary/pdf', {
+                method: 'POST',
+                credentials: 'same-origin'  // if your session cookie is needed
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.blob();
+                })
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = "fuel-sales-summary.pdf";
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(error => console.error('Download error:', error));
+        });
+    </script>
+
 
     <footer>Copyright &copy; 2025 by Obey Sibanda. Part of "BlestCodeStudios Projects -DA Kuwadzana". Use for learning purposes only.</footer>
 </div>
