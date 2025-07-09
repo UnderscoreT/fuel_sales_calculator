@@ -59,9 +59,7 @@ public class BreakdownMakerController {
 
         BreakdownMaker  breakdownMaker = new BreakdownMaker();
 
-        double netCashSales  = salesCalculator.closingCash;
-        int cashDropped = breakdownMaker.getCashDropped();
-        double balance = netCashSales - cashDropped;
+
 
 
         model.addAttribute("totalCashInHand", totalCashInHand );
@@ -86,7 +84,7 @@ public class BreakdownMakerController {
         model.addAttribute("numberOfTwentyDollarNotes", numberOfTwentyDollarNotes );
         model.addAttribute("numberOfFiftyDollarNotes", numberOfFiftyDollarNotes );
         model.addAttribute("numberOfOneHundredDollarNotes", numberOfOneHundredDollarNotes );
-        model.addAttribute("balance", balance );
+
 
 
 //        return "breakdown-table";

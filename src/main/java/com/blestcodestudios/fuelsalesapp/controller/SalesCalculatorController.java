@@ -93,7 +93,6 @@ public class SalesCalculatorController {
         double cashInHand = totalRevenueInCash - cashDropped;
 
 
-
         model.addAttribute("litresBlend", litresBlend);
         model.addAttribute("litresDiesel", litresDiesel);
         model.addAttribute("litresUnleaded", litresUnleaded);
