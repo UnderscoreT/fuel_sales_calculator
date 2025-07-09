@@ -2,6 +2,7 @@ package com.blestcodestudios.fuelsalesapp.service;
 
 import com.blestcodestudios.fuelsalesapp.util.Logger;
 import com.lowagie.text.DocumentException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
@@ -13,6 +14,7 @@ import java.util.Map;
 @Service
 public class PdfGenerator {
 
+    @Autowired
     private final TemplateEngine templateEngine;
 
     public PdfGenerator(TemplateEngine templateEngine) {
