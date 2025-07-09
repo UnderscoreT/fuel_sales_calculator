@@ -1,7 +1,9 @@
 package com.blestcodestudios.fuelsalesapp.controller;
 
+import com.blestcodestudios.fuelsalesapp.dto.SalesSummaryDto;
 import com.blestcodestudios.fuelsalesapp.service.PdfGenerator;
 import com.lowagie.text.DocumentException;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -16,12 +18,6 @@ import java.util.Map;
 @Controller
 public class SalesCalculatorController {
 
-    double closingCash;
-
-//    @GetMapping("/")
-//    public String showCalculatorForm() {
-//        return "index";
-//    }
 
     @GetMapping("/terms")
     public String showTerms() {
@@ -64,7 +60,7 @@ public class SalesCalculatorController {
             @RequestParam(value = "daCardLitresBlend", defaultValue = "0.0") double daCardLitresBlend,
             @RequestParam(value = "daCardLitresUnleaded", defaultValue = "0.0") double daCardLitresUnleaded,
 
-            @RequestParam(value = "cashDropped", defaultValue = "0.0") double cashDropped,
+            @RequestParam(value = "cashDropped", defaultValue = "0.0") double cashDropped, HttpSession session,
 
             Model model
     ) {
@@ -94,7 +90,7 @@ public class SalesCalculatorController {
                 - couponLitresUnleaded * pricePerLitreUnleaded - daCardLitresBlend * pricePerLitreBlend
                 - daCardLitresDiesel * pricePerLitreDiesel - daCardLitresUnleaded * pricePerLitreUnleaded;
         double cashInHand = totalRevenueInCash - cashDropped;
-        closingCash = cashInHand;
+
 
 
         model.addAttribute("litresBlend", litresBlend);
@@ -123,84 +119,70 @@ public class SalesCalculatorController {
 
         model.addAttribute("cashInHand", cashInHand);
 
+        SalesSummaryDto summary = new SalesSummaryDto();
+        summary.litresBlend = litresBlend;
+        summary.litresDiesel = litresDiesel;
+        summary.litresUnleaded = litresUnleaded;
+        summary.totalLitres = totalLitres;
+        summary.couponLitres = couponLitres;
+        summary.daCardLitres = daCardLitres;
+        summary.blendNetLitres = blendNetLitres;
+        summary.dieselNetLitres = dieselNetLitres;
+        summary.unleadedNetLitres = unleadedNetLitres;
+        summary.couponLitresBlend = couponLitresBlend;
+        summary.couponLitresDiesel = couponLitresDiesel;
+        summary.couponLitresUnleaded = couponLitresUnleaded;
+        summary.daCardLitresBlend = daCardLitresBlend;
+        summary.daCardLitresDiesel = daCardLitresDiesel;
+        summary.daCardLitresUnleaded = daCardLitresUnleaded;
+        summary.netLitres = netLitres;
+        summary.totalRevenue = totalRevenue;
+        summary.totalRevenueInCash = totalRevenueInCash;
+        summary.cashInHand = cashInHand;
+        summary.cashDropped = cashDropped;
+
+        session.setAttribute("salesSummary", summary);
+
 //        return "result";
         return "sales-summary";
     }
 
-    @Autowired
-    private PdfGenerator pdfGenerator;
+
 
     @PostMapping("/summary/pdf")
-    public ResponseEntity<byte[]> downloadSalesSummaryPdf(
-                                                          @RequestParam("startReadingBlendA") double startReadingBlendA,
-                                                          @RequestParam("endReadingBlendA") double endReadingBlendA,
-                                                          @RequestParam("startReadingBlendB") double startReadingBlendB,
-                                                          @RequestParam("endReadingBlendB") double endReadingBlendB,
-                                                          @RequestParam("startReadingDieselA") double startReadingDieselA,
-                                                          @RequestParam("endReadingDieselA") double endReadingDieselA,
-                                                          @RequestParam("startReadingDieselB") double startReadingDieselB,
-                                                          @RequestParam("endReadingDieselB") double endReadingDieselB,
-                                                          @RequestParam("startReadingUnleadedA") double startReadingUnleadedA,
-                                                          @RequestParam("endReadingUnleadedA") double endReadingUnleadedA,
-                                                          @RequestParam("startReadingUnleadedB") double startReadingUnleadedB,
-                                                          @RequestParam("endReadingUnleadedB") double endReadingUnleadedB,
-                                                          @RequestParam("pricePerLitreDiesel") double pricePerLitreDiesel,
-                                                          @RequestParam("pricePerLitreBlend") double pricePerLitreBlend,
-                                                          @RequestParam("pricePerLitreUnleaded") double pricePerLitreUnleaded,
+    public ResponseEntity<byte[]> downloadSalesSummaryPdf(@Autowired PdfGenerator pdfGenerator,HttpSession session) throws DocumentException {
+            SalesSummaryDto summary = (SalesSummaryDto) session.getAttribute("salesSummary");
 
-                                                          @RequestParam(value = "couponLitresDiesel", defaultValue = "0.0") double couponLitresDiesel,
-                                                          @RequestParam(value = "couponLitresBlend", defaultValue = "0.0") double couponLitresBlend,
-                                                          @RequestParam(value = "couponLitresUnleaded", defaultValue = "0.0") double couponLitresUnleaded,
-
-                                                          @RequestParam(value = "daCardLitresDiesel", defaultValue = "0.0") double daCardLitresDiesel,
-                                                          @RequestParam(value = "daCardLitresBlend", defaultValue = "0.0") double daCardLitresBlend,
-                                                          @RequestParam(value = "daCardLitresUnleaded", defaultValue = "0.0") double daCardLitresUnleaded,
-
-                                                          @RequestParam(value = "cashDropped", defaultValue = "0.0") double cashDropped) throws DocumentException
+            if (summary == null) {
+                return ResponseEntity.badRequest().build(); // Or return an error view/page
+            }
 
 
-        {
-            double litresBlendA = endReadingBlendA - startReadingBlendA;
-            double litresBlendB = endReadingBlendB - startReadingBlendB;
-            double litresDieselA = endReadingDieselA - startReadingDieselA;
-            double litresDieselB = endReadingDieselB - startReadingDieselB;
-            double litresUnleadedA = endReadingUnleadedA - startReadingUnleadedA;
-            double litresUnleadedB = endReadingUnleadedB - startReadingUnleadedB;
-
-            double totalLitres = litresBlendA + litresBlendB + litresDieselA + litresDieselB + litresUnleadedA + litresUnleadedB;
-            double couponLitres = couponLitresBlend + couponLitresUnleaded + couponLitresDiesel;
-            double daCardLitres = daCardLitresBlend + daCardLitresUnleaded + daCardLitresDiesel;
-
-            double netLitres = totalLitres - couponLitres - daCardLitres;
-            double litresBlend = litresBlendA + litresBlendB;
-            double litresDiesel = litresDieselA + litresDieselB;
-            double litresUnleaded = litresUnleadedA + litresUnleadedB;
-
-            double totalRevenue = litresBlend * pricePerLitreBlend + litresUnleaded * pricePerLitreUnleaded + litresDiesel * pricePerLitreDiesel;
-            double totalRevenueInCash = litresDiesel * pricePerLitreDiesel + litresUnleaded * pricePerLitreUnleaded +
-                    litresBlend * pricePerLitreBlend - couponLitresBlend * pricePerLitreBlend - couponLitresDiesel * pricePerLitreDiesel
-                    - couponLitresUnleaded * pricePerLitreUnleaded - daCardLitresBlend * pricePerLitreBlend
-                    - daCardLitresDiesel * pricePerLitreDiesel - daCardLitresUnleaded * pricePerLitreUnleaded;
-            double cashInHand = totalRevenueInCash - cashDropped;
 
             Map<String, Object> data = new HashMap<>();
-            data.put("litresBlend", litresBlend);
-            data.put("litresDiesel", litresDiesel);
-            data.put("litresUnleaded", litresUnleaded);
-            data.put("netLitres", netLitres);
-            data.put("totalLitres", totalLitres);
-            data.put("couponLitres", couponLitres);
-            data.put("daCardLitres", daCardLitres);
-            data.put("daCardLitresBlend", daCardLitresBlend);
-            data.put("daCardLitresUnleaded", daCardLitresUnleaded);
-            data.put("daCardLitresDiesel", daCardLitresDiesel);
-            data.put("couponLitresDiesel", couponLitresDiesel);
-            data.put("couponLitresUnleaded", couponLitresUnleaded);
-            data.put("couponLitresBlend", couponLitresBlend);
-            data.put("cashDropped", cashDropped);
-            data.put("totalRevenue", totalRevenue);
-            data.put("totalRevenueInCash", totalRevenueInCash);
-            data.put("cashInHand", cashInHand);
+            data.put("litresBlend", summary.getLitresBlend());
+            data.put("litresDiesel", summary.getLitresDiesel());
+            data.put("litresUnleaded", summary.getLitresUnleaded());
+            data.put("netLitres", summary.getNetLitres());
+            data.put("totalLitres", summary.getTotalLitres());
+            data.put("couponLitres", summary.getCouponLitres());
+            data.put("daCardLitres", summary.getDaCardLitres());
+            data.put("blendNetLitres", summary.getBlendNetLitres());
+            data.put("dieselNetLitres", summary.getDieselNetLitres());
+            data.put("unleadedNetLitres", summary.getUnleadedNetLitres());
+            data.put("totalRevenue", summary.getTotalRevenue());
+            data.put("totalRevenueInCash", summary.getTotalRevenueInCash());
+            data.put("cashInHand", summary.getCashInHand());
+            data.put("couponLitresDiesel", summary.getCouponLitresDiesel());
+            data.put("couponLitresUnleaded", summary.getCouponLitresUnleaded());
+            data.put("couponLitresBlend", summary.getCouponLitresBlend());
+            data.put("daCardLitresBlend", summary.getDaCardLitresBlend());
+            data.put("daCardLitresDiesel", summary.getDaCardLitresDiesel());
+            data.put("daCardLitresUnleaded", summary.getDaCardLitresUnleaded());
+            data.put("cashDropped", summary.getCashDropped());
+
+
+
 
             byte[] pdfBytes = pdfGenerator.generatePdf("sales-summary", data);
 
