@@ -14,7 +14,7 @@ import java.util.Map;
 @Service
 public class PdfGenerator {
 
-    @Autowired
+
     private final TemplateEngine templateEngine;
 
     public PdfGenerator(TemplateEngine templateEngine) {
