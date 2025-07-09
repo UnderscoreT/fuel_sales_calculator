@@ -19,6 +19,7 @@ import java.util.Map;
 public class SalesCalculatorController {
 
 
+
     @GetMapping("/terms")
     public String showTerms() {
         return "terms";
