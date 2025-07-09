@@ -289,6 +289,14 @@
                 width: 100%;
                 font-size: 1rem;
             }
+            .step-number--of3{
+
+            font-size: 8.6rem;
+            font-weight: 600;
+            color: #ddd;
+            margin-bottom: 1.2rem;
+            }
+
             .contact-us {
                 width: 100%;
             }
@@ -616,7 +624,8 @@
     <!-- Step 1 -->
     <div class="step">
         <div class="step-text">
-            <h3>1. Register Your Account</h3>
+            <p class="step-number--of3">01</p>
+            <h3> Register Your Account</h3>
             <p>Create a free account in seconds using your email and a secure password.</p>
         </div>
         <img th:src="@{/Screenshot reg.png}" alt="Step 1 Screenshot" class="step-image">
@@ -627,8 +636,9 @@
     <div class="step reverse">
 
         <div class="step-text">
-            <h3>2. Log Your Daily Sales</h3>
-            <p>Enter opening and closing meter readings for each nozzle and log liters sold via coupons or card.</p>
+            <p class="step-number--of3">02</p>
+             <h3>Log Your Sales Data</h3>
+            <p>Enter opening and closing meter readings for each nozzle and log litres sold via coupons or card.</p>
         </div>
         <img th:src="@{/nozzles.png}" alt="Step 2 Screenshot" class="step-image">
     </div>
@@ -636,7 +646,8 @@
     <!-- Step 3 -->
     <div class="step">
         <div class="step-text">
-            <h3>3. Get Your Totals</h3>
+            <p class="step-number--of3">03</p>
+            <h3>Get Your Totals</h3>
             <p>View your auto-calculated total sales and download a PDF report in one click.</p>
         </div>
         <img th:src="@{/totals.png}" alt="Step 3 Screenshot" class="step-image">
