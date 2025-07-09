@@ -189,12 +189,18 @@ public class SalesCalculatorController {
 
 
             byte[] pdfBytes = pdfGenerator.generatePdf("sales-summary", data);
+        System.out.println("Generated PDF bytes: " + pdfBytes.length);
 
-            return ResponseEntity.ok()
-                    .contentType(MediaType.APPLICATION_PDF)
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"fuel-sales-summary.pdf\"")
-                    .body(pdfBytes);
-        }
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_PDF)
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"fuel-sales-summary.pdf\"")
+                .header(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate")
+                .header(HttpHeaders.PRAGMA, "no-cache")
+                .header(HttpHeaders.EXPIRES, "0")
+                .body(pdfBytes);
+
+    }
 
 
 
