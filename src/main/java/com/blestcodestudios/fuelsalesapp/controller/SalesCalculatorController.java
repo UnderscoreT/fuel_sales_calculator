@@ -18,7 +18,11 @@ import java.util.Map;
 @Controller
 public class SalesCalculatorController {
 
+    private final PdfGenerator pdfGenerator ;
 
+    public SalesCalculatorController(PdfGenerator pdfGenerator) {
+        this.pdfGenerator = pdfGenerator;
+    }
 
     @GetMapping("/terms")
     public String showTerms() {
@@ -150,7 +154,7 @@ public class SalesCalculatorController {
 
 
     @PostMapping("/summary/pdf")
-    public ResponseEntity<byte[]> downloadSalesSummaryPdf(@Autowired PdfGenerator pdfGenerator,HttpSession session) throws DocumentException {
+    public ResponseEntity<byte[]> downloadSalesSummaryPdf(HttpSession session) throws DocumentException {
             SalesSummaryDto summary = (SalesSummaryDto) session.getAttribute("salesSummary");
 
             if (summary == null) {
