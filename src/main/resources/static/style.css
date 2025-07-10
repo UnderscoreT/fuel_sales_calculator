@@ -16,10 +16,12 @@ FONT SIZE SYSTEM (px)
 html {
     scroll-behavior: smooth;
     font-size: 62.5%;
+
 }
 
 body {
     color: #444;
+    font-size:  1.6rem;
     font-family: "Inter", sans-serif;
     /*border-top: 3px solid #1098ad;*/
 }
