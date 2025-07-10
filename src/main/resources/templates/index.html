@@ -229,7 +229,23 @@
             flex-direction: row-reverse;
         }
 
-        .step-image {
+        .step-image-1 {
+            width: 50%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            height: auto;
+        }
+
+        .step-image-2 {
+            width: 50%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            height: auto;
+        }
+
+        .step-image-3 {
             width: 50%;
             max-width: 500px;
             border-radius: 10px;
@@ -274,7 +290,7 @@
                 text-align: center;
             }
 
-            .step-image,
+            .step-image-1,.step-image-2,.step-image-3
             .step-text {
                 width: 100%;
             }
@@ -615,7 +631,7 @@
             <h3> Register Your Account</h3>
             <p>Create your account and login.</p>
         </div>
-        <img th:src="@{/Screenshot reg.png}" alt="Step 1 Screenshot" class="step-image">
+        <img th:src="@{/Screenshot reg.png}" alt="Step 1 Screenshot" class="step-image-1">
 
     </div>
 
@@ -627,7 +643,7 @@
              <h3>Log Your Sales Data</h3>
             <p>Enter opening and closing meter readings for each nozzle and log litres sold via coupons or card.</p>
         </div>
-        <img th:src="@{/for-side-2.png}" alt="Step 2 Screenshot" class="step-image">
+        <img th:src="@{/for-side-2.png}" alt="Step 2 Screenshot" class="step-image-2">
     </div>
 
     <!-- Step 3 -->
@@ -637,7 +653,7 @@
             <h3>Get Your Totals</h3>
             <p>View your auto-calculated total sales and download a PDF report in one click.</p>
         </div>
-        <img th:src="@{/for-side-3.png}" alt="Step 3 Screenshot" class="step-image">
+        <img th:src="@{/for-side-3.png}" alt="Step 3 Screenshot" class="step-image-3">
 
     </div>
 </section>
