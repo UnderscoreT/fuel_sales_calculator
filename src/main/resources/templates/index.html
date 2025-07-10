@@ -136,6 +136,8 @@
             background-color: #378a76;
         }
 
+
+
         nav#main-nav a:hover, nav#main-nav a:active {
             color: white;
             text-decoration: none;
@@ -203,6 +205,11 @@
             margin: 0 auto;
             padding: 40px 20px;
         }
+
+        .resources-container{
+            margin: 0 auto;
+        }
+
 
         .section-title {
             text-align: center;
@@ -586,7 +593,7 @@
 <article id="about" class="home">
     <h3 style="padding: 2rem">How it works? </h3>
 <p style="padding: 2rem; ">This application can be used to help a fuel attendant using a pump with at most 6 nozzles calculate day end sales.
-    Listed below are the overall capabilities that this web application enables attendants work out </p>
+    Listed below are the overall capabilities that this tool provides:</p>
 <ul style="padding: 2rem; list-style: none" class="ul">
     <ion-icon class="attr-icon" name="checkmark"></ion-icon><li style="margin: 2rem;">determine how much total cash sales they have done </li>
     <ion-icon class="attr-icon" name="checkmark"></ion-icon> <li style="margin: 2rem;">get a summary of total litres sold </li>
@@ -637,6 +644,7 @@
 
 <section class="resources">
     <h2 class="section-title">Resources</h2>
+    <div class="resources-container">
     <p class="resources"  title="Create a cash breakdown for your sales"  >Cash Breakdown Maker</p>
     <p>
         Use our <a th:href="@{/cash-breakdown-maker}" title="Generate printable cash breakdowns for banks, cashiers, and service desks"
@@ -645,6 +653,7 @@
         Cash Breakdown Maker
     </a> to quickly generate printable denomination summaries.
     </p>
+    </div>
 </section>
 
 
