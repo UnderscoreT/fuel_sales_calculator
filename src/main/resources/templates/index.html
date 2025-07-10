@@ -353,9 +353,12 @@
         /* Mobile styles */
         @media (max-width: 768px) {
             .main-header {
-                flex-direction: row;
+                /*flex-direction: row; */
                 align-items: center;
-                justify-content: space-between;
+                flex-direction:  column;
+                justify-content: normal;
+                /*justify-content: space-between;*/
+
             }
 
             .menu-toggle {
@@ -373,9 +376,10 @@
                 background-color: #087f5b;
                 padding: 1rem;
             }
-
+      /*new change*/
             #main-nav.open .nav-links {
                 display: flex;
+                flex-direction: column; /*new change*/
             }
 
             .auth-links {
