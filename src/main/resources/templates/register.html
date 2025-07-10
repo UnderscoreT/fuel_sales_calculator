@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Register | SizaFuel</title>
     <link rel="stylesheet" th:href="@{/register.css}">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -43,6 +45,15 @@
         </div>
 
         <p id="error" class="error-message" style="display:none;">Passwords do not match!</p>
+
+        <input type="hidden" name="recaptchaResponse" id="recaptchaResponse" />
+        <script>
+            function setRecaptchaResponse(token) {
+                document.getElementById('recaptchaResponse').value = token;
+            }
+        </script>
+
+        <div class="g-recaptcha" data-sitekey="6LftzH4rAAAAAMhE6pZH0bCAYgxp2T06Jw8SqDpL"></div>
 
         <button type="submit" class="btn">Register</button>
     </form>
