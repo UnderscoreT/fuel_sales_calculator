@@ -236,6 +236,16 @@
             margin-bottom: 1.2rem;
         }
 
+        /*font issue*/
+        section h2{
+             font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #333;
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 3.2rem;
+        }
+
         @media (max-width: 768px) {
             .step,
             .step.reverse {
@@ -664,7 +674,10 @@
     </div>
 </section>
 
-
+<section class="resources">
+    <h2 class="section-title">Resources</h2>
+    <a class="resources" th:href="/showBreakDownForm" th:title="Create a cash breakdown for your sales"  >Cash Breakdown Maker</a>
+</section>
 
 
 <!-- Contact Us Section -->
