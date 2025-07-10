@@ -207,7 +207,7 @@
         }
 
         .resources-container{
-            margin: 0 auto;
+            margin-left: auto;
         }
 
 
@@ -217,10 +217,16 @@
             margin-bottom: 50px;
         }
         .section-title-resource {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #333;
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 3.2rem;
             margin-left: 2rem;
             text-align: center;
-            font-size: 2em;
-            margin-bottom: 50px;
+
+
         }
         .breakdown-maker-resource-link{
             text-decoration: none;
@@ -248,7 +254,7 @@
         }
 
         .step-image-2 {
-            width: 50%;
+            width: 42%;
             max-width: 500px;
             border-radius: 10px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -256,7 +262,7 @@
         }
 
         .step-image-3 {
-            width: 50%;
+            width: 36%;
             max-width: 500px;
             border-radius: 10px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -289,12 +295,13 @@
 
         /*font issue*/
         section h2{
-             font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #333;
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 3.2rem;
+            /*font-weight: 700;*/
+            /*letter-spacing: -0.5px;*/
+            /*color: #333;*/
+            /*font-size: 3rem;*/
+            /*line-height: 1.2;*/
+            /*margin-bottom: 3.2rem;*/
+
         }
 
         @media (max-width: 768px) {
@@ -677,12 +684,13 @@
 </section>
 
 <section class="resources">
-    <h2 class="section-title-resource">Resources</h2>
     <div class="resources-container">
+    <h2 class="section-title-resource">Resources</h2>
+
     <p class="resources"  title="Create a cash breakdown for your sales"  >Cash Breakdown Maker</p>
     <p>
         Use our <a th:href="@{/cash-breakdown-maker}" title="Generate printable cash breakdowns for banks, cashiers, and service desks"
-         class="breakdown-maker-resource-link"
+         class="breakdown-maker-resource-link">
 
         Cash Breakdown Maker
     </a> to quickly generate printable denomination summaries.
