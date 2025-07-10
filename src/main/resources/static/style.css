@@ -27,7 +27,7 @@ body {
 }
 
 h1 {
-    font-size: 26px;
+    font-size: 2.6rem;
     font-family: sans-serif;
     text-transform: uppercase;
     font-style: italic;
@@ -55,11 +55,11 @@ nav {
 }
 aside {
     /*margin-top: 40px;*/
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
     /*padding: 15px;*/
     /* display: flex;*/
     box-shadow: 0 0 32px rgba(0, 0, 0, 0.38);
-    border-radius: 15.2px;
+    border-radius: 1.52rem;
 }
 h1 {
     padding: 15px;
@@ -72,52 +72,52 @@ h2 {
     background-color: #f7f7f7;
     text-transform: uppercase;
     /*margin-top: 5px;*/
-    margin-bottom: 30px;
-    padding: 15px;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
 }
 .main-header {
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 h3 {
-    font-size: 30px;
+    font-size: 3rem;
     font-family: sans-serif;
 }
 h4 {
-    font-size: 22px;
+    font-size: 2.2rem;
     font-family: sans-serif;
     text-transform: uppercase;
     text-align: center;
 }
 
 p{
-    font-size: 22px;
+    font-size: 2.2rem;
     font-family: sans-serif;
     line-height: 1.5;
 }
 
 li {
-    font-size: 20px;
+    font-size: 2rem;
     font-family: sans-serif;
 }
 
 footer{
     font-family: sans-serif;
     /*text-align: center;*/
-    margin-bottom: 48px;
-    font-size: 14px;
+    margin-bottom: 4.8rem;
+    font-size: 1.4rem;
     color: #495057;
-    margin-left: 20px;
+    margin-left: 2rem;
 }
 form {
-    font-size: 20px;
+    font-size: 2rem;
     font-family: sans-serif;
     text-align: center;
 }
 .label-1 {
-    margin: 5px;
+    margin: 5rem;
     display: inline-block;
 }
 .labels {
@@ -127,7 +127,7 @@ form {
     padding: 0;
 }
 button {
-    font-size: 20px;
+    font-size: 2rem;
     font-family: sans-serif;
     /*background-color: #1098ad;*/
     text-align: center;
@@ -181,12 +181,12 @@ a:active {
     border: none;
     color: #fff;
     cursor: pointer;
-    padding: 15px;
+    padding: 1.5rem;
     width: 100%;
     border-top: 2px solid #444444;
     letter-spacing: 2px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 15rem;
 }
 .calculate-button:hover {
     color: #444;
@@ -197,7 +197,7 @@ form label {
     text-transform: uppercase;
 }
  .calculator-form {
-     padding-top: 10px;
+     padding-top: 1rem;
     width: 100%;
     height: auto;
      border: 2px solid #444444;
@@ -205,7 +205,7 @@ form label {
      justify-content: space-between;
      align-items: center;
      letter-spacing: 1.2px;
-     border-radius: 18px;
+     border-radius: 1.8rem;
 }
 
  .container {
@@ -217,7 +217,7 @@ form label {
  }
 
 nav a:link {
-    margin-right: 30px;
+    margin-right: 3rem;
     /*margin-top: 25px;*/
     display: inline-block;
 }
@@ -314,16 +314,16 @@ h2 {
 .sides {
     display: grid;
     grid-template-columns:  1fr 1fr;
-    column-gap: 30px;
+    column-gap: 30rem;
     /*align-items: center;*/
     justify-content: center;
     align-content: center;
-    padding: 10px 15px;
+    padding: 1rem 1.5rem;
 }
 @media (max-width: 768px) {
     .sides {
         grid-template-columns: 1fr;
-        row-gap: 20px;
+        row-gap: 2rem;
     }
 }
 
@@ -331,17 +331,17 @@ h2 {
     display: none;
     background: none;
     border: none;
-    font-size: 28px;
+    font-size: 2.8rem;
     cursor: pointer;
     color: #444;
 }
 
 /* Mobile styles */
-@media (max-width: 768px) {
+@media (max-width: 60rem) {
     .main-header {
         flex-direction: column;
         align-items: flex-start;
-        padding: 10px;
+        padding: 1rem;
     }
 
     nav {
@@ -349,7 +349,7 @@ h2 {
         flex-direction: column;
         width: 100%;
         text-align: left;
-        gap: 10px;
+        gap: 1rem;
     }
 
     nav.open {
@@ -359,11 +359,11 @@ h2 {
     .menu-toggle {
         display: block;
         margin-left: auto;
-        margin-right: 10px;
+        margin-right: 1rem;
     }
 
     nav a {
-        padding: 10px 15px;
+        padding: 1rem 1.5rem;
         border-top: 1px solid #ddd;
         width: 100%;
     }
@@ -391,7 +391,7 @@ h2 {
     }
 
 .terms {
-    margin-left: 20px;
+    margin-left: 2rem;
 }
 
 /*   link  hover */
@@ -411,7 +411,7 @@ h2 {
     color: #8d8f84;
 }
 .contact-us{
-    max-width: 1200px;
+    max-width: 120rem;
     margin: auto;
 
 }
@@ -434,7 +434,7 @@ h2 {
         letter-spacing: .05em;
         font-weight: 600;
         line-height: 1.125;
-        font-size: 28px;
+        font-size: 2.8rem;
     }
 
     .hero{
