@@ -676,7 +676,14 @@
 
 <section class="resources">
     <h2 class="section-title">Resources</h2>
-    <a class="resources" th:href="/showBreakDownForm" th:title="Create a cash breakdown for your sales"  >Cash Breakdown Maker</a>
+    <p class="resources"  title="Create a cash breakdown for your sales"  >Cash Breakdown Maker</p>
+    <p>
+        Use our <a th:href="@{/cash-breakdown-maker}" title="Generate printable cash breakdowns for banks, cashiers, and service desks"
+         class="breakdown-maker-resource-link"
+    >
+        Cash Breakdown Maker
+    </a> to quickly generate printable denomination summaries.
+    </p>
 </section>
 
 

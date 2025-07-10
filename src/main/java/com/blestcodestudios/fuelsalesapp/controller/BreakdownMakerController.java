@@ -1,9 +1,7 @@
 package com.blestcodestudios.fuelsalesapp.controller;
 
 import com.blestcodestudios.fuelsalesapp.model.BreakdownMaker;
-import com.blestcodestudios.fuelsalesapp.model.SalesCalculator;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +15,8 @@ public class BreakdownMakerController {
 
     private final SalesCalculatorController salesCalculator;
 
-    @PreAuthorize("isAuthenticated()")
-    @GetMapping("/showBreakDownForm")
+   // @PreAuthorize("isAuthenticated()")
+    @GetMapping("/cash-breakdown-maker")
     public String showBreakDownForm() {
 
         //return "breakdown";
