@@ -262,6 +262,10 @@
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             height: auto;
         }
+        .app-attribute{
+            display: flex;
+
+        }
 
         .step-text {
             width: 50%;
@@ -621,10 +625,14 @@
 <p style="padding: 2rem; ">This application can be used to help a fuel attendant using a pump with at most 6 nozzles calculate day end sales.
     Listed below are the overall capabilities that this tool provides:</p>
 <ul style="padding: 2rem; list-style: none" class="ul">
-    <ion-icon class="attr-icon" name="checkmark"></ion-icon><li style="margin: 2rem;">determine how much total cash sales they have done </li>
-    <ion-icon class="attr-icon" name="checkmark"></ion-icon> <li style="margin: 2rem;">get a summary of total litres sold </li>
-    <ion-icon class="attr-icon" name="checkmark"></ion-icon><li style="margin: 2rem;">quickly calculate how much cash in  hand they need to submit which was not dropped</li>
-    <ion-icon class="attr-icon" name="checkmark"></ion-icon><li style="margin: 2rem;">quickly make a breakdown of the cash in hand</li>
+   <div class="app-attribute"> <ion-icon class="attr-icon" name="checkmark"></ion-icon><li style="margin: 2rem;">determine how much total cash sales they have done </li>
+   </div>
+    <div class="app-attribute"><ion-icon class="attr-icon" name="checkmark"></ion-icon> <li style="margin: 2rem;">get a summary of total litres sold </li>
+    </div>
+    <div class="app-attribute"><ion-icon class="attr-icon" name="checkmark"></ion-icon><li style="margin: 2rem;">quickly calculate how much cash in  hand they need to submit which was not dropped</li>
+    </div>
+    <div class="app-attribute"><ion-icon class="attr-icon" name="checkmark"></ion-icon><li style="margin: 2rem;">quickly make a breakdown of the cash in hand</li>
+    </div>
 </ul>
 <p style="padding: 2rem;" class="nb">
     <strong>Make sure your input for starting and closing pump meter readings and product price is correct!</strong>
