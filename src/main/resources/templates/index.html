@@ -350,6 +350,59 @@
             margin-top: 2rem;
             background-color: #e9ecef;
         }
+/* easy gridding */
+        .easy--steps {
+            max-width: 110rem;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6rem 4rem; /* row-gap, column-gap */
+        }
+
+        .section-title {
+            grid-column: 1 / -1; /* Make the title span both columns */
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 5rem;
+        }
+
+        /* Make each .step block vertical inside its grid cell */
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .step.reverse {
+            flex-direction: column; /* Override previous row-reverse */
+        }
+        @media (max-width: 768px) {
+            .easy--steps {
+                grid-template-columns: 1fr;
+            }
+        }
+/* kkkkkkkkkkkkk */
+
+        /* Adjust image widths for column layout */
+        .step-image-1,
+        .step-image-2,
+        .step-image-3 {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            height: auto;
+        }
+
+        /* Center text block inside grid cell */
+        .step-text {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
 
         /* Responsive Styles */
         @media (max-width: 60rem) {
