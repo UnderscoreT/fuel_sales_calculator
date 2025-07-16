@@ -658,34 +658,59 @@
         </nav>
     </header>
 
-    <section class="hero" style="background-color: #6d9a8d;
-        display: grid;
-        grid-template-columns: 2.5fr 1fr;
-         margin-bottom: 4.3rem"
-    >
+    <section class="hero" style="
+  position: relative;
+  height: 65vh;
+  background-image: url('/rock-staar-dQjTFIzw6qo-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 4rem;
+">
+        <!-- Dark overlay -->
+        <div style="
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  "></div>
 
-        <div class="hero-content" style="padding:  1rem;" >
+        <!-- Content -->
+        <div class="hero-content" style="
+    z-index: 2;
+    color: #EF7;
+    padding: 2rem;
+    max-width: 100%;
+  ">
+            <h1 style="
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    ">
+                Fuel sales calculator / +
+                <a href="/cash-breakdown-maker"
+                   title="Cash breakdown maker for anyone who works with cash breakdowns/totals"
+                   style="text-decoration: none; color: inherit;">
+                    A Breakdown Maker
+                </a>
+            </h1>
 
-        <h1 class="title" style="font-size:  1.25rem;color: #d8d1d1;font-weight: 700;text-transform: uppercase;">
-            Fuel sales calculator / + <a href="/cash-breakdown-maker"
-             title="Cash breakdown maker for anyone who works with cash breakdowns/totals"
-                                         style="text-decoration: none;color: inherit;"
-        >A Breakdown Maker</a></h1>
-
-        <p class="hero-text" style="letter-spacing: .05em;
-        font-weight: 600;
-        line-height: 1.125;
-        color: #d8d1d1;
-        font-size: 3rem;"
-        >
-
-
+            <p style="
+      font-size: clamp(1.2rem, 5vw, 1.8rem);
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.5px;
+    ">
                 Just enter your meter readings and anything else you want to account for to balance your
-            day end sales. This application will calculate your total sales in just one click.
-        </p>
-
+                day end sales. This application will calculate your total sales in just one click.
+            </p>
         </div>
     </section>
+
 
     <aside class="calculator">
           <div style="display: flex; justify-items: flex-start;align-items: center;">
