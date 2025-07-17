@@ -8,8 +8,6 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,34 +20,51 @@ import org.springframework.security.web.header.writers.ClearSiteDataHeaderWriter
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class WebSecurityConfiguration {
+
+    private final CustomUserDetailsService customUserDetailsService;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(request -> request
-                        .requestMatchers("/", "/home", "/index", "/css/**",
-                                "/images/**", "/terms", "/register/**", "/js/**",
-                                "/terms", "/privacy","/about","/**","/summary/pdf",
-                                "/error", "/api/v1/registration/**").permitAll()
-                        // Resources
-                        .requestMatchers("/css/**", "/images/**", "/webjars/**").permitAll()
-                        .requestMatchers("/calculate","/contact").permitAll()
+        http
+                .csrf(csrf -> csrf.disable())
+
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/", "/home", "/index", "/css/**", "/**", "/terms",
+                                "/register/**", "/js/**", "/privacy", "/about", "/summary/pdf",
+                                "/error", "/api/v1/registration/**", "/calculate", "/contact",
+                                "/webjars/**").permitAll()
                         .requestMatchers("/acp/**").hasAnyRole("DEVELOPER", "OWNER")
-                       // .requestMatchers("/showBreakDownForm","/makeBreakDown").authenticated()
                         .requestMatchers("/profile").hasRole("USER")
                         .anyRequest().authenticated()
+                )
+
+                .formLogin(form -> form
+                        .loginPage("/login") // You must have a Thymeleaf page mapped to /login
+                        .permitAll()
+                )
+
+                .oauth2Login(oauth2 -> oauth2
+                        .loginPage("/login") // Unified login page
+                        .defaultSuccessUrl("/", true) // 🔥 Redirect to homepage after Google login
+                )
+
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/")
+                        .addLogoutHandler(new HeaderWriterLogoutHandler(
+                                new ClearSiteDataHeaderWriter(ClearSiteDataHeaderWriter.Directive.COOKIES)))
+                        .permitAll()
+                )
+
+                .headers(headers -> headers
+                        .frameOptions(HeadersConfigurer.FrameOptionsConfig::disable)
                 );
-
-        http.formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
-                .logout(logout -> logout.addLogoutHandler(new HeaderWriterLogoutHandler(new ClearSiteDataHeaderWriter(ClearSiteDataHeaderWriter.Directive.COOKIES))));
-
-        http.headers(configurer -> configurer.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable));
 
         return http.build();
     }
 
     @Bean
     public UserDetailsService getUserDetailsService() {
-        return new CustomUserDetailsService();
+        return customUserDetailsService;
     }
 
     @Bean
@@ -59,7 +74,7 @@ public class WebSecurityConfiguration {
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
-        var authProvider = new DaoAuthenticationProvider();
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(getUserDetailsService());
         authProvider.setPasswordEncoder(getBCryptPasswordEncoder());
         return authProvider;
