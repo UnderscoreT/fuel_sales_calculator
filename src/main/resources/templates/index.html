@@ -1205,5 +1205,17 @@
     });
 </script>
 
+<script>
+    // Only report once per session
+    if (!sessionStorage.getItem("homepageVisitReported")) {
+        fetch("/api/homepage-visit", {
+            method: "POST"
+        }).catch(err => console.error("Visit report failed:", err));
+
+        sessionStorage.setItem("homepageVisitReported", "true");
+    }
+</script>
+
+
 </body>
 </html>
