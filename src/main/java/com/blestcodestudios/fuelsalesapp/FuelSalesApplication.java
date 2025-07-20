@@ -2,12 +2,14 @@ package com.blestcodestudios.fuelsalesapp;
 
 import com.blestcodestudios.fuelsalesapp.model.SalesCalculator;
 import com.blestcodestudios.fuelsalesapp.repository.SalesCalculatorRepository;
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+@EnableRabbit
 public class FuelSalesApplication {
 
     public static void main(String[] args) {

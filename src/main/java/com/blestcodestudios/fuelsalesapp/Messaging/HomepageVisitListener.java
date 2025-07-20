@@ -2,46 +2,44 @@ package com.blestcodestudios.fuelsalesapp.Messaging;
 
 import com.blestcodestudios.fuelsalesapp.config.RabbitMQConfig;
 import com.blestcodestudios.fuelsalesapp.dto.HomepageVisitDto;
-import com.blestcodestudios.fuelsalesapp.service.GeoIpService;
+import com.blestcodestudios.fuelsalesapp.entity.VisitLog;
+import com.blestcodestudios.fuelsalesapp.repository.VisitLogRepository;
+import com.blestcodestudios.fuelsalesapp.service.EmailService;
+import com.blestcodestudios.fuelsalesapp.service.GeoLookupService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
-
-import java.util.Map;
-
+@Slf4j
 @Component
 public class HomepageVisitListener {
 
-    private final JavaMailSender mailSender;
-    private final GeoIpService geoIpService;
+    private final GeoLookupService geoLookupService;
+    private final VisitLogRepository visitLogRepository;
+    private final EmailService emailService;
 
-    public HomepageVisitListener(JavaMailSender mailSender, GeoIpService geoIpService) {
-        this.mailSender = mailSender;
-        this.geoIpService = geoIpService;
+    public HomepageVisitListener(
+            GeoLookupService geoLookupService,
+            VisitLogRepository visitLogRepository,
+            EmailService emailService
+    ) {
+        this.geoLookupService = geoLookupService;
+        this.visitLogRepository = visitLogRepository;
+        this.emailService = emailService;
     }
 
     @RabbitListener(queues = RabbitMQConfig.HOMEPAGE_VISIT_QUEUE)
     public void receiveVisit(HomepageVisitDto visit) {
-        String ip = visit.getIp();
+        GeoLookupService.GeoData geoData = geoLookupService.lookup(visit.getIp());
 
-        String location = geoIpService.lookupLocation(ip);
+        visit.setCountry(geoData.country());
+        visit.setCity(geoData.city());
+        visit.setIsp(geoData.isp());
 
-        String messageBody = "🧑 New homepage session started!\n\n"
-                + "🕒 Time: " + visit.getTimestamp() + "\n"
-                + "🌐 IP: " + visit.getIp() + "\n"
-                + "📱 User-Agent: " + visit.getUserAgent()
-       + "🌍 Location: " + location + "\n" +
-                "🕒 Time: " + java.time.LocalDateTime.now();
+        visitLogRepository.save(new VisitLog(visit));
+        emailService.sendVisitNotification(visit);
 
-        SimpleMailMessage email = new SimpleMailMessage();
-        email.setFrom("obey@sizafuel.xyz");
-        email.setTo("obey@sizafuel.xyz");
-        email.setSubject("🚨 New Homepage Visit - SizaFuel");
-        email.setText(messageBody);
-
-        mailSender.send(email);
-        System.out.println("✅ Visit email sent for: " + visit.getIp());
+        log.info("✅ Visit saved & email sent for: {} ({}, {}, {})",
+                visit.getIp(), visit.getCity(), visit.getCountry(), visit.getIsp());
     }
 }

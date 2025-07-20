@@ -22,6 +22,7 @@ public class CustomUserDetails implements UserDetails {
         var authorities = new ArrayList<SimpleGrantedAuthority>();
         SimpleGrantedAuthority dev=new SimpleGrantedAuthority("ROLE_DEVELOPER");
         SimpleGrantedAuthority owner = new SimpleGrantedAuthority("ROLE_OWNER");
+        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 
         if(Objects.equals("obey", appUser.getUsername().toLowerCase())){
             authorities.add(dev);
