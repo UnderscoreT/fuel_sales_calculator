@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
   @GetMapping("/login")
   public String showLoginPage(Model model) {
-    model.addAttribute("newUser", new UserCredentialsDto());
+
     return "login"; // login.html
   }
   @GetMapping("/loginSuccess")

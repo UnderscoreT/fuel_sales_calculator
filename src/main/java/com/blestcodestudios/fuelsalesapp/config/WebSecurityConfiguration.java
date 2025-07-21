@@ -45,14 +45,15 @@ public class WebSecurityConfiguration {
 
                 // –– URL rules ––
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/**").authenticated()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers(
                                 "/", "/home", "/index", "/css/**", "/**", "/terms",
                                 "/register/**", "/js/**", "/privacy", "/about",
                                 "/summary/pdf","/error", "/api/v1/registration/**",
-                                "/calculate", "/contact", "/webjars/**"
+                                "/calculate", "/contact", "/webjars/**","/**","/*.png"
                         ).permitAll()
+                        .requestMatchers("/api/**").authenticated()
+
                         .requestMatchers("/acp/**").hasAnyRole("DEVELOPER","OWNER")
                         .requestMatchers("/profile").hasRole("USER")
                         .anyRequest().authenticated()

@@ -2,6 +2,7 @@ package com.blestcodestudios.fuelsalesapp.controller;
 
 import com.blestcodestudios.fuelsalesapp.dto.UserCredentialsDto;
 import com.blestcodestudios.fuelsalesapp.entity.AppUser;
+import com.blestcodestudios.fuelsalesapp.entity.Role;
 import com.blestcodestudios.fuelsalesapp.service.CaptchaService;
 import com.blestcodestudios.fuelsalesapp.service.RegistrationService;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +36,9 @@ public class RegistrationController {
             @RequestParam("g-recaptcha-response") String recaptchaResponse,
             Model model
     ) {
+        System.out.println("Registering: " + dto.getUsername());
+
+
         if (!captchaService.verify(recaptchaResponse)) {
             model.addAttribute("error", "Captcha verification failed. Please try again.");
             return "register";
@@ -60,6 +64,9 @@ public class RegistrationController {
         user.setEncryptedPassword(passwordEncoder.encode(dto.getPassword())); // ← use the bean
         user.setCreatedOn(now);
         user.setLastUpdated(now);
+
+
+
 
         registrationService.save(user);
 

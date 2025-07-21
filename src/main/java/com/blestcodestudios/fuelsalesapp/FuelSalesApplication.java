@@ -7,12 +7,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 @EnableRabbit
 public class FuelSalesApplication {
 
     public static void main(String[] args) {
+        BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
+
         SpringApplication.run(FuelSalesApplication.class, args);
     }
 

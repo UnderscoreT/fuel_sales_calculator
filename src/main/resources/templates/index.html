@@ -705,7 +705,7 @@
     <div id="success-msg"
          th:if="${param.registered}"
          style="background-color: #d4edda; color: #155724; padding: 10px; border: 1px solid #c3e6cb; border-radius: 5px; margin-bottom: 15px; text-align: center;">
-        Account created successfully! <a href="/api/v1/registration/login">Click here to log in</a>.
+        Account created successfully! <a href="/login">Click here to log in</a>.
     </div>
     <!-- Sign in button shown only when NOT logged in -->
 <!--    <div sec:authorize="!isAuthenticated()">-->
@@ -802,11 +802,21 @@
         </div>
 
     <!-- Welcome message shown when user IS logged in -->
-    <div  sec:authorize="isAuthenticated()" class="welcome">
-<!--        Welcome, <span sec:authentication="name">User</span>!-->
-        <!-- or just first name -->
-        Welcome <span style="font-weight: 400; color: #065e43" sec:authentication="principal.attributes['given_name']">User</span>!
-    </div>
+<!--    <div  sec:authorize="isAuthenticated()" class="welcome">-->
+<!--&lt;!&ndash;        Welcome, <span sec:authentication="name">User</span>!&ndash;&gt;-->
+<!--        &lt;!&ndash; or just first name &ndash;&gt;-->
+<!--        Welcome-->
+
+
+<!--        <span sec:authorize="isAuthenticated() ">-->
+<!--           <span style="font-weight: 400; color: #065e43" sec:authentication="principal.attributes['given_name']"></span>!-->
+<!--           </span>-->
+<!--        <span sec:authorize="isAuthenticated()">-->
+<!--            <span style="font-weight: 400; color: #065e43" sec:authentication="principal.username"></span>!-->
+<!--         </span>-->
+
+
+<!--    </div>-->
 
 
 

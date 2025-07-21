@@ -1,15 +1,16 @@
 package com.blestcodestudios.fuelsalesapp.security;
 
-import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import java.util.Collections;
+import java.io.IOException;
+import java.util.List;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
@@ -20,30 +21,47 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected void doFilterInternal(
-            HttpServletRequest  request,
-            HttpServletResponse response,
-            FilterChain         filterChain
-    ) throws java.io.IOException, jakarta.servlet.ServletException {
-        String header = request.getHeader("Authorization");
-        if (header != null && header.startsWith("Bearer ")) {
-            String token = header.substring(7);
-            try {
-                String username = jwtUtil.validateAndGetUsername(token);
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getServletPath();
+
+        // 1) skip non‑API traffic
+        if (!path.startsWith("/api/")) {
+            return true;
+        }
+
+        // 2) skip registration so users can sign up
+        if (path.startsWith("/api/v1/registration/")) {
+            return true;
+        }
+
+        // 3) everything else under /api/ is protected
+        return false;
+    }
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest req,
+                                    HttpServletResponse res,
+                                    FilterChain chain)
+            throws IOException, ServletException {
+
+        String authHeader = req.getHeader("Authorization");
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            String token = authHeader.substring(7);
+
+            if (jwtUtil.validateToken(token)) {
+                String username = jwtUtil.extractUsername(token);
+
+                // you could pull roles from the token if you stored them,
+                // or just give a default USER role:
+                var authorities = List.of(new SimpleGrantedAuthority("ROLE_USER"));
+
                 var auth = new UsernamePasswordAuthenticationToken(
-                    username,
-                    null,
-                    Collections.emptyList()    // or load authorities if you like
-                );
-                auth.setDetails(
-                  new WebAuthenticationDetailsSource().buildDetails(request)
+                        username, null, authorities
                 );
                 SecurityContextHolder.getContext().setAuthentication(auth);
-            } catch (JwtException ex) {
-                // invalid token → leave context unauthenticated
             }
         }
 
-        filterChain.doFilter(request, response);
+        chain.doFilter(req, res);
     }
 }
