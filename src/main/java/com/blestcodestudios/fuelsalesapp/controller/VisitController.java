@@ -34,7 +34,7 @@ public class VisitController {
             HttpServletRequest request,
             Authentication auth            // injected by Spring Security
     ) {
-        // if we got here, JWT was valid
+        // Rate‑limit by IP
         String clientIp = extractClientIp(request);
         if (!RateLimiter.allow(clientIp)) {
             return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).build();
@@ -42,11 +42,16 @@ public class VisitController {
 
         visitCounter.increment();
 
+        // Null‑safe username
+        String username = (auth != null && auth.getName() != null)
+                ? auth.getName()
+                : "anonymous";
+
         Map<String, String> payload = new HashMap<>();
         payload.put("ip", clientIp);
         payload.put("userAgent", request.getHeader("User-Agent"));
         payload.put("timestamp", Instant.now().toString());
-        payload.put("username", auth.getName());
+        payload.put("username", username);
 
         rabbitTemplate.convertAndSend(RabbitMQConfig.HOMEPAGE_VISIT_QUEUE, payload);
         return ResponseEntity.accepted().build();
