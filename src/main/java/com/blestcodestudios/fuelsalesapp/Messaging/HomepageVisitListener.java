@@ -30,12 +30,15 @@ public class HomepageVisitListener {
 
     @RabbitListener(queues = RabbitMQConfig.HOMEPAGE_VISIT_QUEUE)
     public void receiveVisit(HomepageVisitDto visit) {
+        // 1️⃣ lookup geo data by the IP we set above
         GeoLookupService.GeoData geoData = geoLookupService.lookup(visit.getIp());
 
+        // 2️⃣ enrich the DTO
         visit.setCountry(geoData.country());
         visit.setCity(geoData.city());
         visit.setIsp(geoData.isp());
 
+        // 3️⃣ save & notify
         visitLogRepository.save(new VisitLog(visit));
         emailService.sendVisitNotification(visit);
 

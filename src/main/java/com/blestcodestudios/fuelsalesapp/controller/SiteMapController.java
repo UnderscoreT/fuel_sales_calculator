@@ -41,11 +41,11 @@ public class SiteMapController {
 //        return "about";
 //    }
 
-    @GetMapping("/login")
-    public String showLoginPage() {
-        return "login"; // maps to login.html in your templates
-    }
-
+//    @GetMapping("/login")
+//    public String showLoginPage() {
+//        return "login"; // maps to login.html in your templates
+//    }
+//
 
 
 }

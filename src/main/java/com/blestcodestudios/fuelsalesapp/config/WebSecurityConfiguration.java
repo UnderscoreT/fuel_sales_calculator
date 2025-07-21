@@ -1,17 +1,22 @@
 package com.blestcodestudios.fuelsalesapp.config;
 
+import com.blestcodestudios.fuelsalesapp.security.JwtAuthenticationFilter;
+import com.blestcodestudios.fuelsalesapp.security.JwtUtil;
 import com.blestcodestudios.fuelsalesapp.service.CustomUserDetailsService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.HeaderWriterLogoutHandler;
 import org.springframework.security.web.header.writers.ClearSiteDataHeaderWriter;
 
@@ -22,62 +27,87 @@ import org.springframework.security.web.header.writers.ClearSiteDataHeaderWriter
 public class WebSecurityConfiguration {
 
     private final CustomUserDetailsService customUserDetailsService;
+    private final JwtUtil jwtUtil;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
 
+                // –– Ensure Spring uses your DAO + BCrypt provider ––
+                .authenticationProvider(authenticationProvider())
+
+                // –– JWT filter for /api/** ––
+                .addFilterBefore(
+                        new JwtAuthenticationFilter(jwtUtil),
+                        UsernamePasswordAuthenticationFilter.class
+                )
+
+                // –– URL rules ––
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/**").authenticated()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/", "/home", "/index", "/css/**", "/**", "/terms",
-                                "/register/**", "/js/**", "/privacy", "/about", "/summary/pdf",
-                                "/error", "/api/v1/registration/**", "/calculate", "/contact",
-                                "/webjars/**").permitAll()
-                        .requestMatchers("/acp/**").hasAnyRole("DEVELOPER", "OWNER")
+                        .requestMatchers(
+                                "/", "/home", "/index", "/css/**", "/**", "/terms",
+                                "/register/**", "/js/**", "/privacy", "/about",
+                                "/summary/pdf","/error", "/api/v1/registration/**",
+                                "/calculate", "/contact", "/webjars/**"
+                        ).permitAll()
+                        .requestMatchers("/acp/**").hasAnyRole("DEVELOPER","OWNER")
                         .requestMatchers("/profile").hasRole("USER")
                         .anyRequest().authenticated()
                 )
 
+                // –– Form‑login for your UI ––
                 .formLogin(form -> form
-                        .loginPage("/login") // You must have a Thymeleaf page mapped to /login
+                        .loginPage("/login")
                         .permitAll()
                 )
 
+                // –– OAuth2 for your UI ––
                 .oauth2Login(oauth2 -> oauth2
-                        .loginPage("/login") // Unified login page
-                        .defaultSuccessUrl("/", true) // 🔥 Redirect to homepage after Google login
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/", true)
                 )
 
+                // –– Logout ––
                 .logout(logout -> logout
                         .logoutSuccessUrl("/")
                         .addLogoutHandler(new HeaderWriterLogoutHandler(
-                                new ClearSiteDataHeaderWriter(ClearSiteDataHeaderWriter.Directive.COOKIES)))
+                                new ClearSiteDataHeaderWriter(ClearSiteDataHeaderWriter.Directive.COOKIES)
+                        ))
                         .permitAll()
                 )
 
-                .headers(headers -> headers
-                        .frameOptions(HeadersConfigurer.FrameOptionsConfig::disable)
-                );
+                // –– Frames (H2‑console etc.) ––
+                .headers(headers -> headers.frameOptions(frame -> frame.disable()))
+
+                // –– Session policy (JWT stateless on /api, but form‑login still works) ––
+                .sessionManagement(sess -> sess
+                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                )
+        ;
 
         return http.build();
     }
 
     @Bean
-    public UserDetailsService getUserDetailsService() {
-        return customUserDetailsService;
+    public DaoAuthenticationProvider authenticationProvider() {
+        var provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(customUserDetailsService);
+        provider.setPasswordEncoder(passwordEncoder());
+        return provider;
     }
 
     @Bean
-    public BCryptPasswordEncoder getBCryptPasswordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(getUserDetailsService());
-        authProvider.setPasswordEncoder(getBCryptPasswordEncoder());
-        return authProvider;
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration authConfig
+    ) throws Exception {
+        return authConfig.getAuthenticationManager();
     }
 }
