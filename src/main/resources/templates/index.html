@@ -684,6 +684,11 @@
         .welcome {
             color: #333;
             margin-top: 15px;
+            border: solid darkkhaki;
+            padding: 5px;
+            border-radius: 4px;
+            max-width: 100%;
+            text-align: center;
         }
 
 
@@ -796,9 +801,13 @@
         </div>
 
     <!-- Welcome message shown when user IS logged in -->
-    <div sec:authorize="isAuthenticated()" class="welcome">
-        Welcome, <span sec:authentication="name">User</span>!
+    <div  sec:authorize="isAuthenticated()" class="welcome">
+<!--        Welcome, <span sec:authentication="name">User</span>!-->
+        <!-- or just first name -->
+        Welcome <span style="font-weight: 400; color: #065e43" sec:authentication="principal.attributes['given_name']">User</span>!
     </div>
+
+
 
 
     <aside class="calculator">

@@ -61,6 +61,9 @@ public class WebSecurityConfiguration {
                 // –– Form‑login for your UI ––
                 .formLogin(form -> form
                         .loginPage("/login")
+                        .loginProcessingUrl("/perform_login")    // <-- new
+                        .defaultSuccessUrl("/", true)
+                        .failureUrl("/login?error")
                         .permitAll()
                 )
 
