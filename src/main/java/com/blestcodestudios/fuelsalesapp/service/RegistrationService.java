@@ -7,9 +7,11 @@ import com.blestcodestudios.fuelsalesapp.repository.RoleRepository;
 import com.blestcodestudios.fuelsalesapp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class RegistrationService {
     private final UserRepository userRepository;

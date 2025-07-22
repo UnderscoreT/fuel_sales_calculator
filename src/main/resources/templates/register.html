@@ -1,4 +1,3 @@
-<!-- templates/register.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -6,7 +5,6 @@
     <title>Register | SizaFuel</title>
     <link rel="stylesheet" th:href="@{/register.css}">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -46,13 +44,7 @@
 
         <p id="error" class="error-message" style="display:none;">Passwords do not match!</p>
 
-        <input type="hidden" name="g-recaptcha-response" id="recaptchaResponse" />
-        <script>
-            function setRecaptchaResponse(token) {
-                document.getElementById('recaptchaResponse').value = token;
-            }
-        </script>
-
+        <!-- reCAPTCHA widget will inject its own hidden input -->
         <div class="g-recaptcha" data-sitekey="6LftzH4rAAAAAMhE6pZH0bCAYgxp2T06Jw8SqDpL"></div>
 
         <button type="submit" class="btn">Register</button>

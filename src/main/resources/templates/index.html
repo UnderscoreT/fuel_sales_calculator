@@ -803,16 +803,17 @@
 
     <div sec:authorize="isAuthenticated()" class="welcome">
         Welcome,
-        <!-- OAuth2 users (who have attributes['given_name']) -->
+
+        <!-- only OIDC/OAuth2 users have a getAttributes() map -->
         <span
-                sec:authorize="principal.attributes['given_name'] != null"
-                th:text="${principal.attributes['given_name']}">
+                sec:authorize="principal instanceof T(org.springframework.security.oauth2.core.user.OAuth2User)"
+                th:text="${#authentication.principal.attributes['given_name']}">
       FirstName
     </span>
 
-        <!-- fallback for plain‑DB users -->
+        <!-- everything else (your CustomUserDetails) just gets the username -->
         <span
-                sec:authorize="principal.attributes['given_name'] == null"
+                sec:authorize="!(principal instanceof T(org.springframework.security.oauth2.core.user.OAuth2User))"
                 th:text="${#authentication.name}">
       Username
     </span>
