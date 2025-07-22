@@ -4,6 +4,7 @@ import com.blestcodestudios.fuelsalesapp.config.RabbitMQConfig;
 import com.blestcodestudios.fuelsalesapp.dto.HomepageVisitDto;
 import com.blestcodestudios.fuelsalesapp.entity.VisitLog;
 import com.blestcodestudios.fuelsalesapp.repository.VisitLogRepository;
+import com.blestcodestudios.fuelsalesapp.service.GeoIpService;
 import com.blestcodestudios.fuelsalesapp.service.EmailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -13,31 +14,43 @@ import org.springframework.stereotype.Component;
 @Component
 public class HomepageVisitListener {
 
-    private final GeoLookupService geoLookupService;
+    private final GeoIpService geoIpService;
     private final VisitLogRepository visitLogRepository;
     private final EmailService emailService;
 
     public HomepageVisitListener(
-            GeoLookupService geoLookupService,
+            GeoIpService geoIpService,
             VisitLogRepository visitLogRepository,
             EmailService emailService
     ) {
-        this.geoLookupService = geoLookupService;
+        this.geoIpService       = geoIpService;
         this.visitLogRepository = visitLogRepository;
-        this.emailService = emailService;
+        this.emailService       = emailService;
     }
 
     @RabbitListener(queues = RabbitMQConfig.HOMEPAGE_VISIT_QUEUE)
     public void receiveVisit(HomepageVisitDto visit) {
-        // 1️⃣ lookup geo data by the IP we set above
-        GeoLookupService.GeoData geoData = geoLookupService.lookup(visit.getIp());
+        // 1️⃣ Perform the lookup
+        String loc = geoIpService.lookupLocation(visit.getIp());
+        // loc is either "Unknown location" or "city, regionName, country (isp)"
 
-        // 2️⃣ enrich the DTO
-        visit.setCountry(geoData.country());
-        visit.setCity(geoData.city());
-        visit.setIsp(geoData.isp());
+        // 2️⃣ Populate DTO fields
+        if (!"Unknown location".equals(loc) && loc.contains("(")) {
+            int p = loc.indexOf('(');
+            String before = loc.substring(0, p).trim();            // "city, regionName, country"
+            String isp    = loc.substring(p + 1, loc.length() - 1); // content inside parentheses
 
-        // 3️⃣ save & notify
+            String[] parts = before.split(",\\s*");
+            visit.setCity(    parts.length > 0 ? parts[0] : "Unknown");
+            visit.setCountry(parts.length > 2 ? parts[2] : "Unknown");
+            visit.setIsp(     isp);
+        } else {
+            visit.setCity(   "Unknown");
+            visit.setCountry("Unknown");
+            visit.setIsp(    "Unknown");
+        }
+
+        // 3️⃣ Save to DB and notify
         visitLogRepository.save(new VisitLog(visit));
         emailService.sendVisitNotification(visit);
 
