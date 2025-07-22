@@ -5,7 +5,6 @@ import com.blestcodestudios.fuelsalesapp.dto.HomepageVisitDto;
 import com.blestcodestudios.fuelsalesapp.entity.VisitLog;
 import com.blestcodestudios.fuelsalesapp.repository.VisitLogRepository;
 import com.blestcodestudios.fuelsalesapp.service.EmailService;
-import com.blestcodestudios.fuelsalesapp.service.GeoLookupService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
