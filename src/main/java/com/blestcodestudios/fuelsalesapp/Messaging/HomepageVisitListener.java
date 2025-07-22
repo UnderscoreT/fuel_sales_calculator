@@ -30,17 +30,32 @@ public class HomepageVisitListener {
 
     @RabbitListener(queues = RabbitMQConfig.HOMEPAGE_VISIT_QUEUE)
     public void receiveVisit(HomepageVisitDto visit) {
-        // 1️⃣ Perform the lookup
-        String loc = geoIpService.lookupLocation(visit.getIp());
-        // loc is either "Unknown location" or "city, regionName, country (isp)"
+        String ip = visit.getIp();
+        String ua = (visit.getUserAgent() != null ? visit.getUserAgent().toLowerCase() : "");
 
-        // 2️⃣ Populate DTO fields
+        // ——— Skip loopback & common private ranges ———
+        if (ip == null || ip.equals("127.0.0.1") || ip.equals("::1") ||
+                ip.startsWith("10.")       || ip.startsWith("192.168.") ||
+                ip.matches("^172\\.(1[6-9]|2\\d|3[0-1])\\..*")) {
+            log.debug("Skipping private‑range visit: {}", ip);
+            return;
+        }
+
+        // ——— Skip obvious bots/health‑checks ———
+        if (ua.contains("curl")   || ua.contains("bot") ||
+                ua.contains("health") || ua.contains("monitor")) {
+            log.debug("Skipping non‑human User‑Agent: {}", visit.getUserAgent());
+            return;
+        }
+
+        // ——— Perform the lookup ———
+        String loc = geoIpService.lookupLocation(ip);
         if (!"Unknown location".equals(loc) && loc.contains("(")) {
-            int p = loc.indexOf('(');
-            String before = loc.substring(0, p).trim();            // "city, regionName, country"
-            String isp    = loc.substring(p + 1, loc.length() - 1); // content inside parentheses
+            int p      = loc.indexOf('(');
+            String pre = loc.substring(0, p).trim();               // "city, regionName, country"
+            String isp = loc.substring(p + 1, loc.length() - 1);   // inside parentheses
+            String[] parts = pre.split(",\\s*");
 
-            String[] parts = before.split(",\\s*");
             visit.setCity(    parts.length > 0 ? parts[0] : "Unknown");
             visit.setCountry(parts.length > 2 ? parts[2] : "Unknown");
             visit.setIsp(     isp);
@@ -50,11 +65,11 @@ public class HomepageVisitListener {
             visit.setIsp(    "Unknown");
         }
 
-        // 3️⃣ Save to DB and notify
+        // ——— Save & notify ———
         visitLogRepository.save(new VisitLog(visit));
         emailService.sendVisitNotification(visit);
 
         log.info("✅ Visit saved & email sent for: {} ({}, {}, {})",
-                visit.getIp(), visit.getCity(), visit.getCountry(), visit.getIsp());
+                ip, visit.getCity(), visit.getCountry(), visit.getIsp());
     }
 }
