@@ -801,22 +801,11 @@
     </a>
         </div>
 
-    <!-- Welcome message shown when user IS logged in -->
-<!--    <div  sec:authorize="isAuthenticated()" class="welcome">-->
-<!--&lt;!&ndash;        Welcome, <span sec:authentication="name">User</span>!&ndash;&gt;-->
-<!--        &lt;!&ndash; or just first name &ndash;&gt;-->
-<!--        Welcome-->
-
-
-<!--        <span sec:authorize="isAuthenticated() ">-->
-<!--           <span style="font-weight: 400; color: #065e43" sec:authentication="principal.attributes['given_name']"></span>!-->
-<!--           </span>-->
-<!--        <span sec:authorize="isAuthenticated()">-->
-<!--            <span style="font-weight: 400; color: #065e43" sec:authentication="principal.username"></span>!-->
-<!--         </span>-->
-
-
-<!--    </div>-->
+    <div sec:authorize="isAuthenticated()" class="welcome"
+         th:with="firstName=${#authentication.principal?.attributes['given_name']}">
+        Welcome,
+        <span th:text="${firstName ?: #authentication.name}">User</span>!
+    </div>
 
 
 
