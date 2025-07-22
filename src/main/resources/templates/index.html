@@ -801,10 +801,22 @@
     </a>
         </div>
 
-    <div sec:authorize="isAuthenticated()" class="welcome"
-         th:with="firstName=${#authentication.principal?.attributes['given_name']}">
+    <div sec:authorize="isAuthenticated()" class="welcome">
         Welcome,
-        <span th:text="${firstName ?: #authentication.name}">User</span>!
+        <!-- OAuth2 users (who have attributes['given_name']) -->
+        <span
+                sec:authorize="principal.attributes['given_name'] != null"
+                th:text="${principal.attributes['given_name']}">
+      FirstName
+    </span>
+
+        <!-- fallback for plain‑DB users -->
+        <span
+                sec:authorize="principal.attributes['given_name'] == null"
+                th:text="${#authentication.name}">
+      Username
+    </span>
+        !
     </div>
 
 
