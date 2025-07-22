@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en"
 
-      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security6"
+>
 <head>
     <meta charset="UTF-8">
 
@@ -683,13 +685,15 @@
         }
 
         .welcome {
-            color: #333;
+            color: #444;
             margin-top: 15px;
-            border: solid darkkhaki;
+            /*border: solid darkkhaki;*/
+            border: 0.4px solid #065e43;
             padding: 5px;
             border-radius: 4px;
             max-width: 100%;
             text-align: center;
+            font-weight: 700;
         }
 
 
@@ -803,17 +807,15 @@
 
     <div sec:authorize="isAuthenticated()" class="welcome">
         Welcome,
-
-        <!-- only OIDC/OAuth2 users have a getAttributes() map -->
+        <!-- Google/OAuth2 users -->
         <span
-                sec:authorize="principal instanceof T(org.springframework.security.oauth2.core.user.OAuth2User)"
+                sec:authorize="authentication instanceof T(org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken)"
                 th:text="${#authentication.principal.attributes['given_name']}">
-      FirstName
+      OAuth2 Name
     </span>
-
-        <!-- everything else (your CustomUserDetails) just gets the username -->
+        <!-- Form‑login users -->
         <span
-                sec:authorize="!(principal instanceof T(org.springframework.security.oauth2.core.user.OAuth2User))"
+                sec:authorize="not(authentication instanceof T(org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken))"
                 th:text="${#authentication.name}">
       Username
     </span>
