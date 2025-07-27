@@ -1242,6 +1242,61 @@
     }
 </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector(".calculator-form");
+
+        const readingPairs = [
+            ["startReadingBlendA", "endReadingBlendA"],
+            ["startReadingBlendB", "endReadingBlendB"],
+            ["startReadingDieselA", "endReadingDieselA"],
+            ["startReadingDieselB", "endReadingDieselB"],
+            ["startReadingUnleadedA", "endReadingUnleadedA"],
+            ["startReadingUnleadedB", "endReadingUnleadedB"]
+        ];
+
+        function isValidNumber(value) {
+            // Allow 0 but not numbers starting with 0 like 078 or 012.34
+            return value === "0" || !/^0\d/.test(value);
+        }
+
+        form.addEventListener("submit", (e) => {
+            let valid = true;
+            let message = "";
+
+            // Validate leading zeros
+            const allInputs = form.querySelectorAll('input[type="number"]');
+            allInputs.forEach(input => {
+                const val = input.value.trim();
+                if (!isValidNumber(val)) {
+                    valid = false;
+                    message = `Invalid number: ${val}. Numbers cannot start with 0 unless the number is exactly 0.`;
+                    input.focus();
+                }
+            });
+
+            // Validate end > start
+            if (valid) {
+                for (const [startName, endName] of readingPairs) {
+                    const startVal = parseFloat(form[startName].value);
+                    const endVal = parseFloat(form[endName].value);
+                    if (endVal < startVal) {
+                        valid = false;
+                        message = `${endName.replace(/([A-Z])/g, ' $1')} must be greater than or equal to ${startName.replace(/([A-Z])/g, ' $1')}`;
+                        form[endName].focus();
+                        break;
+                    }
+                }
+            }
+
+            if (!valid) {
+                e.preventDefault();
+                alert(message);
+            }
+        });
+    });
+</script>
+
 
 </body>
 </html>
