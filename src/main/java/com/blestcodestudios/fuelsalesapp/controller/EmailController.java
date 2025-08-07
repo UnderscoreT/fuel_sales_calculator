@@ -72,7 +72,7 @@ public class EmailController {
         List<String> bannedKeywords = List.of(
                 "bitcoin", "btc", "crypto", "forex", "nft", "claim btc", "toxic backlinks",
                 "google penalty", "submit .*? to google", "indexed", "seo ranking",
-                "cheap seo", "urgent offer", "money back", "click to claim", "work from home"
+                "cheap seo", "urgent offer", "money back", "click to claim", "work from home","Google Search Index","promotional offer"
         );
 
         for (String keyword : bannedKeywords) {
