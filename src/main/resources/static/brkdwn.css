@@ -101,6 +101,6 @@ footer {
     }
 
     .note-item input[type="number"] {
-        width: 100%;
+        width: 50%;
     }
 }
