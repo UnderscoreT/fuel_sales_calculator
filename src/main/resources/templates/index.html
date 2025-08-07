@@ -700,6 +700,15 @@
         }
 
 
+        @media (max-width: 60rem) {
+            nav#main-nav.open {
+                width: calc(100% + 3rem); /* container’s 1.5rem padding on each side */
+                margin: 0 -1.5rem;
+                background-color: #087f5b;
+            }
+        }
+
+
 
     </style>
 </head>
@@ -1261,7 +1270,7 @@
 
 
 
- Combined validation script
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const form = document.querySelector(".calculator-form");
