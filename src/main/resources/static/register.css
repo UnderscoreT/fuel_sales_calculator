@@ -1,4 +1,8 @@
 /* static/css/register.css */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 body {
     font-family: sans-serif;
     background-color: #f1f5f4;
@@ -14,6 +18,18 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+.container {
+    /* on large screens it never grows past 400px */
+    max-width: 400px;
+    /* but on small screens it'll be 90% of the viewport */
+    width: 90%;
+    margin: 60px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
 
 h2 {
     text-align: center;
