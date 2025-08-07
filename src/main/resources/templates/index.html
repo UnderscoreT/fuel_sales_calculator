@@ -30,7 +30,7 @@
   <meta property="og:title"       content="SizaFuel – Fuel Sales Calculator & Cash Breakdown Maker"/>
   <meta property="og:description" content="Calculate your day-end fuel sales and generate cash breakdowns in one click."/>
   <meta property="og:image"       content="https://sizafuel.xyz/preview.png"/>
-    
+
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -879,13 +879,16 @@
                 </div>
                 <div class="side-2">
                     <label>Price Per Litre Blend (USD)
-                        <input type="number" step="0.01" name="pricePerLitreBlend" required value="1.43">
+                        <input type="number" step="0.01" name="pricePerLitreBlend" required placeholder="0.00" oninvalid="this.setCustomValidity('Price per litre blend is required')"
+                               oninput="this.setCustomValidity('')">
                     </label>
                     <label>Price Per Litre Diesel (USD)
-                        <input type="number" step="0.01" name="pricePerLitreDiesel" required value="1.43">
+                        <input type="number" step="0.01" name="pricePerLitreDiesel" required placeholder="0.00" oninvalid="this.setCustomValidity('Price per litre diesel is required')"
+                               oninput="this.setCustomValidity('')">
                     </label>
                     <label>Price Per Litre Unleaded (USD)
-                        <input type="number" step="0.01" name="pricePerLitreUnleaded" required value="1.50">
+                        <input type="number" step="0.01" name="pricePerLitreUnleaded" required placeholder="0.00" oninvalid="this.setCustomValidity('Price per litre unleaded is required')"
+                               oninput="this.setCustomValidity('')">
                     </label>
                     <label>Coupon Litres Diesel
                         <input type="number" step="0.01" name="couponLitresDiesel" required value="0.0">
@@ -1085,8 +1088,8 @@
 </div>
 
 
-    
-    
+
+
 
 <footer>
     <ul class="social-links" style="list-style: none;
@@ -1191,7 +1194,7 @@
         });
     }
 </script>
-    
+
 <!-- Cookie Consent Banner -->
 <div id="cookieConsent" style="
   position: fixed;
@@ -1256,48 +1259,63 @@
     }
 </script>
 
+
+
+ Combined validation script
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", function() {
         const form = document.querySelector(".calculator-form");
+        if (!form) return;
 
-        const readingPairs = [
-            ["startReadingBlendA", "endReadingBlendA"],
-            ["startReadingBlendB", "endReadingBlendB"],
-            ["startReadingDieselA", "endReadingDieselA"],
-            ["startReadingDieselB", "endReadingDieselB"],
-            ["startReadingUnleadedA", "endReadingUnleadedA"],
-            ["startReadingUnleadedB", "endReadingUnleadedB"]
-        ];
+        // Custom required messages
+        [
+            { name: "pricePerLitreBlend",    msg: "Price per litre blend is required"   },
+            { name: "pricePerLitreDiesel",   msg: "Price per litre diesel is required"  },
+            { name: "pricePerLitreUnleaded", msg: "Price per litre unleaded is required"}
+        ].forEach(cfg => {
+            const fld = form.querySelector(`input[name="${cfg.name}"]`);
+            if (!fld) return;
+            fld.addEventListener("invalid", () => fld.setCustomValidity(cfg.msg));
+            fld.addEventListener("input", () => fld.setCustomValidity(''));
+        });
 
-        function isValidNumber(value) {
-            // Allow 0 but not numbers starting with 0 like 078 or 012.34
-            return value === "0" || !/^0\d/.test(value);
-        }
+        // On submit, run native validation then custom guards
+        form.addEventListener("submit", function(e) {
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                e.preventDefault();
+                return;
+            }
 
-        form.addEventListener("submit", (e) => {
-            let valid = true;
-            let message = "";
+            let valid = true, message = "";
 
-            // Validate leading zeros
-            const allInputs = form.querySelectorAll('input[type="number"]');
-            allInputs.forEach(input => {
-                const val = input.value.trim();
-                if (!isValidNumber(val)) {
+            // Leading-zero guard
+            form.querySelectorAll("input[type='number']").forEach(input => {
+                const v = input.value.trim();
+                if (v !== "0" && /^0\d/.test(v)) {
                     valid = false;
-                    message = `Invalid number: ${val}. Numbers cannot start with 0 unless the number is exactly 0.`;
+                    message = `Invalid number: ${v}. Numbers cannot start with 0 unless the number is exactly 0.`;
                     input.focus();
                 }
             });
 
-            // Validate end > start
+            // Start <= End guard
             if (valid) {
-                for (const [startName, endName] of readingPairs) {
-                    const startVal = parseFloat(form[startName].value);
-                    const endVal = parseFloat(form[endName].value);
+                const pairs = [
+                    ["startReadingBlendA","endReadingBlendA"],
+                    ["startReadingBlendB","endReadingBlendB"],
+                    ["startReadingDieselA","endReadingDieselA"],
+                    ["startReadingDieselB","endReadingDieselB"],
+                    ["startReadingUnleadedA","endReadingUnleadedA"],
+                    ["startReadingUnleadedB","endReadingUnleadedB"]
+                ];
+                for (const [s,e] of pairs) {
+                    const startVal = parseFloat(form[s].value),
+                        endVal   = parseFloat(form[e].value);
                     if (endVal < startVal) {
                         valid = false;
-                        message = `${endName.replace(/([A-Z])/g, ' $1')} must be greater than or equal to ${startName.replace(/([A-Z])/g, ' $1')}`;
-                        form[endName].focus();
+                        message = `${e.replace(/([A-Z])/g,' $1')} must be greater than or equal to ${s.replace(/([A-Z])/g,' $1')}`;
+                        form[e].focus();
                         break;
                     }
                 }
@@ -1310,6 +1328,8 @@
         });
     });
 </script>
+
+
 
 
 </body>

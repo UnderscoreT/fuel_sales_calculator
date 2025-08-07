@@ -128,6 +128,11 @@
         .summary-links a:hover {
             text-decoration: underline;
         }
+        .cash-highlight {
+            background-color: #d4edda;  /* pale green */
+            padding: 0.2em 0.4em;
+            border-radius: 0.25em;
+        }
 
         footer {
             text-align: center;
@@ -244,7 +249,7 @@
         </tr>
         <tr>
             <td data-label="Description">Cash in Hand</td>
-            <td data-label="Amount">$<span th:text="${cashInHand} ?: '0.00'">0.00</span></td>
+            <td data-label="Amount">$<span th:text="${cashInHand} ?: '0.00'" class="cash-highlight">0.00</span></td>
         </tr>
         </tbody>
     </table>
