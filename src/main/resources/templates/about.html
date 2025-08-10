@@ -1,294 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D0KRWHT1V6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-D0KRWHT1V6');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D0KRWHT1V6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-D0KRWHT1V6');
+    </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3870645853294351"
             crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>About</title>
+    <title>About | SizaFuel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
             rel="stylesheet"
     />
-    <link rel="stylesheet" th:href="@{/about.css}" />
-   <style>
-       * {
-           margin: 0;
-           padding: 0;
-           box-sizing: border-box;
-       }
 
-    img {
-    height: 200px;
-    width: 200px;
-    border-radius: 8px;
-    transform: scale(1.5);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-    }
-    .nb {
-        margin-top: 24px;
-    }
-    .carousel {
-    background-color: #087f5b;
-    margin: 50px auto;
-    width: auto;
-    border-radius: 8px;
-    color: #fff;
-    padding: 32px 48px 32px 86px;
-    display: flex;
-    align-items: center;
-    gap: 86px;
-
-    position: relative;
-    }
-    .testimonial-text {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.5;
-    color: #e6fcf5;
-    margin-bottom: 32px;
-    }
-    .testimonial-author {
-    font-size: 14px;
-    margin-bottom: -12px;
-    color: #c3fae8;
-    }
-    .testimonial-job {
-    font-size: 12px;
-    color: #c3fae8;
-    }
-    /*CONTROLS */
-    .btn {
-    background-color: #fff;
-    border: none;
-    height: 40px;
-    width: 40px;
-    position: absolute;
-    border-radius: 50%;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
-    .btn--left {
-    left: 0;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    }
-    .btn--right {
-    right: 0;
-    top: 50%;
-    transform: translate(50%, -50%);
-    }
-    .btn-icon {
-    width: 24px;
-    height: 24px;
-    stroke: #087f5b;
-    }
-    .dots {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    bottom: 0;
-    transform: translate(-50%, 32px);
-    display: flex;
-    gap: 12px;
-    }
-    .dot {
-    height: 12px;
-    width: 12px;
-    background-color: #fff;
-    border: 2px solid #087f5b;
-    border-radius: 50%;
-    cursor: pointer;
-    }
-    .dot--fill {
-    background-color: #087f5b;
-    }
-
-    /*new */
-    /* ✅ Make the carousel mobile responsive */
-    @media (max-width: 768px) {
-        .carousel {
-            flex-direction: column;
-            padding: 24px;
-            gap: 24px;
-            text-align: center;
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        img {
-            transform: scale(1); /* Remove zoom-in on small screens */
-            width: 120px;
-            height: 120px;
-            margin: 0 auto;
-        }
-
-        .testimonial-text {
-            font-size: 16px;
-            margin-bottom: 16px;
-        }
-
-        .testimonial-author,
-        .testimonial-job {
-            font-size: 12px;
-        }
-
-        .btn {
-            display: none; /* Hide nav buttons on small screens */
-        }
-
-        .dots {
-            bottom: -20px;
-            gap: 8px;
-        }
-
-        .home {
-            padding: 0 1rem;
-        }
-
-        nav {
-            display: none;
-            flex-direction: column;
-            gap: 1rem;
-            background-color: #087f5b;
-            padding: 1rem;
-        }
-
-        nav.open {
-            display: flex;
-        }
-
-        .menu-toggle {
-            display: inline-block;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #fff;
-            margin-left: 1rem;
-            cursor: pointer;
+        body {
+            color: #444;
+            font-family: "Inter", sans-serif;
+            background-color: #f8f9fa;
+            line-height: 1.6;
         }
 
         header.main-header {
+            background-color: #087f5b;
+            color: #fff;
+            padding: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem;
             flex-wrap: wrap;
         }
 
         header.main-header h1 {
-            font-size: 1.2rem;
-            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 1rem;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: #087f5b;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial {
+            background-color: #087f5b;
+            color: #e6fcf5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
 
         footer {
-            font-size: 0.8rem;
-            padding: 1rem;
             text-align: center;
+            font-size: 0.875rem;
+            padding: 1rem;
+            background-color: #e9ecef;
+            margin-top: 2rem;
         }
-    }
 
-   </style>
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                gap: 0.5rem;
+                background-color: #087f5b;
+                padding: 1rem;
+                width: 100%;
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<header class="main-header ">
-    <h1 class="main-header">⛽ Fuel Sales Calculator</h1>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
 
+<header class="main-header">
+    <h1>⛽ SizaFuel</h1>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
     <nav id="main-nav">
         <a href="/">Home</a>
         <a href="/about">About</a>
-        <a href="https://blestportfolio.onrender.com"> Contact Us</a>
+        <a href="/contact">Contact</a>
     </nav>
 </header>
 
-<article class="home">
-    <p style="padding: 2rem; ">This application can be used to help a fuel attendant using a pump with at most 6 nozzles calculate day end sales.
-        Listed below are the overall capabilities that this web application enables attendants work out </p>
-    <ul class="ul" style="padding: 2rem; list-style: none;"
-        >
-        <li>determine how much total cash sales they have done </li>
-        <li>get a summary of total litres sold </li>
-        <li>quickly calculate how much cash in  hand they need to submit which was not dropped</li>
-        <li>quickly make a breakdown of the cash in hand</li>
+<main class="container">
+    <h2>About SizaFuel</h2>
+    <p>
+        Welcome to <strong>SizaFuel</strong> — your reliable web-based tool designed to make fuel station operations smoother and faster.
+        Our application is built specifically for fuel attendants working with up to six nozzles, helping you calculate end-of-shift sales in minutes.
+    </p>
+
+    <p>
+        I’m <strong>Obey Blessing Sibanda</strong>, a service attendant at DA Motors in Kuwadzana and the creator of SizaFuel.
+        I built this tool after experiencing firsthand how long and error-prone manual pump meter calculations can be after a busy day.
+        With SizaFuel, my mission is to save you time, reduce mistakes, and help you close your shift with confidence.
+    </p>
+
+    <h3>What You Can Do with SizaFuel</h3>
+    <ul>
+        <li>Instantly calculate total cash sales from multiple pumps</li>
+        <li>Get accurate summaries of total litres sold</li>
+        <li>Determine undropped cash to submit</li>
+        <li>Make quick, accurate cash breakdowns for banking</li>
     </ul>
-    <p style="padding: 2rem;"><strong>Make sure your input for starting and closing pump meter readings and product price are correct!</strong></p>
 
+    <p>
+        We believe in providing practical, easy-to-use tools that actually make your workday better.
+        This platform is free to use and will keep evolving with feedback from real attendants.
+    </p>
 
-    <div class="carousel">
-<!--        <img src="/PXL_20250427_045950586.PORTRAIT.jpg" alt="Obey at DA Kwz" />-->
-        <blockquote class="testimonial">
-            <p class="testimonial-text">
-                This tool saves my time. Calculating end of shift sales can be a time-consuming task.
-                But using this web app it only takes a minute.
-            </p>
+    <p>
+        Have feedback or suggestions? Reach out via our <a href="/contact" style="color:#087f5b;">Contact page</a>.
+    </p>
 
-            <p class="testimonial-author">Obey Blessing Sibanda</p>
-            <p class="testimonial-job">Service Attendant at DA Motors Kuwadzana</p>
-        </blockquote>
-
-        <button class="btn btn--left">
-            <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="btn-icon"
-            >
-                <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15.75 19.5 8.25 12l7.5-7.5"
-                />
-            </svg>
-        </button>
-        <button class="btn btn--right">
-            <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="btn-icon"
-            >
-                <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                />
-            </svg>
-        </button>
-
-        <div class="dots">
-            <button class="dot dot--fill">&nbsp;</button>
-            <button class="dot">&nbsp;</button>
-            <button class="dot">&nbsp;</button>
-            <button class="dot">&nbsp;</button>
-        </div>
+    <div class="testimonial">
+        <p><em>"This tool saves me time. Calculating end-of-shift sales can be a time-consuming task — but using SizaFuel, it only takes a minute."</em></p>
+        <p><strong>- Obey Blessing Sibanda</strong><br>Service Attendant & Developer</p>
     </div>
-</article>
+</main>
 
-</div>
+<footer>
+    Copyright &copy; 2025 by Obey Sibanda. Part of "BlestCodeStudios Projects". Use for learning purposes only.
+</footer>
 
-<!--<a href="/">Home</a>-->
-<!--<a href="/https://blestportfolio.onrender.com">Contact Me</a>-->
-<footer>Copyright &copy; 2025 by Obey Sibanda. Part of "BlestCodeStudios Projects". Use for learning purposes only.</footer>
 <script>
     const toggle = document.getElementById("menu-toggle");
     const nav = document.getElementById("main-nav");
@@ -297,5 +202,6 @@
         nav.classList.toggle("open");
     });
 </script>
+
 </body>
 </html>

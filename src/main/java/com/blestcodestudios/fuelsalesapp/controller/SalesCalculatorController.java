@@ -24,20 +24,7 @@ public class SalesCalculatorController {
         this.pdfGenerator = pdfGenerator;
     }
 
-    @GetMapping("/terms")
-    public String showTerms() {
-        return "terms";
-    }
 
-    @GetMapping("/privacy")
-    public String showPrivacyPolicy() {
-        return "privacy";
-    }
-
-    @GetMapping("/about")
-    public String showAboutPage() {
-        return "about";
-    }
 
     @PostMapping("/calculate")
     public String calculateFuelSales(

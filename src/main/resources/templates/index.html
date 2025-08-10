@@ -715,6 +715,119 @@
             }
         }
 
+        /* Dropdown base */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-toggle {
+            background: transparent;
+            border: 0;
+            color: #ddd;
+            font-weight: 500;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: .25rem .5rem;
+        }
+        .dropdown-toggle:hover { color:#fff; }
+
+        /* Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            /*background: #ffffff;*/
+            background-color: #065e43;
+            color: #333;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 10px 24px rgba(0,0,0,.12);
+            padding: .5rem 0;
+            display: none;
+            z-index: 1000;
+        }
+        .dropdown-item {
+            display: block;
+            padding: .6rem 1rem;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.35rem; /* matches your nav scale */
+        }
+        .dropdown-item:hover {
+            /*background: #f5f7f8;*/
+            background-color: #6d9a8d;
+            color: #087f5b;
+        }
+
+        /* Desktop: show on hover */
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-menu { display: block; }
+        }
+
+        /* Mobile: unify vertical spacing & alignment for nav */
+        @media (max-width: 60rem) {
+            /* Stack everything in one clean column */
+            #main-nav.open .nav-links {
+                display: flex;
+                flex-direction: column;
+                gap: 0; /* we'll control rhythm with padding/borders */
+            }
+
+            /* Make links + the dropdown toggle look identical */
+            #main-nav.open .main-nav-link,
+            #main-nav.open .dropdown-toggle {
+                display: block;
+                width: 100%;
+                text-align: left;
+                padding: .9rem 1.2rem;
+                line-height: 1.3;
+                color: #fff;
+                background: transparent;
+                border: 0;
+                font-size: 1.2rem;
+                cursor: pointer;
+                border-top: 1px solid rgba(255,255,255,.08);
+            }
+            #main-nav.open .nav-links > :first-child {
+                border-top: 0; /* no border on the first item */
+            }
+
+            /* Ensure the dropdown container itself doesn't add indent */
+            #main-nav.open .dropdown {
+                width: 100%;
+                margin: 0;
+            }
+
+            /* Make submenu items look like regular items (no card) */
+            #main-nav.open .dropdown-menu {
+                position: static;
+                display: none;            /* toggled via .open */
+                background: transparent;  /* remove panel background */
+                border: 0;
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+            }
+            #main-nav.open .dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            /* Sub-items: same left edge & rhythm, slightly indented */
+            #main-nav.open .dropdown-item {
+                display: block;
+                padding: .9rem 1.2rem .9rem 2.0rem; /* left indent for child items */
+                color: #e9ecef;
+                font-size: 1.2rem;
+                border-top: 1px solid rgba(255,255,255,.06);
+                text-decoration: none;
+            }
+            #main-nav.open .dropdown-item:hover {
+                background: rgba(255,255,255,.08);
+                color: #fff;
+            }
+        }
 
 
     </style>
@@ -725,11 +838,11 @@
 <div class="container">
 
     <!-- ✅ Success Message -->
-    <div id="success-msg"
-         th:if="${param.registered}"
-         style="background-color: #d4edda; color: #155724; padding: 10px; border: 1px solid #c3e6cb; border-radius: 5px; margin-bottom: 15px; text-align: center;">
-        Account created successfully! <a href="/login">Click here to log in</a>.
-    </div>
+<!--    <div id="success-msg"-->
+<!--         th:if="${param.registered}"-->
+<!--         style="background-color: #d4edda; color: #155724; padding: 10px; border: 1px solid #c3e6cb; border-radius: 5px; margin-bottom: 15px; text-align: center;">-->
+<!--        Account created successfully! <a href="/login">Click here to log in</a>.-->
+<!--    </div>-->
     <!-- Sign in button shown only when NOT logged in -->
 <!--    <div sec:authorize="!isAuthenticated()">-->
 <!--        <a href="/oauth2/authorization/google" class="btn-google">Sign in with Google</a>-->
@@ -745,9 +858,42 @@
 
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
 
+<!--        <nav id="main-nav">-->
+<!--            <div class="nav-links">-->
+<!--                <a class="main-nav-link" href="#about">How it works</a>-->
+<!--                <a class="main-nav-link" href="#contact-us">Contact Us</a>-->
+
+<!--                <div class="auth-links">-->
+<!--                    <div th:if="${#authorization.expression('isAuthenticated()')}">-->
+<!--                        <a class="btn btn-primary" th:href="@{/logout}">Logout</a>-->
+<!--                    </div>-->
+<!--                    <div th:unless="${#authorization.expression('isAuthenticated()')}">-->
+<!--                        <a class="main-nav-link" th:href="@{/register}">Sign up</a>-->
+<!--                        <a class="main-nav-link btn btn&#45;&#45;full" th:href="@{/login}">Sign In</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </nav>-->
+
         <nav id="main-nav">
             <div class="nav-links">
                 <a class="main-nav-link" href="#about">How it works</a>
+
+                <!-- Resources dropdown -->
+                <div class="dropdown" id="resourcesDropdown">
+                    <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Resources ▾
+                    </button>
+                    <div class="dropdown-menu" role="menu" aria-label="Resources menu">
+                        <a class="dropdown-item" href="/blog">Blog</a>
+                        <a class="dropdown-item" href="/blog/fuel-station-safety-tips">Safety Tips</a>
+                        <a class="dropdown-item" href="/blog/spot-fake-usd-notes">Spot Fake USD Notes</a>
+                        <a class="dropdown-item" href="/blog/use-a-fire-extinguisher-pass">Using a Fire Extinguisher (PASS)</a>
+                        <a class="dropdown-item" href="/blog/record-keeping-fuel-stations">Record-Keeping (EOD)</a>
+                        <a class="dropdown-item" href="/cash-breakdown-maker">Cash Breakdown Maker</a>
+                    </div>
+                </div>
+
                 <a class="main-nav-link" href="#contact-us">Contact Us</a>
 
                 <div class="auth-links">
@@ -761,6 +907,8 @@
                 </div>
             </div>
         </nav>
+
+
     </header>
 
     <section class="hero" style="
@@ -991,20 +1139,42 @@
     </div>
 </section>
 
+<!--<section class="resources">-->
+<!--    <div class="resources-container">-->
+<!--    <h2 class="section-title-resource">Resources</h2>-->
+
+<!--    <p class="resource-cash-breaker"  title="Create a cash breakdown for your sales"  >Cash Breakdown Maker</p>-->
+<!--    <p>-->
+<!--        Use our <a href="https://www.breakmycash.online" title="Generate printable cash breakdowns for banks, cashiers, and service desks"-->
+<!--         class="breakdown-maker-resource-link">-->
+
+<!--        Cash Breakdown Maker-->
+<!--    </a> to quickly generate printable denomination summaries.-->
+<!--    </p>-->
+<!--    </div>-->
+<!--</section>-->
+
 <section class="resources">
     <div class="resources-container">
-    <h2 class="section-title-resource">Resources</h2>
+        <h2 class="section-title-resource">Resources</h2>
 
-    <p class="resource-cash-breaker"  title="Create a cash breakdown for your sales"  >Cash Breakdown Maker</p>
-    <p>
-        Use our <a href="https://www.breakmycash.online" title="Generate printable cash breakdowns for banks, cashiers, and service desks"
-         class="breakdown-maker-resource-link">
+        <p class="resource-cash-breaker" title="Create a cash breakdown for your sales">Cash Breakdown Maker</p>
+        <p>
+            Use our <a href="https://www.breakmycash.online" class="breakdown-maker-resource-link">
+            Cash Breakdown Maker</a> to quickly generate printable summaries.
+        </p>
 
-        Cash Breakdown Maker
-    </a> to quickly generate printable denomination summaries.
-    </p>
+        <ul style="margin:1rem 0 0 1rem; padding:0; list-style:none; color:#333; font-size:1.6rem;">
+            <li><a href="/blog" class="breakdown-maker-resource-link">Blog (all articles)</a></li>
+            <li><a href="/blog/fuel-station-safety-tips" class="breakdown-maker-resource-link">Fuel Station Safety Tips</a></li>
+            <li><a href="/blog/spot-fake-usd-notes" class="breakdown-maker-resource-link">How to Spot Fake USD Notes</a></li>
+            <li><a href="/blog/use-a-fire-extinguisher-pass" class="breakdown-maker-resource-link">Using a Fire Extinguisher (PASS)</a></li>
+            <li><a href="/blog/record-keeping-fuel-stations" class="breakdown-maker-resource-link">How to use the sizafuel calculator (End Of Day)</a></li>
+            <li><a href="/blog/oil-change-basics-attendants" class="breakdown-maker-resource-link">Oil-Change Basics</a></li>
+        </ul>
     </div>
 </section>
+
 
 
 <!-- Contact Us Section -->
@@ -1345,6 +1515,56 @@
     });
 </script>
 
+<script>
+    (function(){
+        const dropdown = document.getElementById('resourcesDropdown');
+        if (!dropdown) return;
+
+        const toggleBtn = dropdown.querySelector('.dropdown-toggle');
+        const nav = document.getElementById('main-nav');
+
+        toggleBtn.addEventListener('click', function(e){
+            const isMobileOpen = nav && nav.classList.contains('open');
+            if (isMobileOpen) {
+                e.preventDefault();
+                dropdown.classList.toggle('open');
+                toggleBtn.setAttribute(
+                    'aria-expanded',
+                    dropdown.classList.contains('open') ? 'true' : 'false'
+                );
+            }
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', function(e){
+            const isMobileOpen = nav && nav.classList.contains('open');
+            if (!isMobileOpen) return;
+            if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
+                dropdown.classList.remove('open');
+                toggleBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    })();
+</script>
+
+<script>
+    (function(){
+        const nav = document.getElementById('main-nav');
+        if (!nav) return;
+
+        // Close mobile nav when any link is tapped
+        nav.addEventListener('click', function(e){
+            const link = e.target.closest('a');
+            if (!link) return;
+            if (nav.classList.contains('open')) {
+                // collapse the Resources dropdown too
+                const dd = document.getElementById('resourcesDropdown');
+                dd && dd.classList.remove('open');
+                nav.classList.remove('open');
+            }
+        });
+    })();
+</script>
 
 
 

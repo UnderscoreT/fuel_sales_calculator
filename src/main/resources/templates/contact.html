@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- (Optional) Google tag – keep if you load only after consent -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D0KRWHT1V6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-D0KRWHT1V6');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact | SizaFuel</title>
+    <meta name="description" content="Contact SizaFuel: questions, feature requests, or feedback about the fuel sales calculator and cash breakdown maker." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary:#087f5b;
+            --bg:#f7f8fa;
+            --text:#444;
+            --muted:#6b7280;
+            --accent:#2980b9;
+            --card:#ffffff;
+            --border:#e5e7eb;
+        }
+        * { box-sizing: border-box; }
+        html, body { margin:0; padding:0; }
+        body {
+            font-family: "Inter", system-ui, Segoe UI, Roboto, Arial, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header.main-header {
+            background: var(--primary);
+            color:#fff;
+            padding: 1rem;
+            display:flex;
+            align-items:center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        header .brand { font-weight:700; font-size:1.25rem; display:flex; align-items:center; gap:.5rem; }
+        header .brand a { color:#fff; text-decoration:none; }
+        .menu-toggle {
+            display:none;
+            background:none; border:0; color:#fff; font-size:1.5rem; cursor:pointer;
+        }
+        nav a {
+            color:#fff; text-decoration:none; margin-left:1rem;
+        }
+        nav a:hover { text-decoration: underline; }
+
+        /* Layout */
+        .container { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+        .page-title { text-align:center; margin: 1rem 0 0.25rem; font-size: 2rem; color: var(--primary); }
+        .subtitle { text-align:center; color: var(--muted); margin-bottom: 1.5rem; }
+
+        .grid {
+            display:grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-top: 1rem;
+        }
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        /* Card */
+        .card { background: var(--card); border:1px solid var(--border); border-radius: 12px; padding: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,.04); }
+        .card h2 { margin-top:0; font-size:1.25rem; }
+
+        /* Form */
+        form .row { display:grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+        @media (max-width: 600px) {
+            form .row { grid-template-columns: 1fr; }
+        }
+        label { display:block; font-weight:600; margin:.5rem 0 .25rem; }
+        input, textarea, select {
+            width:100%; padding:.75rem; border:1px solid var(--border); border-radius:10px; font:inherit; background:#fff;
+        }
+        textarea { min-height: 140px; resize: vertical; }
+        .hint { font-size:.9rem; color: var(--muted); margin-top:.25rem; }
+
+        .actions { margin-top: 1rem; display:flex; gap:.75rem; flex-wrap:wrap; align-items:center; }
+        .btn {
+            border:0; border-radius:12px; padding:.8rem 1.2rem; font-weight:700; cursor:pointer;
+        }
+        .btn-primary { background: var(--primary); color:#fff; }
+        .btn-secondary { background:#e5e7eb; color:#111827; }
+
+        .status {
+            margin-top: .75rem; font-weight:600;
+            display:none;
+        }
+        .status.ok { color: #0f766e; }
+        .status.err { color: #b91c1c; }
+
+        /* Sidebar */
+        .contact-block { display:flex; flex-direction:column; gap:.75rem; }
+        .contact-item { display:flex; align-items:flex-start; gap:.6rem; }
+        .contact-item a { color: var(--accent); text-decoration:none; }
+        .contact-item a:hover { text-decoration: underline; }
+        .muted { color: var(--muted); }
+
+        /* FAQ */
+        details { border: 1px solid var(--border); border-radius: 10px; padding: .75rem 1rem; background:#fff; }
+        details + details { margin-top: .75rem; }
+        summary { cursor:pointer; font-weight:600; }
+
+        /* Footer */
+        footer {
+            text-align:center; font-size:.9rem; color:#555; padding: 1rem; margin-top: 2rem; background:#e9ecef;
+        }
+
+        /* Mobile nav */
+        @media (max-width: 768px) {
+            nav { display:none; width:100%; margin-top:.5rem; }
+            nav.open { display:flex; flex-direction:column; gap:.5rem; }
+            nav a { margin:0; padding:.5rem 0; }
+            .menu-toggle { display:block; }
+        }
+    </style>
+</head>
+<body>
+<header class="main-header">
+    <div class="brand">
+        <a href="/">⛽ SizaFuel</a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">☰</button>
+    <nav id="main-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact" aria-current="page">Contact</a>
+    </nav>
+</header>
+
+<main class="container" itemscope itemtype="https://schema.org/ContactPage">
+    <h1 class="page-title" itemprop="name">Contact Us</h1>
+    <p class="subtitle">Questions, feature requests, or feedback? We’d love to hear from you.</p>
+
+    <section class="grid">
+        <!-- Form -->
+        <div class="card" aria-labelledby="contactFormTitle">
+            <h2 id="contactFormTitle">Send a Message</h2>
+            <form id="contact-form" method="post" action="/contact" novalidate>
+                <div class="row">
+                    <div>
+                        <label for="name">Your Name</label>
+                        <input id="name" name="name" type="text" autocomplete="name" required />
+                        <div class="hint">How should we address you?</div>
+                    </div>
+                    <div>
+                        <label for="email">Your Email</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required />
+                        <div class="hint">We’ll reply to this address.</div>
+                    </div>
+                </div>
+
+                <!-- Honeypot -->
+                <input type="text" name="website" id="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0" />
+
+                <div>
+                    <label for="subject">Subject</label>
+                    <input id="subject" name="subject" type="text" placeholder="Feature request, bug report, feedback..." />
+                </div>
+
+                <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Tell us how we can help..."></textarea>
+                </div>
+
+                <div>
+                    <label><input type="checkbox" id="policy" required /> I agree to the <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</label>
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-primary" type="submit" aria-label="Send message">Send Message</button>
+                    <button class="btn btn-secondary" type="reset">Clear</button>
+                </div>
+
+                <div id="status-ok" class="status ok" role="status" aria-live="polite">✅ Your message has been sent! We’ll reply soon.</div>
+                <div id="status-err" class="status err" role="status" aria-live="polite">⚠️ Something went wrong. Please try again.</div>
+            </form>
+        </div>
+
+        <!-- Sidebar: direct contacts -->
+        <aside class="card" aria-labelledby="contactInfoTitle">
+            <h2 id="contactInfoTitle">Contact Information</h2>
+            <div class="contact-block" itemprop="mainEntity" itemscope itemtype="https://schema.org/Organization">
+                <meta itemprop="name" content="SizaFuel" />
+                <div class="contact-item">
+                    <strong>Address:</strong>
+                    <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+              <span itemprop="streetAddress">4424 Granary Park</span>, <span itemprop="addressLocality">Harare</span>, <span itemprop="addressCountry">Zimbabwe</span>
+            </span>
+                </div>
+                <div class="contact-item">
+                    <strong>Phone:</strong>
+                    <a href="tel:0715041987" itemprop="telephone">0715-041-987</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Email:</strong>
+                    <a href="mailto:support@sizafuel.xyz" itemprop="email">support@sizafuel.xyz</a>
+                </div>
+                <div class="contact-item">
+                    <strong>WhatsApp:</strong>
+                    <a href="https://wa.me/263715041987?text=Hi%20SizaFuel%2C%20I%20need%20help%20with..." target="_blank" rel="noopener">Chat on WhatsApp</a>
+                </div>
+                <p class="muted">Typical response time: within 24–48 hours.</p>
+
+                <hr />
+                <h3 style="margin: .25rem 0;">FAQs</h3>
+                <details>
+                    <summary>Is SizaFuel free?</summary>
+                    <p>Yes, the core calculator and cash breakdown maker are free to use.</p>
+                </details>
+                <details>
+                    <summary>Do you store my sales data?</summary>
+                    <p>Only if you choose to save it. See our <a href="/privacy">Privacy Policy</a> for details.</p>
+                </details>
+                <details>
+                    <summary>How do I suggest a feature?</summary>
+                    <p>Use the form on this page and pick “Feature request” in the subject.</p>
+                </details>
+            </div>
+        </aside>
+    </section>
+</main>
+
+<footer>
+    © 2025 SizaFuel — <a href="/terms" style="color:var(--accent); text-decoration:none;">Terms</a> ·
+    <a href="/privacy" style="color:var(--accent); text-decoration:none;">Privacy</a> ·
+    <a href="/" style="color:var(--accent); text-decoration:none;">Home</a>
+</footer>
+
+<script>
+    // Contact form: client-side validation + AJAX submit
+    const form = document.getElementById("contact-form");
+    const ok = document.getElementById("status-ok");
+    const err = document.getElementById("status-err");
+
+    function show(el){ if (el) el.style.display = "block"; }
+    function hide(el){ if (el) el.style.display = "none"; }
+    function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    if (form) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            hide(ok); hide(err);
+
+            const fd = new FormData(form);
+
+            // Basic required checks
+            if (!fd.get("name") || !fd.get("email") || !fd.get("message") || !document.getElementById("policy")?.checked) {
+                if (err) err.textContent = "Please fill in all required fields and agree to the Privacy Policy.";
+                show(err);
+                return;
+            }
+
+            if (!validEmail(fd.get("email"))) {
+                if (err) err.textContent = "Please enter a valid email address.";
+                show(err);
+                return;
+            }
+
+            // Honeypot (spam trap)
+            if (fd.get("website")) {
+                if (err) err.textContent = "Spam detected.";
+                show(err);
+                return;
+            }
+
+            try {
+                const res = await fetch(form.action || "/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+                    body: new URLSearchParams(fd)
+                });
+
+                if (res.ok) {
+                    show(ok);
+                    form.reset();
+                } else {
+                    if (err) err.textContent = "⚠️ Something went wrong. Please try again.";
+                    show(err);
+                }
+            } catch (e2) {
+                if (err) err.textContent = "⚠️ Network error. Please try again.";
+                show(err);
+            }
+        });
+    }
+</script>

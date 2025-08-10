@@ -47,5 +47,67 @@ public class SiteMapController {
 //    }
 //
 
+    @GetMapping("/terms")
+    public String showTerms() {
+        return "terms";
+    }
+
+    @GetMapping("/privacy")
+    public String showPrivacyPolicy() {
+        return "privacy";
+    }
+
+    @GetMapping("/about")
+    public String showAboutPage() {
+        return "about";
+    }
+
+    @GetMapping("/contact")
+    public String showContactPage() {
+        return "contact";
+    }
+
+
+    @GetMapping("/blog")
+    public String showBlogPage() {
+        return "blog";
+    }
+
+    @GetMapping("/blog/oil-change-basics-attendants")
+    public String showBlogOilChangeBasicsAttendants() {
+        return "oil-change-basics-attendants";
+    }
+
+    @GetMapping("/blog/spot-fake-usd-notes")
+    public String showBlogsNotes() {
+        return "spot-fake-usd-notes";
+    }
+    @GetMapping("/blog/record-keeping-fuel-stations")
+    public String showBlogRecordsKeepingFuelStations() {
+        return "record-keeping-fuel-stations";
+    }
+    @GetMapping("/blog/customer-service-fuel-attendants")
+    public String showBlogCustomerServiceFuelAttendants() {
+        return "customer-service-fuel-attendants";
+    }
+    @GetMapping("/blog/use-a-fire-extinguisher-pass")
+    public String showBlogUseAFireExtinguisherPass() {
+        return "use-a-fire-extinguisher-pass";
+    }
+    @GetMapping("/blog/fuel-station-safety-tips")
+    public String showBlogFuelStationSafetyTips() {
+        return "fuel-station-safety-tips";
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 }
