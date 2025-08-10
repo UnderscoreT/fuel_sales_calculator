@@ -830,6 +830,88 @@
         }
 
 
+
+        /* ===== SizaFuel Footer (Modern, Responsive) ===== */
+        :root{
+            --footer-bg:#013e2f;         /* deep green (matches header) */
+            --footer-bg-2:#0b4c3a;       /* slightly lighter strip */
+            --footer-text:#e6f3ef;       /* light text */
+            --footer-muted:#b9d6cf;      /* muted text */
+            --footer-accent:#45ad93;     /* hover/links */
+            --footer-border:rgba(255,255,255,.08);
+        }
+        .site-footer{
+            background:var(--footer-bg);
+            color:var(--footer-text);
+            margin-top:3rem;
+        }
+        .site-footer a{ color:var(--footer-muted); text-decoration:none; }
+        .site-footer a:hover{ color:var(--footer-accent); }
+
+        .footer-inner{
+            max-width:1200px;
+            margin:0 auto;
+            padding:2.25rem 1.25rem 1.5rem;
+        }
+
+        .footer-grid{
+            display:grid;
+            gap:2rem 1.5rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        @media (max-width: 992px){
+            .footer-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 560px){
+            .footer-grid{ grid-template-columns: 1fr; }
+        }
+
+        .footer-col h4{
+            margin:0 0 .75rem;
+            font-size:1.4rem;
+            letter-spacing:.2px;
+            color:#ffffff;
+        }
+        .footer-col ul{ list-style:none; padding:0; margin:0; }
+        .footer-col li{ margin:.55rem 0; }
+        .footer-col li a{ display:inline-block; padding:.15rem 0; }
+
+        /* Contact block */
+        .footer-contact address{ font-style:normal; color:var(--footer-muted); line-height:1.7; }
+        .footer-contact a{ color:var(--footer-text); }
+
+        /* Social row */
+        .footer-social{
+            display:flex; gap:.9rem; margin-top:1rem;
+        }
+        .footer-social a{
+            width:36px; height:36px; border:1px solid var(--footer-border);
+            display:flex; align-items:center; justify-content:center;
+            border-radius:50%;
+        }
+        .footer-social a:hover{ border-color:var(--footer-accent); }
+
+        /* Bottom bar */
+        .footer-bottom{
+            border-top:1px solid var(--footer-border);
+            margin-top:2rem;
+            padding-top:1rem;
+            display:flex; align-items:center; justify-content:space-between;
+            gap:1rem; color:var(--footer-muted);
+        }
+        .footer-legal a{ color:var(--footer-muted); margin-left:.75rem; }
+        .footer-legal a:hover{ color:#fff; }
+
+        /* Small secondary strip (optional) */
+        .footer-strip{
+            background:var(--footer-bg-2);
+            color:var(--footer-muted);
+            text-align:center;
+            padding:.8rem 1rem;
+            font-size:.95rem;
+        }
+
+
     </style>
 </head>
 <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
@@ -1277,54 +1359,138 @@
 
 
 
-<footer>
-    <ul class="social-links" style="list-style: none;
-  display: flex;
-    justify-content: center;
-  gap: 2.4rem;">
-        <li>
-            <a class="footer-link" href="https://www.linkedin.com/in/obey-blessing-sibanda-b920b576"
-            ><ion-icon style="width:2rem;height:2rem;fill:#065e43"  name="logo-linkedin" class="icon-link"></ion-icon
-            ></a>
-        </li>
-        <li>
-            <a class="footer-link" href="https://www.facebook.com/obeysibanda"
-            ><ion-icon style="width:2rem;height:2rem;fill:#065e43" name="logo-facebook" class="icon-link"></ion-icon
-            ></a>
-        </li>
-        <li>
-            <a class="footer-link" href="https://github.com/UnderscoreT"
-            ><ion-icon style="width:2rem;height:2rem;fill:#065e43"  name="logo-github" class="icon-link"></ion-icon
-            ></a>
-        </li>
-    </ul>
+<!--<footer>-->
+<!--    <ul class="social-links" style="list-style: none;-->
+<!--  display: flex;-->
+<!--    justify-content: center;-->
+<!--  gap: 2.4rem;">-->
+<!--        <li>-->
+<!--            <a class="footer-link" href="https://www.linkedin.com/in/obey-blessing-sibanda-b920b576"-->
+<!--            ><ion-icon style="width:2rem;height:2rem;fill:#065e43"  name="logo-linkedin" class="icon-link"></ion-icon-->
+<!--            ></a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <a class="footer-link" href="https://www.facebook.com/obeysibanda"-->
+<!--            ><ion-icon style="width:2rem;height:2rem;fill:#065e43" name="logo-facebook" class="icon-link"></ion-icon-->
+<!--            ></a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <a class="footer-link" href="https://github.com/UnderscoreT"-->
+<!--            ><ion-icon style="width:2rem;height:2rem;fill:#065e43"  name="logo-github" class="icon-link"></ion-icon-->
+<!--            ></a>-->
+<!--        </li>-->
+<!--    </ul>-->
 
-    <address class="contacts">
-        <p style="font-style: normal">4424 Granary Park, Harare, Zimbabwe</p>
-        <p>
-            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="tel:0715041987">0715-041-987</a
-            ><br />
-            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="mailto:obey@sizafuel.xyz"
-            >obey@sizafuel.xyz</a
-            >
-        </p>
-    </address>
-   <p> Copyright &copy; 2025 by <a style="color: #2980b9;font-style: normal;text-decoration: none" href="https://blestportfolio.onrender.com" class="who-built" >
-    Obey Sibanda</a> Part of "BlestCodeStudios Projects".</p>
-
-
-        <nav class="footer-nav">
-            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="/" >Home</a> |
-            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="/terms" >Terms</a> |
-            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="/privacy" >Policy</a> |
-            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="/about" >About</a> |
-            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="/contact" >Contact Us</a>
-
-        </nav>
+<!--    <address class="contacts">-->
+<!--        <p style="font-style: normal">4424 Granary Park, Harare, Zimbabwe</p>-->
+<!--        <p>-->
+<!--            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="tel:0715041987">0715-041-987</a-->
+<!--            ><br />-->
+<!--            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="mailto:obey@sizafuel.xyz"-->
+<!--            >obey@sizafuel.xyz</a-->
+<!--            >-->
+<!--        </p>-->
+<!--    </address>-->
+<!--   <p> Copyright &copy; 2025 by <a style="color: #2980b9;font-style: normal;text-decoration: none" href="https://blestportfolio.onrender.com" class="who-built" >-->
+<!--    Obey Sibanda</a> Part of "BlestCodeStudios Projects".</p>-->
 
 
+<!--        <nav class="footer-nav">-->
+<!--            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="/" >Home</a> |-->
+<!--            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="/terms" >Terms</a> |-->
+<!--            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="/privacy" >Policy</a> |-->
+<!--            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="/about" >About</a> |-->
+<!--            <a style="font-style: normal;text-decoration: none;color: #333" class="footer-link" href="/contact" >Contact Us</a>-->
 
+<!--        </nav>-->
+
+
+
+<!--</footer>-->
+
+<footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <!-- Resources -->
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/blog/fuel-station-safety-tips">Safety Tips</a></li>
+                    <li><a href="/blog/spot-fake-usd-notes">Spot Fake USD Notes</a></li>
+                    <li><a href="/blog/use-a-fire-extinguisher-pass">Using a Fire Extinguisher (PASS)</a></li>
+                    <li><a href="/blog/record-keeping-fuel-stations">How to use sizafuel calculator (EOD)</a></li>
+                    <li><a href="/cash-breakdown-maker">Cash Breakdown Maker</a></li>
+                </ul>
+            </div>
+
+            <!-- Support -->
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/about">About SizaFuel</a></li>
+                </ul>
+            </div>
+
+            <!-- About -->
+            <div class="footer-col">
+                <h4>About SizaFuel</h4>
+                <ul>
+                    <li><a href="/">Fuel Sales Calculator</a></li>
+                    <li><a href="/about">Our Story</a></li>
+                    <li><a href="/blog">Latest Articles</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact / HQ -->
+            <div class="footer-col footer-contact">
+                <h4>Contact</h4>
+                <address>
+                    4424 Granary Park, Harare, Zimbabwe<br>
+                    Phone: <a href="tel:0715041987">0715-041-987</a><br>
+                    Email: <a href="mailto:obey@sizafuel.xyz">obey@sizafuel.xyz</a>
+                </address>
+
+                <div class="footer-social" aria-label="Social links">
+                    <a href="https://www.linkedin.com/in/obey-blessing-sibanda-b920b576" aria-label="LinkedIn">
+                        <ion-icon name="logo-linkedin" style="width:18px;height:18px;fill:#e6f3ef"></ion-icon>
+                    </a>
+                    <a href="https://www.facebook.com/obeysibanda" aria-label="Facebook">
+                        <ion-icon name="logo-facebook" style="width:18px;height:18px;fill:#e6f3ef"></ion-icon>
+                    </a>
+                    <a href="https://github.com/UnderscoreT" aria-label="GitHub">
+                        <ion-icon name="logo-github" style="width:18px;height:18px;fill:#e6f3ef"></ion-icon>
+                    </a>
+                    <a href="mailto:support@sizafuel.xyz" aria-label="Email">
+                        <ion-icon name="mail" style="width:18px;height:18px;fill:#e6f3ef"></ion-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-copy">
+                © 2025 SizaFuel · Built by
+                <a href="https://blestportfolio.onrender.com" style="color:#fff;text-decoration:none;">Obey Sibanda</a>
+            </div>
+            <div class="footer-legal">
+                <a href="/">Home</a>
+                <a href="/terms">Terms</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional thin strip message (can remove if you like) -->
+    <div class="footer-strip">
+        SizaFuel helps attendants reconcile sales faster — try the calculator free.
+    </div>
 </footer>
+
 
 <script>
     // Slide in the button after page loads
