@@ -1,142 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Oil-Change Basics: A Quick Guide for Attendants | SizaFuel</title>
-    <meta name="description" content="A simple explainer attendants can use to guide customers on oil-change basics, viscosity, intervals, and safety around the forecourt."/>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Oil-Change Basics for Attendants | SizaFuel Blog</title>
+    <meta name="description" content="Viscosity basics, service intervals, safe top-ups, and common customer questions—explained simply for attendants."/>
+    <link rel="canonical" href="https://sizafuel.xyz/blog/oil-change-basics-attendants"/>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3870645853294351"
-            crossorigin="anonymous"></script>
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Oil-Change Basics for Attendants">
+    <meta property="og:description" content="What 5W-30 means, when to top up, and answering common customer questions.">
+    <meta property="og:image" content="https://sizafuel.xyz/blog/oil-hero.jpg">
+    <meta property="og:url" content="https://sizafuel.xyz/blog/oil-change-basics-attendants">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="article:section" content="Maintenance">
+    <meta property="article:published_time" content="2025-08-10">
 
-    <!-- Google Analytics 4 -->
+    <!-- GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D0KRWHT1V6"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments); }
+        window.dataLayer=window.dataLayer||[];
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-D0KRWHT1V6');
+        gtag('config','G-D0KRWHT1V6');
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
-  <style>
-      html{
-          font-size: 62.5%;
-          scroll-behavior: smooth;
-      }
-      body {
-          font-family: 'Inter', sans-serif;
-          margin: 0;
-          padding: 0;
-          background: #f4f4f4;
-          font-size:  1.6rem;
-      }
-  </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
 
+    <style>
+        :root{--brand-deep:#013e2f;--brand:#087f5b;--brand-2:#45ad93;--text:#333;--muted:#6b7280;--bg:#f6f7f8;--card:#fff;--border:#e5e7eb;--shadow:0 10px 24px rgba(0,0,0,.08)}
+        *{box-sizing:border-box}html,body{margin:0;padding:0}
+        body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+
+        /* NAV */
+        .topbar{background:var(--brand-deep);color:#fff}
+        .nav{max-width:1200px;margin:0 auto;padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+        .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:#fff}
+        .brand img{height:34px;width:auto}
+        .brand span{font-weight:800;letter-spacing:.2px}
+        .nav-links{display:flex;align-items:center;gap:1rem}
+        .nav-links a{color:#e7f5ef;text-decoration:none;font-weight:600;font-size:.95rem}
+        .nav-links a:hover{color:#fff}
+        .menu-btn{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
+        @media (max-width:760px){.menu-btn{display:block}.nav-links{display:none;flex-direction:column;align-items:flex-start;padding:.5rem 0}.nav.open .nav-links{display:flex}.nav-links a{width:100%;padding:.4rem .2rem}}
+
+        /* HERO */
+        .hero{position:relative;isolation:isolate;overflow:hidden;background:#0b2f27}
+        .hero img{width:100%;height:42vh;object-fit:cover;display:block;opacity:.9;filter:contrast(1.05) saturate(1.05)}
+        .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.35))}
+        .hero .titlewrap{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:1.25rem}
+        .hero h1{color:#eaf7f3;background:rgba(1,62,47,.7);padding:.8rem 1rem;border-radius:10px;max-width:1100px;width:100%;margin:0 auto;font-size:clamp(1.3rem,2.6vw,2rem);font-weight:800;letter-spacing:.2px;box-shadow:var(--shadow)}
+
+        /* GRID */
+        .container{max-width:1200px;margin:1.25rem auto;padding:0 1rem}
+        .grid{display:grid;grid-template-columns:3fr 1.2fr;gap:1.5rem}
+        @media (max-width:980px){.grid{grid-template-columns:1fr}}
+
+        /* ARTICLE */
+        article{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:1.2rem 1.1rem}
+        article .meta{color:var(--muted);font-size:.92rem;margin-bottom:.6rem}
+        article h2{font-size:1.25rem;margin:1.1rem 0 .4rem;color:#0f3a2f}
+        p{margin:.6rem 0}
+        .note{background:#f1faf7;border-left:4px solid var(--brand);padding:.75rem .85rem;border-radius:8px;color:#0f5132}
+        ul{padding-left:1.1rem}
+        .shot-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin:1rem 0}
+        .shot-strip img{width:100%;height:140px;object-fit:cover;border-radius:10px}
+
+        /* ASIDE Related */
+        aside{position:relative}
+        .related{position:sticky;top:1rem;background:#fbfdfc;border:2px solid #c8e7dd;border-radius:12px;padding:1rem;box-shadow:0 4px 18px rgba(0,0,0,.04)}
+        .related h3{margin:.2rem 0 1rem;font-size:1.05rem;color:#0a3a2e;letter-spacing:.2px}
+        .rel-list{list-style:none;padding:0;margin:0;display:grid;gap:.65rem}
+        .rel-item{border:1px solid #dbe7e2;border-radius:10px;padding:.65rem .7rem;background:#fff}
+        .rel-item a{color:#0b5c48;text-decoration:none;font-weight:700}
+        .rel-item a:hover{color:#043b2e;text-decoration:underline}
+        .rel-meta{font-size:.85rem;color:#6b7280}
+
+        /* FOOTER */
+        .tiny-footer{border-top:1px solid #e5e7eb;margin-top:2rem;padding:1rem;text-align:center;color:#555;background:#eef2f1;font-size:.95rem}
+        .tiny-footer a{color:#087f5b;text-decoration:none}
+    </style>
 </head>
 <body>
-<article class="container" style="max-width: 1100px; margin:auto; padding:1rem;">
-    <header>
-        <h1 style="color:#087f5b;">Oil-Change Basics: A Quick Guide for Attendants</h1>
-        <p class="muted">Last updated: August 10, 2025 • 6–8 min read</p>
-    </header>
 
-    <p>Customers often ask about oil: which type, how often, and what the numbers mean. This guide helps you give accurate, simple answers.</p>
+<!-- NAV -->
+<div class="topbar">
+    <div class="nav" id="nav">
+        <a class="brand" href="/"><img src="/sizasmaall--3--webt--height--width-red.png" alt="SizaFuel"><span></span></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+        <div class="nav-links" id="links">
+            <a href="/blog">Blog</a>
+            <a href="/#about">How it works</a>
+            <a href="/#contact-us">Contact</a>
+        </div>
+    </div>
+</div>
 
-    <h2 style="color:#087f5b;">Viscosity in Plain Language</h2>
-    <ul>
-        <li><strong>Example:</strong> 5W-30—flows well cold (5W) and protects at hot engine temps (30).</li>
-        <li>Recommend checking the owner’s manual or cap label.</li>
-    </ul>
+<!-- HERO -->
+<header class="hero" role="banner">
+    <img src="/oil-basics.jpg" alt="Oil bottles on shelf and engine bay open"/>
+    <div class="overlay" aria-hidden="true"></div>
+    <div class="titlewrap"><h1>Oil-Top up Basics for Attendants</h1></div>
+</header>
 
-    <h2 style="color:#087f5b;">Change Intervals</h2>
-    <ul>
-        <li>Modern cars: typically 8,000–15,000 km depending on oil type and driving conditions.</li>
-        <li>Encourage customers to follow service schedule indicators on dash.</li>
-    </ul>
+<main class="container">
+    <div class="grid">
+        <article>
+            <div class="meta">Maintenance • 6–8 min read • Updated 10 Aug 2025</div>
 
-    <h2 style="color:#087f5b;">Top-Up vs. Full Change</h2>
-    <ul>
-        <li>Low oil? A top-up can be safe temporarily.</li>
-        <li>Dirty oil or overdue? Recommend a full service at a qualified workshop.</li>
-    </ul>
+            <p class="note"><strong>TL;DR:</strong> Know the grade, don’t mix randomly, top up slowly, and advise service intervals — when unsure, check the owner’s manual.</p>
 
-    <h2 style="color:#087f5b;">Forecourt Safety</h2>
-    <ul>
-        <li>Engine off during checks, avoid spills, keep rags away from heat.</li>
-        <li>Dispose of oily materials properly—follow station policy.</li>
-    </ul>
+            <h2>Viscosity: What 5W-30 Means</h2>
+            <p><strong>5W</strong> is cold-flow rating; <strong>30</strong> is hot viscosity. Use the grade recommended by the manufacturer to protect the engine in local temperatures.</p>
 
-    <p>Help customers with clean info; leave the mechanical work to qualified techs. You keep everyone safe and informed.</p>
+            <h2>Service Intervals</h2>
+            <p>Typical range is 5,000–10,000 km depending on oil type and vehicle usage. For severe conditions (dust, short trips), intervals are shorter.</p>
 
-    <footer style="margin-top:2rem;">
-        <p>Have a tip for this guide? <a href="/contact" style="color:#2980b9;">Send it</a> and we’ll update the article.</p>
-    </footer>
-</article>
+            <div class="shot-strip">
+                <img src="/oil-strip-1.webp" alt="Oil grades on labels">
+                <img src="/oil-strip-2.webp" alt="Checking dipstick level">
+                <img src="/oil-strip-3.webp" alt="Top-up funnel to avoid spills">
+            </div>
 
+            <h2>Safe Top-Ups at the Forecourt</h2>
+            <ul>
+                <li>Confirm engine <em>warm or cool</em> and vehicle parked level</li>
+                <li>Check dipstick; top up <strong>slowly</strong> and re-check level</li>
+                <li>Wipe spills immediately; avoid overfilling</li>
+            </ul>
+
+            <h2>Customer FAQs</h2>
+            <ul>
+                <li><strong>“Can I mix 5W-30 and 10W-40?”</strong> Small top-up in emergency is usually fine, but not ideal long-term.</li>
+                <li><strong>“What oil is best?”</strong> Use the manufacturer’s spec first. Synthetic often lasts longer.</li>
+                <li><strong>“Oil light came on.”</strong> Stop engine ASAP; check level or call for service.</li>
+            </ul>
+        </article>
+
+        <!-- ASIDE -->
+        <aside>
+            <section class="related" aria-labelledby="rel-title">
+                <h3 id="rel-title">Related articles</h3>
+                <ul class="rel-list">
+                    <li class="rel-item">
+                        <a href="/blog/customer-service-fuel-attendants">Customer Service Skills</a>
+                        <div class="rel-meta">Service • 6–8 min</div>
+                    </li>
+                    <li class="rel-item">
+                        <a href="/blog/fuel-station-safety-tips">Fuel Station Safety Tips</a>
+                        <div class="rel-meta">Safety • 6–8 min</div>
+                    </li>
+                    <li class="rel-item">
+                        <a href="/blog/record-keeping-fuel-stations">How to use sizafuel calculator (EOD)</a>
+                        <div class="rel-meta">Operations • 7–9 min</div>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+</main>
+
+<div class="tiny-footer">
+    © 2025 SizaFuel · <a href="/">Home</a> · <a href="/blog">Blog</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a>
+</div>
+
+<!-- Mobile nav toggle -->
 <script>
     (function(){
-        const isBlog = location.pathname.startsWith('/blog');
-        if (!isBlog || typeof gtag !== 'function') return;
+        const nav=document.getElementById('nav');
+        const btn=document.getElementById('menuBtn');
+        const links=document.getElementById('links');
+        btn?.addEventListener('click',()=>nav.classList.toggle('open'));
+        links?.addEventListener('click',e=>{ if(e.target.closest('a')) nav.classList.remove('open'); });
+    })();
+</script>
 
-        const title = document.querySelector('meta[property="og:title"]')?.content || document.title;
-        const slug  = location.pathname;
-        const cat   = document.querySelector('meta[name="article:section"]')?.content || 'Article';
-        const pub   = document.querySelector('meta[property="article:published_time"]')?.content || '';
+<!-- Blog analytics -->
+<script>
+    (function(){
+        const isBlog=location.pathname.startsWith('/blog');
+        if(!isBlog||typeof gtag!=='function') return;
 
-        // Article view
-        gtag('event', 'article_view', {
-            article_title: title,
-            article_slug: slug,
-            article_category: cat,
-            article_published: pub
+        const title=document.querySelector('meta[property="og:title"]')?.content||document.title;
+        const slug=location.pathname;
+        const cat=document.querySelector('meta[name="article:section"]')?.content||'Article';
+        const pub=document.querySelector('meta[property="article:published_time"]')?.content||'';
+
+        gtag('event','article_view',{article_title:title,article_slug:slug,article_category:cat,article_published:pub});
+
+        let scrolled60=false,time45=false,sent=false;
+        setTimeout(()=>{time45=true;maybe();},45000);
+        const onScroll=()=>{const d=document.documentElement;const depth=(d.scrollTop+innerHeight)/d.scrollHeight; if(depth>=0.60){scrolled60=true;maybe(); removeEventListener('scroll',onScroll);} };
+        addEventListener('scroll',onScroll,{passive:true});
+        function maybe(){ if(!sent && time45 && scrolled60){ sent=true; gtag('event','article_read',{article_title:title,article_slug:slug,article_category:cat}); } }
+
+        document.addEventListener('click',function(e){
+            const a=e.target.closest('a[href]'); if(!a) return;
+            const u=new URL(a.href,location.origin);
+            if(u.host!==location.host){ gtag('event','click_outbound',{destination:u.host,article_slug:slug}); }
+        },{capture:true});
+
+        document.addEventListener('click',function(e){
+            const s=e.target.closest('[data-share]'); if(!s) return;
+            gtag('event','share_article',{network:s.getAttribute('data-share')||'unknown',article_slug:slug});
         });
 
-        // Read detection (≥45s & ≥60% scroll)
-        let scrolled60 = false, time45s = false, readSent = false;
-        setTimeout(()=>{ time45s = true; maybeSendRead(); }, 45000);
-        const onScroll = () => {
-            const doc = document.documentElement;
-            const depth = (doc.scrollTop + window.innerHeight) / doc.scrollHeight;
-            if (depth >= 0.60) { scrolled60 = true; maybeSendRead(); window.removeEventListener('scroll', onScroll); }
-        };
-        window.addEventListener('scroll', onScroll, { passive:true });
-        function maybeSendRead(){
-            if (readSent) return;
-            if (time45s && scrolled60) {
-                readSent = true;
-                gtag('event', 'article_read', { article_title: title, article_slug: slug, article_category: cat });
-            }
-        }
-
-        // Outbound links
-        document.addEventListener('click', function(e){
-            const a = e.target.closest('a[href]');
-            if (!a) return;
-            const url = new URL(a.href, location.origin);
-            if (url.host !== location.host) {
-                gtag('event', 'click_outbound', { destination: url.host, article_slug: slug });
-            }
-        }, {capture:true});
-
-        // Share buttons
-        document.addEventListener('click', function(e){
-            const share = e.target.closest('[data-share]');
-            if (!share) return;
-            const network = share.getAttribute('data-share') || 'unknown';
-            gtag('event', 'share_article', { network, article_slug: slug });
-        });
-
-        // Copy detection
-        document.addEventListener('copy', function(){
-            const sel = String(window.getSelection() || '');
-            if (sel.length > 50) {
-                gtag('event', 'copy_article', { article_slug: slug, chars: sel.length });
+        document.addEventListener('copy',function(){
+            const txt=String(getSelection()||''); if(txt.length>50){
+                gtag('event','copy_article',{article_slug:slug,chars:txt.length});
             }
         });
     })();
 </script>
-
 </body>
 </html>

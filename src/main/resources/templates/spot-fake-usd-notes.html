@@ -1,110 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>How to Spot Fake USD Notes: A Quick Attendant Guide | SizaFuel</title>
-  <meta name="description" content="A practical guide for attendants to identify counterfeit USD notes quickly using touch, tilt, and light checks—plus what to do if you suspect a fake."/>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>How to Spot Fake USD Notes | SizaFuel Blog</title>
+  <meta name="description" content="A quick, practical guide to identify counterfeit USD notes on the forecourt—touch, tilt, light checks, and what to do if you suspect a fake."/>
+  <link rel="canonical" href="https://sizafuel.xyz/blog/spot-fake-usd-notes"/>
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Spot Fake USD Notes">
+  <meta property="og:description" content="Touch, tilt, and light checks you can do in seconds—even during rush hour.">
+  <meta property="og:image" content="https://sizafuel.xyz/images/blog/fake-usd-hero.jpg">
+  <meta property="og:url" content="https://sizafuel.xyz/blog/spot-fake-usd-notes">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Helpful for analytics script -->
+  <meta name="article:section" content="Cash">
+  <meta property="article:published_time" content="2025-08-10">
+
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D0KRWHT1V6"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
+    window.dataLayer=window.dataLayer||[];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-D0KRWHT1V6');
+    gtag('config','G-D0KRWHT1V6');
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
-
-
-  <!-- SEO & Social Sharing Meta -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="How to Spot Fake USD Notes"> <!-- CHANGE -->
-  <meta property="og:description" content="Learn practical tips for identifying counterfeit USD bills in Zimbabwe."> <!-- CHANGE -->
-  <meta property="og:image" content="https://sizafuel.xyz/images/fake-usd-guide.jpg"> <!-- CHANGE -->
-  <meta property="og:url" content="https://sizafuel.xyz/blog/how-to-spot-fake-usd-notes"> <!-- CHANGE -->
-  <meta name="article:section" content="Safety Tips"> <!-- CHANGE -->
-  <meta property="article:published_time" content="2025-08-10"> <!-- CHANGE -->
-  <meta name="twitter:card" content="summary_large_image">
-
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3870645853294351"
-          crossorigin="anonymous"></script>
+  <!-- Fonts (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
 
   <style>
-    html{
-      font-size: 62.5%;
-      scroll-behavior: smooth;
+    :root{
+      --brand-deep:#013e2f; /* header/footer deep green */
+      --brand:#087f5b;      /* primary */
+      --brand-2:#45ad93;    /* accent */
+      --text:#333;
+      --muted:#6b7280;
+      --bg:#f6f7f8;
+      --card:#fff;
+      --border:#e5e7eb;
+      --shadow:0 10px 24px rgba(0,0,0,.08);
     }
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      font-size:  1.6rem;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+
+    /* ========= NAV (borrowed styling from blog index) ========= */
+    .topbar{
+      background:var(--brand-deep); color:#fff;
+    }
+    .nav{
+      max-width:1200px; margin:0 auto; padding:.75rem 1rem;
+      display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    }
+    .brand{display:flex; align-items:center; gap:.6rem; text-decoration:none; color:#fff;}
+    .brand img{height:34px; width:auto}
+    .brand span{font-weight:800; letter-spacing:.2px}
+    .nav-links{display:flex; align-items:center; gap:1rem}
+    .nav-links a{color:#e7f5ef; text-decoration:none; font-weight:600; font-size:.95rem}
+    .nav-links a:hover{color:#fff}
+    .menu-btn{display:none; background:none; border:0; color:#fff; font-size:1.6rem; cursor:pointer}
+    @media (max-width:760px){
+      .menu-btn{display:block}
+      .nav-links{display:none; flex-direction:column; align-items:flex-start; padding:.5rem 0}
+      .nav.open .nav-links{display:flex}
+      .nav-links a{width:100%; padding:.4rem .2rem}
     }
 
+    /* ========= HERO IMAGE LAYOUT ========= */
+    .hero{
+      position:relative; isolation:isolate; overflow:hidden;
+      background:#0b2f27; /* fallback if image fails */
+    }
+    .hero img{
+      width:100%; height:42vh; object-fit:cover; display:block; opacity:.9; filter:contrast(1.05) saturate(1.05);
+    }
+    .hero .overlay{
+      position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.35));
+    }
+    .hero .titlewrap{
+      position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:center; padding:1.25rem;
+    }
+    .hero h1{
+      color:#eaf7f3; background:rgba(1,62,47,.7);
+      padding:.8rem 1rem; border-radius:10px; max-width:1100px; width:100%;
+      margin:0 auto; font-size:clamp(1.3rem, 2.6vw, 2rem); font-weight:800; letter-spacing:.2px;
+      box-shadow:var(--shadow);
+    }
+
+    /* ========= PAGE GRID ========= */
+    .container{max-width:1200px; margin:1.25rem auto; padding:0 1rem}
+    .grid{
+      display:grid; grid-template-columns: 3fr 1.2fr; gap:1.5rem;
+    }
+    @media (max-width:980px){ .grid{grid-template-columns:1fr;} }
+
+    /* ========= ARTICLE ========= */
+    article{
+      background:var(--card); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow);
+      padding:1.2rem 1.1rem;
+    }
+    article .meta{color:var(--muted); font-size:.92rem; margin-bottom:.6rem}
+    article h2{font-size:1.25rem; margin:1.1rem 0 .4rem; color:#0f3a2f}
+    p{margin:.6rem 0}
+    .check{display:flex; align-items:flex-start; gap:.6rem}
+    .note{background:#f1faf7; border-left:4px solid var(--brand); padding:.75rem .85rem; border-radius:8px; color:#0f5132}
+
+    /* Inline image strip (optional) */
+    .shot-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; margin:1rem 0}
+    .shot-strip img{width:100%; height:140px; object-fit:cover; border-radius:10px}
+
+    /* ========= ASIDE: related (bordered cards like sampled layout) ========= */
+    aside{
+      position:relative;
+    }
+    .related{
+      position:sticky; top:1rem;
+      background:#fbfdfc; border:2px solid #c8e7dd; border-radius:12px; padding:1rem; box-shadow:0 4px 18px rgba(0,0,0,.04);
+    }
+    .related h3{
+      margin:.2rem 0 1rem; font-size:1.05rem; color:#0a3a2e; letter-spacing:.2px
+    }
+    .rel-list{list-style:none; padding:0; margin:0; display:grid; gap:.65rem}
+    .rel-item{border:1px solid #dbe7e2; border-radius:10px; padding:.65rem .7rem; background:#fff}
+    .rel-item a{color:#0b5c48; text-decoration:none; font-weight:700}
+    .rel-item a:hover{color:#043b2e; text-decoration:underline}
+    .rel-meta{font-size:.85rem; color:#6b7280}
+
+    /* ========= FOOTER (small) ========= */
+    .tiny-footer{
+      border-top:1px solid #e5e7eb; margin-top:2rem; padding:1rem; text-align:center; color:#555; background:#eef2f1;
+      font-size:.95rem;
+    }
+    .tiny-footer a{color:#087f5b; text-decoration:none}
   </style>
-
 </head>
 <body>
-<article class="container" style="max-width: 1100px; margin:auto; padding:1rem;">
-  <header>
-    <h1 style="color:#087f5b;">How to Spot Fake USD Notes: Quick Attendant Guide</h1>
-    <p class="muted">Last updated: August 10, 2025 • 7–9 min read</p>
-  </header>
 
-  <p>Counterfeit detection starts with three moves: <strong>touch, tilt, and light</strong>. Build the habit and you’ll spot most fakes in seconds—even during rush hour.</p>
+<!-- NAV -->
+<div class="topbar">
+  <div class="nav" id="nav">
+    <a class="brand" href="/"><img src="/sizasmaall--3--webt--height--width-red.png" alt="SizaFuel Logo"><span></span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    <div class="nav-links" id="links">
+      <a href="/blog">Blog</a>
+      <a href="/#about">How it works</a>
+      <a href="/#contact-us">Contact</a>
+    </div>
+  </div>
+</div>
 
-  <h2 style="color:#087f5b;">1) Touch: Feel the Paper & Raised Print</h2>
-  <ul>
-    <li><strong>Feel the paper:</strong> Genuine USD uses a cotton-linen blend; it should feel firm, not glossy or waxy.</li>
-    <li><strong>Raised ink:</strong> Rub fingertips across “United States of America,” portrait shoulder, and denomination numerals; genuine notes have texture.</li>
-  </ul>
+<!-- HERO -->
+<header class="hero" role="banner">
+  <img src="/fake-usd.jpg" alt="Close-up of US dollar note security features under light"/>
+  <div class="overlay" aria-hidden="true"></div>
+  <div class="titlewrap"><h1>How to Spot Fake USD Notes (Fast Checks for Busy Attendants)</h1></div>
+</header>
 
-  <h2 style="color:#087f5b;">2) Tilt: Color-Shifting Ink & Security Thread</h2>
-  <ul>
-    <li><strong>Color-shift numerals:</strong> On newer notes (e.g., $10/$20/$50/$100), the bottom-right numeral shifts color when tilted.</li>
-    <li><strong>Security thread:</strong> A thin embedded strip that glows under UV and reads the denomination; position varies by note.</li>
-  </ul>
+<main class="container">
+  <div class="grid">
+    <!-- ARTICLE -->
+    <article>
+      <div class="meta">Cash • 3–5 min read • Updated 10 Aug 2025</div>
 
-  <h2 style="color:#087f5b;">3) Light: Watermark & Microprinting</h2>
-  <ul>
-    <li><strong>Watermark:</strong> Hold to light; a faint portrait or numeral should be visible from both sides, not printed on the surface.</li>
-    <li><strong>Microprinting:</strong> Tiny text around the portrait/lines; fakes blur here. Use a simple loupe if available.</li>
-  </ul>
+      <p class="note"><strong>TL;DR:</strong> Use the <em>touch, tilt, light</em> sequence. If anything feels off, refuse the note politely and call a supervisor.</p>
 
-  <h2 style="color:#087f5b;">4) Fast Counterfeit Tells</h2>
-  <ul>
-    <li>Edges cut unevenly; serial numbers misaligned or identical on multiple notes.</li>
-    <li>Ink that smears easily; flat, glossy print without raised texture.</li>
-    <li>Missing or printed-on “thread” instead of embedded.</li>
-  </ul>
+      <h2>1) Touch — Feel the Paper & Raised Ink</h2>
+      <p>Genuine US currency is printed on a cotton–linen blend that feels slightly coarse, not glossy. Rub your finger over the portrait and the large denomination number — you should feel <strong>raised ink</strong>. If the paper is too smooth, thin, or the ink feels flat, be cautious.</p>
 
-  <h2 style="color:#087f5b;">5) What To Do If You Suspect a Fake</h2>
-  <ol>
-    <li>Stay calm and polite; <strong>do not return the note</strong> if rules require holding it.</li>
-    <li>Inform your supervisor and follow station policy (incident log, CCTV bookmark).</li>
-    <li>Note the customer description politely if appropriate; prioritize safety.</li>
-  </ol>
+      <h2>2) Tilt — Holograms & Color-Shifting Ink</h2>
+      <p>Tilt the note under light. Modern notes (e.g., $100, $50, $20) have color-shifting ink on the denomination number that changes from copper to green. The blue 3-D security ribbon on the new $100s should show bells and 100s moving as you tilt the note — not just printed graphics.</p>
 
-  <h2 style="color:#087f5b;">6) Cash Handling: Reduce Errors</h2>
-  <p>Use the <a href="/cash-breakdown-maker">Cash Breakdown Maker</a> to count by denomination and flag mismatches before banking. Combine with the <a href="/">SizaFuel calculator</a> to reconcile litres vs. cash.</p>
+      <div class="shot-strip">
+        <img src="/20-face-web_0.jpg" alt="Color-shifting ink on denomination number">
+        <img src="/20-back-web_1.jpg" alt="Security ribbon detail on $100">
+        <img src="/100-back-web_1.jpg" alt="Hologram elements under tilt">
+      </div>
 
-  <h2 style="color:#087f5b;">Quick Reference (Print)</h2>
-  <ul>
-    <li>Touch textured print, feel the paper</li>
-    <li>Tilt for color-shift and find the thread</li>
-    <li>Hold to light for watermark + microprinting</li>
-  </ul>
+      <h2>3) Light — Watermark & Security Thread</h2>
+      <p>Hold the note up to a bright light. You should see a faint <strong>watermark portrait</strong> that matches the printed portrait (not just a dark blot), and a thin <strong>security thread</strong> running vertically with microtext like <em>USA 100</em>. Under UV, the thread glows a specific color per denomination.</p>
 
-  <footer style="margin-top:2rem;">
-    <p>Want a printable counterfeit checklist? <a href="/contact" style="color:#2980b9;">Request one</a> and we’ll add it to Resources.</p>
-  </footer>
-</article>
+      <h2>4) Print Quality — Edges & Microtext</h2>
+      <p>Look for clean borders and crisp, tiny lettering. Blurry edges, smeared ink, or repeating dot patterns can indicate a scanned/printed fake. On real notes, microtext stays sharp under magnification.</p>
 
+      <h2>5) What to Do if You Suspect a Fake</h2>
+      <div class="check">
+
+        <p><strong>Stay calm.</strong> Inform the customer you cannot accept the note. Do not return it if company policy requires logging. Call a supervisor and follow your station’s incident procedure.</p>
+      </div>
+
+      <h2>Quick Reference (Desk Copy)</h2>
+      <ul>
+        <li><strong>Touch:</strong> cotton–linen feel, raised ink on portrait/number</li>
+        <li><strong>Tilt:</strong> color-shift ink; 3-D blue ribbon moves on $100</li>
+        <li><strong>Light:</strong> matching portrait watermark; vertical security thread</li>
+        <li><strong>Print:</strong> crisp borders, sharp microtext (no dots)</li>
+      </ul>
+
+      <p><em>Tip:</em> Keep a small UV torch at the till. It speeds up checks during peak times.</p>
+    </article>
+
+    <!-- ASIDE: RELATED -->
+    <aside>
+      <section class="related" aria-labelledby="rel-title">
+        <h3 id="rel-title">Related articles</h3>
+        <ul class="rel-list">
+          <li class="rel-item">
+            <a href="/blog/fuel-station-safety-tips">Fuel Station Safety Tips</a>
+            <div class="rel-meta">Safety • 6–8 min</div>
+          </li>
+          <li class="rel-item">
+            <a href="/blog/use-a-fire-extinguisher-pass">Using a Fire Extinguisher (PASS)</a>
+            <div class="rel-meta">Emergency • 4–6 min</div>
+          </li>
+          <li class="rel-item">
+            <a href="/blog/record-keeping-fuel-stations">How to use the sizafuel calculator (End of Day)</a>
+            <div class="rel-meta">Operations • 7–9 min</div>
+          </li>
+          <li class="rel-item">
+            <a href="/blog/oil-change-basics-attendants">Oil-Top up Basics</a>
+            <div class="rel-meta">Maintenance • 6–8 min</div>
+          </li>
+          <li class="rel-item">
+            <a href="/blog/customer-service-fuel-attendants">Customer Service Skills</a>
+            <div class="rel-meta">Service • 6–8 min</div>
+          </li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<!-- SMALL FOOTER -->
+<div class="tiny-footer">
+  © 2025 SizaFuel · <a href="/">Home</a> · <a href="/blog">Blog</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a>
+</div>
+
+<!-- Mobile nav toggle -->
+<script>
+  (function(){
+    const nav = document.getElementById('nav');
+    const btn = document.getElementById('menuBtn');
+    const links = document.getElementById('links');
+    btn?.addEventListener('click', ()=> nav.classList.toggle('open'));
+    // collapse on link tap (mobile)
+    links?.addEventListener('click', (e)=>{
+      if(e.target.closest('a')) nav.classList.remove('open');
+    });
+  })();
+</script>
+
+<!-- BLOG ANALYTICS (fires custom GA4 events) -->
 <script>
   (function(){
     const isBlog = location.pathname.startsWith('/blog');
@@ -115,65 +264,38 @@
     const cat   = document.querySelector('meta[name="article:section"]')?.content || 'Article';
     const pub   = document.querySelector('meta[property="article:published_time"]')?.content || '';
 
-    gtag('event', 'article_view', {
-      article_title: title,
-      article_slug: slug,
-      article_category: cat,
-      article_published: pub
-    });
+    gtag('event','article_view',{article_title:title, article_slug:slug, article_category:cat, article_published:pub});
 
-    let scrolled60 = false, time45s = false, readSent = false;
-    setTimeout(()=>{ time45s = true; maybeSendRead(); }, 45000);
-
-    const onScroll = () => {
-      const doc = document.documentElement;
-      const depth = (doc.scrollTop + window.innerHeight) / doc.scrollHeight;
-      if (depth >= 0.60) { scrolled60 = true; maybeSendRead(); window.removeEventListener('scroll', onScroll); }
+    let scrolled60=false, time45s=false, readSent=false;
+    setTimeout(()=>{ time45s=true; maybe(); },45000);
+    const onScroll=()=>{
+      const d=document.documentElement;
+      const depth=(d.scrollTop+innerHeight)/d.scrollHeight;
+      if(depth>=0.60){ scrolled60=true; maybe(); removeEventListener('scroll',onScroll); }
     };
-    window.addEventListener('scroll', onScroll, { passive:true });
-
-    function maybeSendRead(){
-      if (readSent) return;
-      if (time45s && scrolled60) {
-        readSent = true;
-        gtag('event', 'article_read', {
-          article_title: title,
-          article_slug: slug,
-          article_category: cat
-        });
+    addEventListener('scroll', onScroll, {passive:true});
+    function maybe(){
+      if(readSent) return;
+      if(time45s && scrolled60){
+        readSent=true;
+        gtag('event','article_read',{article_title:title, article_slug:slug, article_category:cat});
       }
     }
-
     document.addEventListener('click', function(e){
-      const a = e.target.closest('a[href]');
-      if (!a) return;
-      const url = new URL(a.href, location.origin);
-      if (url.host !== location.host) {
-        gtag('event', 'click_outbound', {
-          destination: url.host,
-          article_slug: slug
-        });
-      }
-    }, {capture:true});
-
+      const a=e.target.closest('a[href]'); if(!a) return;
+      const url=new URL(a.href, location.origin);
+      if(url.host!==location.host){ gtag('event','click_outbound',{destination:url.host, article_slug:slug}); }
+    },{capture:true});
     document.addEventListener('click', function(e){
-      const share = e.target.closest('[data-share]');
-      if (!share) return;
-      const network = share.getAttribute('data-share') || 'unknown';
-      gtag('event', 'share_article', {
-        network,
-        article_slug: slug
-      });
+      const s=e.target.closest('[data-share]'); if(!s) return;
+      gtag('event','share_article',{network:s.getAttribute('data-share')||'unknown', article_slug:slug});
     });
-
     document.addEventListener('copy', function(){
-      const sel = String(window.getSelection() || '');
-      if (sel.length > 50) {
-        gtag('event', 'copy_article', { article_slug: slug, chars: sel.length });
+      const sel=String(getSelection()||''); if(sel.length>50){
+        gtag('event','copy_article',{article_slug:slug, chars:sel.length});
       }
     });
   })();
 </script>
-
 </body>
 </html>
